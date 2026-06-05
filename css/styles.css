@@ -300,6 +300,37 @@ hr {
     display: inline-block;
 }
 
+.lecture-warning {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin: 25px 0;
+    font-size: 14px;
+    color: #856404;
+}
+
+/* Стиль для отдельной плашки с кодом */
+.code-block {
+    background: #2d3a3a;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 20px 0;
+    overflow-x: auto;
+    border-left: 4px solid var(--color-second);
+}
+
+.code-block pre {
+    margin: 0;
+    background: none;
+    padding: 0;
+}
+
+.code-block code {
+    color: #d4d4d4;
+    background: none;
+}
+
 /* ===== АДАПТИВ ===== */
 @media (max-width: 700px) {
     .content {

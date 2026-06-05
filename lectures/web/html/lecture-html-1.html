@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Основы HTML: теги, атрибуты, структура</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <a href="/index.html" class="logo-link">
+            <div class="logo-image"></div>
+        </a>
+        <a href="/index.html" class="title-link">
+            <div class="title">
+                <h1>DevSkillRoad</h1>
+            </div>
+        </a>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/html/intro-html.html" class="prev">← Введение в HTML</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+
+        <h1 class="lecture-title">Основы HTML: теги, атрибуты, структура</h1>
+        
+        <div class="lecture-meta">
+            🧱 Фундамент языка гипертекстовой разметки
+        </div>
+
+        <div class="lecture-content">
+            <p>HTML строится из специальных команд — <strong>тегов</strong>. Браузер читает теги и понимает, как показывать страницу.</p>
+
+            <h2>1. Типы тегов</h2>
+            <p>Теги бывают четырёх видов.</p>
+
+            <h3>Парные теги (открывающий + закрывающий)</h3>
+            <pre><code>&lt;p&gt;Текст абзаца&lt;/p&gt;
+&lt;strong&gt;Жирный текст&lt;/strong&gt;
+&lt;em&gt;Курсив&lt;/em&gt;</code></pre>
+
+            <h3>Одиночные теги (не требуют закрытия)</h3>
+            <pre><code>&lt;br&gt;       — перенос строки
+&lt;hr&gt;       — горизонтальная линия
+&lt;img&gt;      — изображение
+&lt;input&gt;    — поле ввода</code></pre>
+
+            <h3>Самозакрывающиеся теги (вариант записи)</h3>
+            <pre><code>&lt;br /&gt;     — со слэшем перед &gt;
+&lt;hr /&gt;
+&lt;img src="photo.jpg" /&gt;</code></pre>
+            <div class="lecture-note">
+                📌 Разницы между <code>&lt;br&gt;</code> и <code>&lt;br /&gt;</code> нет. Оба варианта работают. Современный стандарт рекомендует писать без слэша, но вы можете встретить оба варианта в разных кодах.
+            </div>
+
+            <h2>2. Вложенность тегов</h2>
+            <p>Теги могут находиться внутри других тегов. Это называется <strong>вложенностью</strong>.</p>
+            <pre><code>&lt;div&gt;
+    &lt;p&gt;Текст внутри div&lt;/p&gt;
+    &lt;strong&gt;Жирный текст&lt;/strong&gt;
+&lt;/div&gt;</code></pre>
+            <p><strong>Важное правило:</strong> закрывать теги нужно в обратном порядке — тот, кто открылся последним, закрывается первым.</p>
+            <pre><code>✅ &lt;p&gt;&lt;strong&gt;Текст&lt;/strong&gt;&lt;/p&gt;
+❌ &lt;p&gt;&lt;strong&gt;Текст&lt;/p&gt;&lt;/strong&gt;</code></pre>
+
+            <div class="lecture-warning">
+                ⚠️ <strong>Ошибки вложенности</strong> — одна из самых частых проблем у новичков. Браузер может «додумать» закрытие тега за вас, но это приводит к неожиданному поведению страницы.
+            </div>
+
+            <h2>3. Регистр тегов</h2>
+            <p>Теги можно писать в любом регистре: <code>&lt;P&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;Pp&gt;</code> — браузер поймёт. Но по стандарту и здравому смыслу теги пишут <strong>строчными буквами (нижний регистр)</strong>.</p>
+            <pre><code>✅ &lt;body&gt;
+✅ &lt;h1&gt;
+❌ &lt;BODY&gt;
+❌ &lt;H1&gt;</code></pre>
+
+            <h2>4. Атрибуты тегов</h2>
+            <p><strong>Атрибуты</strong> — это дополнительные свойства тега. Они уточняют команду: куда перейти, какую картинку показать, какой стиль применить.</p>
+            <pre><code>&lt;a href="https://example.com"&gt;Ссылка&lt;/a&gt;
+&lt;img src="photo.jpg" alt="Описание фото"&gt;
+&lt;input type="text" placeholder="Ваше имя"&gt;</code></pre>
+            <p>Атрибуты пишутся внутри открывающего тега. Если у тега несколько атрибутов — порядок не важен.</p>
+
+            <h2>5. Кавычки в атрибутах</h2>
+            <p>Значения атрибутов нужно заключать в кавычки. Можно использовать <strong>двойные</strong> или <strong>одинарные</strong> — главное, чтобы не смешивать в одном атрибуте.</p>
+            <pre><code>✅ &lt;a href="https://site.com"&gt;
+✅ &lt;a href='https://site.com'&gt;
+❌ &lt;a href=https://site.com&gt;   (без кавычек — риск ошибки)</code></pre>
+            <div class="lecture-note">
+                📌 Если внутри значения нужны кавычки, их можно чередовать: внешние двойные, внутренние одинарные — или наоборот.
+            </div>
+
+            <h2>6. Структура HTML-документа</h2>
+            <p>Любой HTML-документ имеет обязательный каркас. Вот как он выглядит:</p>
+
+            <div class="code-block">
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Заголовок вкладки&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Привет, мир!&lt;/h1&gt;
+        &lt;p&gt;Моя первая страница&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <h3>Что такое DOCTYPE?</h3>
+            <p><code>&lt;!DOCTYPE html&gt;</code> — это не тег, а <strong>объявление типа документа</strong>. Оно пишется в самом начале и говорит браузеру: «используй современный стандарт HTML5 для отображения этой страницы».</p>
+            <p>Без этой строчки браузер может включить «режим совместимости» (quirk mode), из-за чего страница будет отображаться непредсказуемо. Поэтому <strong>DOCTYPE всегда должен быть первым в файле</strong>.</p>
+            <div class="lecture-note">
+                📌 Устаревшие версии HTML (4.01, XHTML) имели длинные и сложные DOCTYPE. В HTML5 всё свели к этой короткой записи.
+            </div>
+
+            <h3>Остальные теги из примера</h3>
+            <ul>
+                <li><code>&lt;html&gt;</code> — корневой элемент, внутри которого находится вся страница</li>
+                <li><code>&lt;head&gt;</code> — служебная информация (не видна на странице)</li>
+                <li><code>&lt;title&gt;</code> — заголовок вкладки браузера</li>
+                <li><code>&lt;body&gt;</code> — содержимое страницы (видно пользователю)</li>
+            </ul>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Запомните эту структуру раз и навсегда. Каждый HTML-файл будет начинаться с неё.
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/html/intro-html.html" class="prev">← Введение в HTML</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>
