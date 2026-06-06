@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Смысловое выделение текста</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <a href="/index.html" class="logo-link">
+            <div class="logo-image"></div>
+        </a>
+        <a href="/index.html" class="title-link">
+            <div class="title">
+                <h1>DevSkillRoad</h1>
+            </div>
+        </a>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/html/lecture-html-4.html" class="prev">← Текстовые теги</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+
+        <h1 class="lecture-title">Смысловое выделение текста</h1>
+        
+        <div class="lecture-meta">
+            🖍️ strong, em, mark, small, del, ins
+        </div>
+
+        <div class="lecture-content">
+            <p>В HTML есть теги, которые не меняют внешний вид (или меняют, но это не главное), а придают тексту <strong>смысловую нагрузку</strong>. Они помогают браузеру, поисковым системам и вспомогательным технологиям понять, что именно важно в тексте, что изменено, а что добавлено позже.</p>
+
+            <h2>1. Сильное выделение — &lt;strong&gt;</h2>
+            <p>Тег <code>&lt;strong&gt;</code> обозначает <strong>очень важный текст</strong>. Он влияет на смысл. По умолчанию браузер показывает его жирным шрифтом.</p>
+
+            <pre><code>&lt;p&gt;&lt;strong&gt;Внимание!&lt;/strong&gt; Обновление выйдет завтра.&lt;/p&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <p><strong>Внимание!</strong> Обновление выйдет завтра.</p>
+            </div>
+
+            <div class="lecture-note">
+                📌 <code>&lt;strong&gt;</code> — про смысл. <code>&lt;b&gt;</code> — просто жирный текст без смысла. Старайтесь использовать <code>&lt;strong&gt;</code> везде, где текст действительно важен.
+            </div>
+
+            <h2>2. Логическое выделение — &lt;em&gt;</h2>
+            <p>Тег <code>&lt;em&gt;</code> (emphasis) придаёт тексту <strong>логическое ударение</strong>. Браузер по умолчанию отображает его курсивом.</p>
+
+            <pre><code>&lt;p&gt;Я &lt;em&gt;не говорил&lt;/em&gt;, что приду. (А может, и говорил)&lt;/p&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <p>Я <em>не говорил</em>, что приду. (А может, и говорил)</p>
+            </div>
+
+            <div class="lecture-note">
+                📌 <code>&lt;em&gt;</code> — про ударение. <code>&lt;i&gt;</code> — просто курсив без смысла. Выбирайте <code>&lt;em&gt;</code>, если нужно изменить интонацию прочтения.
+            </div>
+
+            <h2>3. Выделение цветом — &lt;mark&gt;</h2>
+            <p>Тег <code>&lt;mark&gt;</code> показывает текст, который <strong>выделен для справки</strong> (как маркером в книге). Браузер по умолчанию делает жёлтый фон.</p>
+
+            <pre><code>&lt;p&gt;Сегодня мы изучим &lt;mark&gt;семантику&lt;/mark&gt; — один из важнейших разделов.&lt;/p&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <p>Сегодня мы изучим <mark>семантику</mark> — один из важнейших разделов.</p>
+            </div>
+
+            <div class="lecture-note">
+                📌 <code>&lt;mark&gt;</code> не используется для постоянного оформления. Он показывает релевантный фрагмент (например, найденное слово в поиске).
+            </div>
+
+            <h2>4. Мелкий текст — &lt;small&gt;</h2>
+            <p>Тег <code>&lt;small&gt;</code> обозначает <strong>мелкий текст</strong>. В нём обычно пишут примечания, лицензии, авторские права. Браузер уменьшает размер шрифта.</p>
+
+            <pre><code>&lt;p&gt;Материал распространяется свободно. &lt;small&gt;© 2026&lt;/small&gt;&lt;/p&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <p>Материал распространяется свободно. <small>© 2026</small></p>
+            </div>
+
+            <h2>5. Удалённый текст — &lt;del&gt;</h2>
+            <p>Тег <code>&lt;del&gt;</code> показывает текст, который был <strong>удалён</strong> из документа (например, в новой версии). Браузер зачёркивает его.</p>
+
+            <pre><code>&lt;p&gt;Старая цена: &lt;del&gt;1000 рублей&lt;/del&gt; Новая цена: 800 рублей&lt;/p&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <p>Старая цена: <del>1000 рублей</del> Новая цена: 800 рублей</p>
+            </div>
+
+            <h2>6. Добавленный текст — &lt;ins&gt;</h2>
+            <p>Тег <code>&lt;ins&gt;</code> показывает текст, который был <strong>добавлен</strong> в документ. Браузер обычно подчёркивает его.</p>
+
+            <pre><code>&lt;p&gt;Версия 2.0: &lt;ins&gt;добавлена поддержка картинок&lt;/ins&gt;&lt;/p&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <p>Версия 2.0: <ins>добавлена поддержка картинок</ins></p>
+            </div>
+
+            <div class="lecture-note">
+                📌 <code>&lt;del&gt;</code> и <code>&lt;ins&gt;</code> часто используются вместе для показа изменений в тексте.
+            </div>
+
+            <h2>7. Сравнение смысловых и визуальных тегов</h2>
+            <p>В старых версиях HTML часто использовали теги <code>&lt;b&gt;</code> (жирный) и <code>&lt;i&gt;</code> (курсив). Они задают только внешний вид, без смысла. В современном HTML лучше использовать смысловые:</p>
+
+            <ul>
+                <li><code>&lt;strong&gt;</code> (важно) вместо <code>&lt;b&gt;</code> (просто жирный)</li>
+                <li><code>&lt;em&gt;</code> (ударение) вместо <code>&lt;i&gt;</code> (просто курсив)</li>
+            </ul>
+
+            <pre><code>&lt;!-- Плохо (без смысла) --&gt;
+&lt;b&gt;Важно&lt;/b&gt;
+&lt;i&gt;Курсив&lt;/i&gt;
+
+&lt;!-- Хорошо (со смыслом) --&gt;
+&lt;strong&gt;Важно&lt;/strong&gt;
+&lt;em&gt;Ударение&lt;/em&gt;</code></pre>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Помните: HTML отвечает за структуру и смысл, а не за внешность. За внешность будут отвечать CSS. Сейчас мы учимся думать на языке разметки, а не на языке дизайна».
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/html/lecture-html-4.html" class="prev">← Текстовые теги</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>

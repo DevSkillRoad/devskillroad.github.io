@@ -403,6 +403,18 @@ li code,
     padding: 0;
 }
 
+/* Внутри живых примеров pre должен выглядеть как обычный текст, не как плашка с кодом */
+.live-example pre {
+    background: transparent;
+    border-left: none;
+    padding: 0;
+    margin: 0;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    overflow: visible;
+}
+
 /* ===== АДАПТИВ ===== */
 @media (max-width: 700px) {
     .content {
