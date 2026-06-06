@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Текстовые теги</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <a href="/index.html" class="logo-link">
+            <div class="logo-image"></div>
+        </a>
+        <a href="/index.html" class="title-link">
+            <div class="title">
+                <h1>DevSkillRoad</h1>
+            </div>
+        </a>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/html/lecture-html-3.html" class="prev">← Заголовки h1–h6</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+
+        <h1 class="lecture-title">Текстовые теги</h1>
+        
+        <div class="lecture-meta">
+            📝 Абзацы, переносы строк, цитаты и форматирование
+        </div>
+
+        <div class="lecture-content">
+            <p>Текстовые теги отвечают за оформление и структуру текста на странице. Они помогают разбивать текст на абзацы, расставлять переносы, вставлять цитаты и указывать адреса.</p>
+
+            <h2>1. Абзац — &lt;p&gt;</h2>
+            <p>Тег <code>&lt;p&gt;</code> создаёт абзац. Браузер автоматически добавляет отступы сверху и снизу между абзацами.</p>
+
+            <pre><code>&lt;p&gt;Это первый абзац. Он начинается с новой строки и имеет отступы.&lt;/p&gt;
+&lt;p&gt;Это второй абзац. Между абзацами браузер сам добавляет расстояние.&lt;/p&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <p>Это первый абзац. Он начинается с новой строки и имеет отступы.</p>
+                <p>Это второй абзац. Между абзацами браузер сам добавляет расстояние.</p>
+            </div>
+
+            <h2>2. Перенос строки — &lt;br&gt;</h2>
+            <p>Тег <code>&lt;br&gt;</code> переносит текст на следующую строку. Это одиночный тег, не требующий закрытия.</p>
+
+            <pre><code>&lt;p&gt;Первая строка&lt;br&gt;Вторая строка&lt;br&gt;Третья строка&lt;/p&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <p>Первая строка<br>Вторая строка<br>Третья строка</p>
+            </div>
+
+            <div class="lecture-note">
+                📌 <code>&lt;br&gt;</code> не нужно использовать для создания отступов между абзацами. Для этого есть <code>&lt;p&gt;</code>.
+            </div>
+
+            <h2>3. Горизонтальная линия — &lt;hr&gt;</h2>
+            <p>Тег <code>&lt;hr&gt;</code> рисует горизонтальную разделительную линию. Он помогает визуально отделить части страницы друг от друга.</p>
+
+            <pre><code>&lt;h2&gt;Раздел 1&lt;/h2&gt;
+&lt;p&gt;Содержимое первого раздела.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Раздел 2&lt;/h2&gt;
+&lt;p&gt;Содержимое второго раздела.&lt;/p&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <h2>Раздел 1</h2>
+                <p>Содержимое первого раздела.</p>
+                <hr>
+                <h2>Раздел 2</h2>
+                <p>Содержимое второго раздела.</p>
+            </div>
+
+            <h2>4. Предварительно отформатированный текст — &lt;pre&gt;</h2>
+            <p>Тег <code>&lt;pre&gt;</code> сохраняет все пробелы и переносы строк. Текст внутри отображается моноширинным шрифтом и именно так, как вы его написали.</p>
+
+            <pre><code>&lt;pre&gt;
+    Первая строка с отступом
+        Вторая строка с бо́льшим отступом
+    Третья строка
+&lt;/pre&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <pre>    Первая строка с отступом
+        Вторая строка с бо́льшим отступом
+    Третья строка</pre>
+            </div>
+
+            <div class="lecture-note">
+                📌 <code>&lt;pre&gt;</code> часто используется для вставки кода на сайт.
+            </div>
+
+            <h2>5. Цитаты</h2>
+
+            <h3>Короткая цитата — &lt;q&gt;</h3>
+            <p>Тег <code>&lt;q&gt;</code> автоматически добавляет кавычки вокруг текста. Используется для коротких цитат внутри предложения.</p>
+
+            <pre><code>&lt;p&gt;Пользователь сказал: &lt;q&gt;Это отличный сайт&lt;/q&gt;, и я с ним согласился.&lt;/p&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <p>Пользователь сказал: <q>Это отличный сайт</q>, и я с ним согласился.</p>
+            </div>
+
+            <h3>Блочная цитата — &lt;blockquote&gt;</h3>
+            <p>Тег <code>&lt;blockquote&gt;</code> выделяет цитату отдельным блоком. Браузер обычно делает отступ слева.</p>
+
+            <pre><code>&lt;blockquote&gt;
+    Тот, кто не может программировать, учит программированию.
+    Тот, кто не может учить, учит учить программированию.
+&lt;/blockquote&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <blockquote>
+                    Тот, кто не может программировать, учит программированию.<br>
+                    Тот, кто не может учить, учит учить програмпированию.
+                </blockquote>
+            </div>
+
+            <h2>6. Адрес — &lt;address&gt;</h2>
+            <p>Тег <code>&lt;address&gt;</code> используется для указания контактной информации: адреса, электронной почты, телефона, автора страницы.</p>
+
+            <pre><code>&lt;address&gt;
+    Автор: Иван Иванов&lt;br&gt;
+    Email: ivan@example.com&lt;br&gt;
+    Город: Москва
+&lt;/address&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <address>
+                    Автор: Иван Иванов<br>
+                    Email: ivan@example.com<br>
+                    Город: Москва
+                </address>
+            </div>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Не используйте <code>&lt;br&gt;</code> для создания отступов. Не используйте <code>&lt;hr&gt;</code> там, где нужен просто пробел. Каждый тег имеет своё назначение. Изучайте их как инструменты в ящике: у каждого своя функция».
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/html/lecture-html-3.html" class="prev">← Заголовки h1–h6</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>
