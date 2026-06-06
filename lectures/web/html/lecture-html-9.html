@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Таблицы в HTML</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <a href="/index.html" class="logo-link">
+            <div class="logo-image"></div>
+        </a>
+        <a href="/index.html" class="title-link">
+            <div class="title">
+                <h1>DevSkillRoad</h1>
+            </div>
+        </a>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/html/lecture-html-8.html" class="prev">← Изображения в HTML</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+
+        <h1 class="lecture-title">Таблицы в HTML</h1>
+        
+        <div class="lecture-meta">
+            📊 Теги table, tr, td, th, объединение ячеек
+        </div>
+
+        <div class="lecture-content">
+            <p>Таблицы используются для отображения структурированных данных — матриц, расписаний, прайс-листов, сравнений. Не используйте таблицы для вёрстки (раскладки блоков на странице) — для этого есть CSS.</p>
+
+            <h2>1. Простая таблица — &lt;table&gt;, &lt;tr&gt;, &lt;td&gt;</h2>
+            <ul>
+                <li><code>&lt;table&gt;</code> — контейнер таблицы</li>
+                <li><code>&lt;tr&gt;</code> — table row, строка таблицы</li>
+                <li><code>&lt;td&gt;</code> — table data, ячейка с данными</li>
+            </ul>
+
+            <pre><code>&lt;table border="1"&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Имя&lt;/td&gt;
+        &lt;td&gt;Возраст&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Анна&lt;/td&gt;
+        &lt;td&gt;25&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Иван&lt;/td&gt;
+        &lt;td&gt;30&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <table border="1">
+                    <tr>
+                        <td>Имя</td>
+                        <td>Возраст</td>
+                    </tr>
+                    <tr>
+                        <td>Анна</td>
+                        <td>25</td>
+                    </tr>
+                    <tr>
+                        <td>Иван</td>
+                        <td>30</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="lecture-note">
+                📌 Атрибут <code>border="1"</code> добавлен только для наглядности, чтобы увидеть границы ячеек. В реальных проектах границы задают через CSS.
+            </div>
+
+            <h2>2. Заголовки ячеек — &lt;th&gt;</h2>
+            <p>Тег <code>&lt;th&gt;</code> (table header) делает текст жирным и центрирует по умолчанию. Используется для заголовков строк или столбцов.</p>
+
+            <pre><code>&lt;table border="1"&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Имя&lt;/th&gt;
+        &lt;th&gt;Возраст&lt;/th&gt;
+        &lt;th&gt;Город&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Анна&lt;/td&gt;
+        &lt;td&gt;25&lt;/td&gt;
+        &lt;td&gt;Москва&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Иван&lt;/td&gt;
+        &lt;td&gt;30&lt;/td&gt;
+        &lt;td&gt;СПб&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <table border="1">
+                    <tr>
+                        <th>Имя</th>
+                        <th>Возраст</th>
+                        <th>Город</th>
+                    </tr>
+                    <tr>
+                        <td>Анна</td>
+                        <td>25</td>
+                        <td>Москва</td>
+                    </tr>
+                    <tr>
+                        <td>Иван</td>
+                        <td>30</td>
+                        <td>СПб</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2>3. Объединение ячеек — colspan и rowspan</h2>
+            <p>Атрибут <code>colspan</code> объединяет ячейки по горизонтали (несколько столбцов).<br>
+            Атрибут <code>rowspan</code> объединяет ячейки по вертикали (несколько строк).</p>
+
+            <pre><code>&lt;table border="1"&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Имя&lt;/th&gt;
+        &lt;th colspan="2"&gt;Контакты&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Анна&lt;/td&gt;
+        &lt;td&gt;email@mail.ru&lt;/td&gt;
+        &lt;td&gt;+7 123 456&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td rowspan="2"&gt;Иван&lt;/td&gt;
+        &lt;td&gt;ivan@mail.ru&lt;/td&gt;
+        &lt;td&gt;+7 987 654&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt&gt;i.ivanov@work.ru&lt;/td&gt;
+        &lt;td&gt;+7 555 555&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <table border="1">
+                    <tr>
+                        <th>Имя</th>
+                        <th colspan="2">Контакты</th>
+                    </tr>
+                    <tr>
+                        <td>Анна</td>
+                        <td>email@mail.ru</td>
+                        <td>+7 123 456</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Иван</td>
+                        <td>ivan@mail.ru</td>
+                        <td>+7 987 654</td>
+                    </tr>
+                    <tr>
+                        <td>i.ivanov@work.ru</td>
+                        <td>+7 555 555</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="lecture-note">
+                📌 В примере выше у Ивана две строки: в первой строке телефон и почта, во второй — дополнительная почта и телефон. Ячейка с именем объединена по вертикали (<code>rowspan="2"</code>).
+            </div>
+
+            <h2>4. Группировка строк — &lt;thead&gt;, &lt;tbody&gt;, &lt;tfoot&gt;</h2>
+            <p>Для больших таблиц можно разделить строки на группы: заголовок (<code>&lt;thead&gt;</code>), тело (<code>&lt;tbody&gt;</code>), подвал (<code>&lt;tfoot&gt;</code>). Это помогает при стилизации и работе со скриптами.</p>
+
+            <pre><code>&lt;table border="1"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Товар&lt;/th&gt;
+            &lt;th&gt;Цена&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Ноутбук&lt;/td&gt;
+            &lt;td&gt;50000&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Мышь&lt;/td&gt;
+            &lt;td&gt;1000&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Итого&lt;/td&gt;
+            &lt;td&gt;51000&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Товар</th>
+                            <th>Цена</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ноутбук</td>
+                            <td>50000</td>
+                        </tr>
+                        <tr>
+                            <td>Мышь</td>
+                            <td>1000</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Итого</td>
+                            <td>51000</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <h2>5. Что нельзя делать с таблицами</h2>
+            <ul>
+                <li>Использовать таблицы для вёрстки страницы (расположения блоков, меню). Это устаревший подход, который мешает адаптивности.</li>
+                <li>Пропускать ячейки — каждая строка должна иметь одинаковое количество ячеек (если нет объединения).</li>
+                <li>Вкладывать таблицы друг в друга без необходимости.</li>
+            </ul>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Таблицы хороши для цифр и сравнений. Для раскладки страницы используйте CSS — флексы и сетки. Не повторяйте ошибок 90-х».
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/html/lecture-html-8.html" class="prev">← Изображения</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>
