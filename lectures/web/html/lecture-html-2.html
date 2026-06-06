@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Блочные и строчные теги</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <a href="/index.html" class="logo-link">
+            <div class="logo-image"></div>
+        </a>
+        <a href="/index.html" class="title-link">
+            <div class="title">
+                <h1>DevSkillRoad</h1>
+            </div>
+        </a>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/html/lecture-html-1.html" class="prev">← Основы HTML</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+
+        <h1 class="lecture-title">Блочные и строчные теги</h1>
+        
+        <div class="lecture-meta">
+            📦 Как теги влияют на расположение элементов
+        </div>
+
+        <div class="lecture-content">
+            <p>Все теги HTML можно разделить на две большие группы: <strong>блочные</strong> и <strong>строчные</strong>. Их главное отличие — как они располагаются на странице и как взаимодействуют с соседями.</p>
+
+            <h2>1. Блочные теги</h2>
+            <p>Блочный тег занимает всю доступную ширину родителя. Он начинается с новой строки и всё, что идёт после него, тоже будет на новой строке. Соседние блочные элементы никогда не окажутся рядом — только друг под другом.</p>
+
+            <h3>Пример блочных тегов</h3>
+            <pre><code>&lt;p&gt;Первый абзац&lt;/p&gt;
+&lt;p&gt;Второй абзац&lt;/p&gt;
+&lt;h1&gt;Заголовок&lt;/h1&gt;
+&lt;div&gt;Обычный блок&lt;/div&gt;</code></pre>
+
+            <p>В браузере это будет выглядеть так:</p>
+            <div class="example-block">
+                <p>Первый абзац</p>
+                <p>Второй абзац</p>
+                <h1>Заголовок</h1>
+                <div>Обычный блок</div>
+            </div>
+
+            <p>Каждый элемент начинается с новой строки. Между абзацами браузер добавляет небольшие отступы — это особенность тегов <code>&lt;p&gt;</code>.</p>
+
+            <h3>Самые распространённые блочные теги</h3>
+            <ul>
+                <li><code>&lt;div&gt;</code> — универсальный блок</li>
+                <li><code>&lt;p&gt;</code> — абзац</li>
+                <li><code>&lt;h1&gt;...&lt;h6&gt;</code> — заголовки</li>
+                <li><code>&lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;</code> — списки</li>
+                <li><code>&lt;table&gt;</code> — таблица</li>
+                <li><code>&lt;form&gt;</code> — форма</li>
+                <li><code>&lt;header&gt;, &lt;footer&gt;, &lt;section&gt;, &lt;article&gt;</code> — смысловые блоки</li>
+            </ul>
+
+            <h2>2. Строчные теги (inline)</h2>
+            <p>Строчный тег не переносит строку ни до, ни после. Он располагается в той же строке, что и окружающий текст, и занимает ровно столько места, сколько нужно его содержимому. Несколько строчных тегов могут стоять рядом в одной строке.</p>
+
+            <h3>Пример строчных тегов</h3>
+            <pre><code>&lt;strong&gt;Жирный текст&lt;/strong&gt;
+&lt;em&gt;Курсив&lt;/em&gt;
+&lt;a href="#"&gt;Ссылка&lt;/a&gt;
+&lt;span&gt;Обычный кусок текста&lt;/span&gt;</code></pre>
+
+            <p>В браузере это будет выглядеть так:</p>
+            <div class="example-block">
+                <strong>Жирный текст</strong>
+                <em>Курсив</em>
+                <a href="#">Ссылка</a>
+                <span>Обычный кусок текста</span>
+            </div>
+
+            <p>Все элементы идут друг за другом в одну строку. Если они не помещаются по ширине, браузер перенесёт часть на следующую строку.</p>
+
+            <h3>Самые распространённые строчные теги</h3>
+            <ul>
+                <li><code>&lt;span&gt;</code> — универсальный контейнер для текста</li>
+                <li><code>&lt;a&gt;</code> — ссылка</li>
+                <li><code>&lt;strong&gt;</code> — сильное выделение (жирный)</li>
+                <li><code>&lt;em&gt;</code> — смысловое выделение (курсив)</li>
+                <li><code>&lt;img&gt;</code> — изображение</li>
+                <li><code>&lt;button&gt;</code> — кнопка</li>
+                <li><code>&lt;input&gt;</code> — поле ввода</li>
+                <li><code>&lt;label&gt;</code> — подпись к полю</li>
+            </ul>
+
+            <h2>3. Сравнение блочных и строчных</h2>
+            <pre><code>&lt;div&gt;Это блок&lt;/div&gt;&lt;div&gt;И это блок&lt;/div&gt;
+&lt;span&gt;Это строчный&lt;/span&gt;&lt;span&gt;И это строчный&lt;/span&gt;</code></pre>
+
+            <p>Результат в браузере:</p>
+            <div class="example-block">
+                <div>Это блок</div>
+                <div>И это блок</div>
+                <span>Это строчный</span>
+                <span>И это строчный</span>
+            </div>
+
+            <p>Два блока — каждый на новой строке. Два строчных — на одной строке друг за другом.</p>
+
+            <h2>4. Важное правило: вложенность</h2>
+            <p><strong>Блочные теги могут содержать внутри любые теги</strong> — и блочные, и строчные.</p>
+            <p><strong>Строчные теги должны содержать только строчные теги или текст.</strong> Нельзя вкладывать блочный тег внутрь строчного.</p>
+
+            <div class="lecture-warning">
+                ⚠️ <strong>Ошибка:</strong> <code>&lt;span&gt;&lt;div&gt;Текст&lt;/div&gt;&lt;/span&gt;</code> — так делать нельзя. Браузер попытается исправить, но структура сломается.
+            </div>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Запомните эту разницу раз и навсегда. Когда выучите CSS, вы сможете менять поведение любого тега. Но в чистом HTML правила работают именно так. И это база, на которой всё держится».
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/html/lecture-html-1.html" class="prev">← Основы HTML</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>

@@ -331,6 +331,58 @@ hr {
     background: none;
 }
 
+/* Примеры работы тегов в лекциях */
+.example-block {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 12px;
+    margin: 15px 0;
+    border-left: 3px solid var(--color-second);
+}
+
+.example-block p,
+.example-block div,
+.example-block span,
+.example-block strong,
+.example-block em,
+.example-block a {
+    background: #fff;
+    padding: 4px 8px;
+    margin: 4px;
+    border-radius: 6px;
+    /* display: inline-block; чтобы рамки не разрывались, но это не CSS-урок */
+}
+
+/* Все примеры кода — в единых плашках */
+pre {
+    background: #2d3a3a;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 20px 0;
+    overflow-x: auto;
+    border-left: 4px solid var(--color-second);
+}
+
+code {
+    font-family: 'SF Mono', 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #e4e4e4;
+}
+
+/* Код внутри текста (строчный) — другой фон, чтобы не сливался */
+p code,
+li code,
+.lecture-note code,
+.lecture-warning code {
+    background: #eef2f3;
+    color: #d23669;
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 13px;
+    border-left: none;
+}
+
 /* ===== АДАПТИВ ===== */
 @media (max-width: 700px) {
     .content {
