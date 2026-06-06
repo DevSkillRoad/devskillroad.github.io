@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Заголовки h1–h6</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <a href="/index.html" class="logo-link">
+            <div class="logo-image"></div>
+        </a>
+        <a href="/index.html" class="title-link">
+            <div class="title">
+                <h1>DevSkillRoad</h1>
+            </div>
+        </a>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/html/lecture-html-2.html" class="prev">← Блочные и строчные теги</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+
+        <h1 class="lecture-title">Заголовки h1–h6</h1>
+        
+        <div class="lecture-meta">
+            📑 Иерархия заголовков в HTML
+        </div>
+
+        <div class="lecture-content">
+            <p>В HTML есть шесть уровней заголовков: от <code>&lt;h1&gt;</code> до <code>&lt;h6&gt;</code>. Они используются для обозначения заголовков разделов и подразделов на странице.</p>
+
+            <h2>1. Как выглядят заголовки</h2>
+            <p>Каждый уровень имеет свой размер и вес. <code>&lt;h1&gt;</code> — самый крупный и важный, <code>&lt;h6&gt;</code> — самый мелкий.</p>
+
+            <pre><code>&lt;h1&gt;Заголовок первого уровня&lt;/h1&gt;
+&lt;h2&gt;Заголовок второго уровня&lt;/h2&gt;
+&lt;h3&gt;Заголовок третьего уровня&lt;/h3&gt;
+&lt;h4&gt;Заголовок четвёртого уровня&lt;/h4&gt;
+&lt;h5&gt;Заголовок пятого уровня&lt;/h5&gt;
+&lt;h6&gt;Заголовок шестого уровня&lt;/h6&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <h1>Заголовок первого уровня</h1>
+                <h2>Заголовок второго уровня</h2>
+                <h3>Заголовок третьего уровня</h3>
+                <h4>Заголовок четвёртого уровня</h4>
+                <h5>Заголовок пятого уровня</h5>
+                <h6>Заголовок шестого уровня</h6>
+            </div>
+
+            <h2>2. Правила использования заголовков</h2>
+            <ul>
+                <li><code>&lt;h1&gt;</code> должен быть на странице <strong>один</strong>. Это главный заголовок всей страницы.</li>
+                <li>Заголовки идут по порядку: после <code>&lt;h1&gt;</code> может быть <code>&lt;h2&gt;</code>, но нельзя сразу перескакивать с <code>&lt;h1&gt;</code> на <code>&lt;h3&gt;</code>, пропуская <code>&lt;h2&gt;</code>.</li>
+                <li>Заголовки нужны не только для красоты. Поисковые системы и вспомогательные технологии (экранные дикторы) используют их для навигации по странице.</li>
+            </ul>
+
+            <div class="lecture-warning">
+                ⚠️ <strong>Частая ошибка:</strong> использовать <code>&lt;h1&gt;</code> несколько раз на одной странице или делать заголовком то, что не является заголовком (например, обычный текст, просто увеличенный). Не путайте заголовки с визуальным оформлением. Заголовок — это смысл, а не размер.
+            </div>
+
+            <h2>3. Пример правильной иерархии</h2>
+            <pre><code>&lt;h1&gt;Мой сайт о кошках&lt;/h1&gt;
+
+    &lt;h2&gt;Породы кошек&lt;/h2&gt;
+        &lt;h3&gt;Британская короткошёрстная&lt;/h3&gt;
+        &lt;h3&gt;Мейн-кун&lt;/h3&gt;
+
+    &lt;h2&gt;Уход за кошками&lt;/h2&gt;
+        &lt;h3&gt;Питание&lt;/h3&gt;
+        &lt;h3&gt;Груминг&lt;/h3&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <h1>Мой сайт о кошках</h1>
+                <h2>Породы кошек</h2>
+                <h3>Британская короткошёрстная</h3>
+                <h3>Мейн-кун</h3>
+                <h2>Уход за кошками</h2>
+                <h3>Питание</h3>
+                <h3>Груминг</h3>
+            </div>
+
+            <h2>4. Что нельзя делать с заголовками</h2>
+            <ul>
+                <li>Вкладывать один заголовок в другой — например, <code>&lt;h1&gt;&lt;h2&gt;Текст&lt;/h2&gt;&lt;/h1&gt;</code>.</li>
+                <li>Использовать заголовки для выделения текста, который не является заголовком.</li>
+                <li>Пропускать уровни (с <code>&lt;h1&gt;</code> сразу на <code>&lt;h3&gt;</code>).</li>
+            </ul>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Заголовки — это скелет страницы. Сначала вы придумываете структуру (h1, h2, h3…), а потом наполняете её текстом. Не начинайте с дизайна, начинайте со смысла».
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/html/lecture-html-2.html" class="prev">← Блочные и строчные теги</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>

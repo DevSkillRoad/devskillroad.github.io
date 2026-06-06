@@ -383,6 +383,26 @@ li code,
     border-left: none;
 }
 
+/* Живые примеры в лекциях (только для демонстрации, без CSS-обучения) */
+.live-example {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 16px;
+    margin: 20px 0;
+    border: 1px solid #e2e8f0;
+}
+
+.live-example h1,
+.live-example h2,
+.live-example h3,
+.live-example h4,
+.live-example h5,
+.live-example h6 {
+    margin: 8px 0;
+    background: transparent;
+    padding: 0;
+}
+
 /* ===== АДАПТИВ ===== */
 @media (max-width: 700px) {
     .content {
