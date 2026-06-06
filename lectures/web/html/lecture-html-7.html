@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Ссылки в HTML</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <a href="/index.html" class="logo-link">
+            <div class="logo-image"></div>
+        </a>
+        <a href="/index.html" class="title-link">
+            <div class="title">
+                <h1>DevSkillRoad</h1>
+            </div>
+        </a>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/html/lecture-html-6.html" class="prev">← Списки</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+
+        <h1 class="lecture-title">Ссылки в HTML</h1>
+
+        <div class="lecture-meta">
+            🔗 Тег &lt;a&gt;, атрибуты href, target, якоря
+        </div>
+
+        <div class="lecture-content">
+            <p>Ссылки — это то, что сделало интернет интернетом. Без ссылок страницы были бы изолированными документами.
+                Тег <code>&lt;a&gt;</code> (от англ. anchor — якорь) создаёт гиперссылки для перехода на другие
+                страницы, сайты или фрагменты текущей страницы.</p>
+
+            <h2>1. Простая ссылка — атрибут href</h2>
+            <p>Атрибут <code>href</code> (hypertext reference) указывает адрес, куда ведёт ссылка.</p>
+
+            <pre><code>&lt;a href="https://example.com"&gt;Перейти на example.com&lt;/a&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <a href="https://example.com">Перейти на example.com</a>
+            </div>
+
+            <div class="lecture-note">
+                📌 По умолчанию ссылка синяя и подчёркнутая. После посещения — фиолетовая. Это стандартное поведение
+                браузера.
+            </div>
+
+            <h2>2. Абсолютные ссылки</h2>
+            <p>Абсолютные ссылки содержат полный адрес (с https:// или http://). Они ведут на другие сайты.</p>
+            <pre><code>&lt;a href="https://google.com"&gt;Google&lt;/a&gt;
+&lt;a href="https://yandex.ru"&gt;Яндекс&lt;/a&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <a href="https://google.com">Google</a><br>
+                <a href="https://yandex.ru">Яндекс</a>
+            </div>
+
+            <h2>3. Относительные ссылки</h2>
+            <p>Относительные ссылки указывают путь внутри вашего сайта. Они не содержат протокола и домена.</p>
+            <pre><code>&lt;a href="/index.html"&gt;Главная&lt;/a&gt;
+&lt;a href="/lectures/web/html/lecture-html-1.html"&gt;Первая лекция по HTML&lt;/a&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <a href="/index.html">Главная</a><br>
+                <a href="/lectures/web/html/lecture-html-1.html">Первая лекция по HTML</a>
+            </div>
+
+            <div class="lecture-note">
+                📌 Относительные ссылки работают только внутри вашего сайта. Абсолютные — ведут на любые сайты в
+                интернете.
+            </div>
+
+            <h2>4. Открытие ссылки — атрибут target</h2>
+            <p>Атрибут <code>target</code> указывает браузеру, где открыть ссылку. Это <strong>подсказка</strong>, а не
+                жёсткая команда: пользователь может переопределить поведение (например, кликнуть с Ctrl или изменить
+                настройки браузера).</p>
+
+            <p><strong>Возможные значения:</strong></p>
+            <ul>
+                <li><code>_self</code> — открыть в той же вкладке (это значение по умолчанию, его можно не писать)</li>
+                <li><code>_blank</code> — открыть в новой вкладке</li>
+                <li><code>_parent</code> — открыть в родительском фрейме (используется редко)</li>
+                <li><code>_top</code> — открыть во всё окно, игнорируя фреймы</li>
+            </ul>
+
+            <pre><code>&lt;a href="/index.html"&gt;Откроется в этой же вкладке (target="_self" по умолчанию)&lt;/a&gt;
+&lt;a href="/index.html" target="_blank"&gt;Откроется в новой вкладке (если браузер разрешает)&lt;/a&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <a href="/index.html">На главную — в этой же вкладке (по умолчанию)</a><br>
+                <a href="/index.html" target="_blank">На главную — в новой вкладке</a>
+            </div>
+
+            <div class="lecture-note">
+                📌 <code>target="_blank"</code> — это просьба, а не приказ. Пользователь в любом случае может открыть
+                ссылку так, как ему удобно.
+            </div>
+
+            <h2>5. Ссылка на фрагмент страницы (якорь)</h2>
+            <p>Можно ссылаться на конкретное место внутри страницы. Для этого у целевого элемента должен быть атрибут
+                <code>id</code>.
+            </p>
+
+            <pre><code>&lt;h2 id="chapter1"&gt;Глава 1&lt;/h2&gt;
+...
+&lt;a href="#chapter1"&gt;Перейти к главе 1&lt;/a&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <h3 id="demo-section">Целевой раздел</h3>
+                <p>Это место, куда ведёт якорь.</p>
+                <a href="#demo-section">Перейти к целевому разделу</a>
+            </div>
+
+            <h2>6. Ссылка на email — mailto:</h2>
+            <p>Специальная схема <code>mailto:</code> открывает почтовую программу для отправки письма.</p>
+
+            <pre><code>&lt;a href="mailto:info@example.com"&gt;Написать нам&lt;/a&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <a href="mailto:info@example.com">Написать нам</a>
+            </div>
+
+            <h2>7. Ссылка-кнопка (стилизация через CSS позже)</h2>
+            <p>Сейчас ссылка выглядит как обычный текст. Когда выучите CSS, сможете превращать ссылки в кнопки, менять
+                цвета, убирать подчёркивания.</p>
+
+            <h2>8. Что нельзя делать со ссылками</h2>
+            <ul>
+                <li>Вкладывать одну ссылку в другую — <code>&lt;a&gt;&lt;a&gt;...&lt;/a&gt;&lt;/a&gt;</code> запрещено.
+                </li>
+                <li>Ссылаться на пустой <code>href=""</code> — это не ссылка, а просто текст.</li>
+                <li>Забывать закрывающий тег <code>&lt;/a&gt;</code> — тогда ссылка «съест» весь следующий контент.</li>
+            </ul>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Ссылки — это кровеносная система интернета. Учитесь делать их
+                понятными: текст ссылки должен говорить, куда она ведёт. "Нажми здесь" — плохо. "Перейти к контактам" —
+                хорошо».
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/html/lecture-html-6.html" class="prev">← Списки</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>
