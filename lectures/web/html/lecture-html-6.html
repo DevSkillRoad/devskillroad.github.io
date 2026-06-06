@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Списки в HTML</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <a href="/index.html" class="logo-link">
+            <div class="logo-image"></div>
+        </a>
+        <a href="/index.html" class="title-link">
+            <div class="title">
+                <h1>DevSkillRoad</h1>
+            </div>
+        </a>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/html/lecture-html-5.html" class="prev">← Смысловое выделение</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+
+        <h1 class="lecture-title">Списки в HTML</h1>
+        
+        <div class="lecture-meta">
+            📋 Маркированные, нумерованные и вложенные списки
+        </div>
+
+        <div class="lecture-content">
+            <p>Списки — это способ представить информацию в виде перечня. В HTML есть три вида списков: маркированные, нумерованные и списки определений.</p>
+
+            <h2>1. Маркированный список — &lt;ul&gt;</h2>
+            <p>Тег <code>&lt;ul&gt;</code> (unordered list) создаёт список, где каждый элемент помечается маркером (точкой, кружком или квадратом).</p>
+            <p>Внутри списка каждый пункт оформляется тегом <code>&lt;li&gt;</code> (list item).</p>
+
+            <pre><code>&lt;ul&gt;
+    &lt;li&gt;HTML&lt;/li&gt;
+    &lt;li&gt;CSS&lt;/li&gt;
+    &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                </ul>
+            </div>
+
+            <h2>2. Нумерованный список — &lt;ol&gt;</h2>
+            <p>Тег <code>&lt;ol&gt;</code> (ordered list) создаёт список, где каждый пункт автоматически нумеруется по порядку.</p>
+
+            <pre><code>&lt;ol&gt;
+    &lt;li&gt;Первый шаг&lt;/li&gt;
+    &lt;li&gt;Второй шаг&lt;/li&gt;
+    &lt;li&gt;Третий шаг&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <ol>
+                    <li>Первый шаг</li>
+                    <li>Второй шаг</li>
+                    <li>Третий шаг</li>
+                </ol>
+            </div>
+
+            <h2>3. Вложенные списки</h2>
+            <p>Внутри одного списка можно разместить другой. Это создаёт многоуровневую структуру.</p>
+
+            <pre><code>&lt;ul&gt;
+    &lt;li&gt;Фрукты
+        &lt;ul&gt;
+            &lt;li&gt;Яблоко&lt;/li&gt;
+            &lt;li&gt;Банан&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Овощи
+        &lt;ul&gt;
+            &lt;li&gt;Морковь&lt;/li&gt;
+            &lt;li&gt;Огурец&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <ul>
+                    <li>Фрукты
+                        <ul>
+                            <li>Яблоко</li>
+                            <li>Банан</li>
+                        </ul>
+                    </li>
+                    <li>Овощи
+                        <ul>
+                            <li>Морковь</li>
+                            <li>Огурец</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="lecture-note">
+                📌 Вложенные списки часто используют для меню с подпунктами или сложной структуры информации.
+            </div>
+
+            <h2>4. Список определений — &lt;dl&gt;, &lt;dt&gt;, &lt;dd&gt;</h2>
+            <p>Тег <code>&lt;dl&gt;</code> (description list) создаёт список терминов и их описаний.</p>
+            <ul>
+                <li><code>&lt;dt&gt;</code> — термин (definition term)</li>
+                <li><code>&lt;dd&gt;</code> — описание или определение (definition description)</li>
+            </ul>
+
+            <pre><code>&lt;dl&gt;
+    &lt;dt&gt;HTML&lt;/dt&gt;
+    &lt;dd&gt;Язык гипертекстовой разметки&lt;/dd&gt;
+    
+    &lt;dt&gt;CSS&lt;/dt&gt;
+    &lt;dd&gt;Язык таблиц стилей&lt;/dd&gt;
+    
+    &lt;dt&gt;JavaScript&lt;/dt&gt;
+    &lt;dd&gt;Язык программирования для браузера&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <dl>
+                    <dt>HTML</dt>
+                    <dd>Язык гипертекстовой разметки</dd>
+                    
+                    <dt>CSS</dt>
+                    <dd>Язык таблиц стилей</dd>
+                    
+                    <dt>JavaScript</dt>
+                    <dd>Язык программирования для браузера</dd>
+                </dl>
+            </div>
+
+            <div class="lecture-note">
+                📌 Список определений удобен для глоссариев, справочников, пар «термин — значение».
+            </div>
+
+            <h2>5. Атрибуты списков</h2>
+            <p>Нумерованный список может начинаться не с единицы, а с любого числа. Для этого используется атрибут <code>start</code>.</p>
+
+            <pre><code>&lt;ol start="5"&gt;
+    &lt;li&gt;Пятый пункт&lt;/li&gt;
+    &lt;li&gt;Шестой пункт&lt;/li&gt;
+    &lt;li&gt;Седьмой пункт&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <ol start="5">
+                    <li>Пятый пункт</li>
+                    <li>Шестой пункт</li>
+                    <li>Седьмой пункт</li>
+                </ol>
+            </div>
+
+            <p>У маркированного списка можно изменить тип маркера с помощью атрибута <code>type</code> (но это уже из области оформления, так что не углубляемся).</p>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Списки — это не только перечисление. Это способ показать иерархию: что главное, что подчинённое. Используйте вложенные списки, когда информация требует группировки и подгрупп».
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/html/lecture-html-5.html" class="prev">← Смысловое выделение</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>

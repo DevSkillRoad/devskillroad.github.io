@@ -3,7 +3,19 @@
     --color-second: #14b8a6;
 }
 
-* {
+.header,
+.content,
+.grid-cards,
+.card,
+.how-to-read,
+.read-card,
+.footer-note,
+.hero,
+.live-example,
+pre,
+code,
+.lecture-nav,
+.lecture-nav * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -47,6 +59,16 @@ body {
     font-size: 32px;
     color: var(--color-first);
     letter-spacing: -0.5px;
+}
+
+/* Убираем стандартное оформление ссылок в шапке */
+.logo-link,
+.title-link {
+    text-decoration: none;
+}
+
+.title-link h1 {
+    color: var(--color-first);
 }
 
 /* ===== ОСНОВНОЙ КОНТЕНТ ===== */
