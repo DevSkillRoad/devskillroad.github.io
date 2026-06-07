@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Медиа в HTML</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <a href="/index.html" class="logo-link">
+            <div class="logo-image"></div>
+        </a>
+        <a href="/index.html" class="title-link">
+            <div class="title">
+                <h1>DevSkillRoad</h1>
+            </div>
+        </a>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/html/lecture-html-11.html" class="prev">← Семантические теги</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+
+        <h1 class="lecture-title">Медиа в HTML</h1>
+        
+        <div class="lecture-meta">
+            🎬 Видео, аудио, встраивание карт
+        </div>
+
+        <div class="lecture-content">
+            <p>HTML позволяет вставлять на страницу видео, аудио и встраивать контент с других сайтов (карты, презентации).</p>
+
+            <h2>1. Видео — &lt;video&gt;</h2>
+            <p>Тег <code>&lt;video&gt;</code> вставляет видеоплеер на страницу. Атрибуты:</p>
+            <ul>
+                <li><code>src</code> — путь к видеофайлу</li>
+                <li><code>controls</code> — показывает кнопки управления (плей, пауза, громкость)</li>
+                <li><code>width</code> и <code>height</code> — размеры плеера</li>
+                <li><code>autoplay</code> — начать проигрывание сразу (требует <code>muted</code> в современных браузерах)</li>
+                <li><code>loop</code> — зациклить проигрывание</li>
+                <li><code>muted</code> — выключить звук (нужно для autoplay)</li>
+                <li><code>poster</code> — картинка-заставка до начала проигрывания</li>
+            </ul>
+
+            <pre><code>&lt;video src="/video/examples/video.mp4" controls width="400"&gt;
+    Ваш браузер не поддерживает видео.
+&lt;/video&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <video src="/video/examples/video.mp4" controls width="400" style="max-width:100%;">
+                    Ваш браузер не поддерживает видео.
+                </video>
+            </div>
+
+            <div class="lecture-note">
+                📌 Если видео не воспроизводится, проверьте путь к файлу. Атрибут <code>controls</code> обязателен, иначе пользователь не сможет управлять воспроизведением.
+            </div>
+
+            <h2>2. Аудио — &lt;audio&gt;</h2>
+            <p>Тег <code>&lt;audio&gt;</code> работает аналогично видео, но без картинки.</p>
+            <ul>
+                <li><code>src</code> — путь к аудиофайлу</li>
+                <li><code>controls</code> — кнопки управления</li>
+                <li><code>autoplay</code>, <code>loop</code>, <code>muted</code> — как у видео</li>
+            </ul>
+
+            <pre><code>&lt;audio src="/music/examples/audio.mp3" controls&gt;
+    Ваш браузер не поддерживает аудио.
+&lt;/audio&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <audio src="/music/examples/audio.mp3" controls>
+                    Ваш браузер не поддерживает аудио.
+                </audio>
+            </div>
+
+            <h2>3. Встраивание карты — &lt;iframe&gt;</h2>
+            <p>Тег <code>&lt;iframe&gt;</code> (inline frame) вставляет на страницу содержимое другого сайта: карту, презентацию, видео с поддерживающих сервисов.</p>
+            <ul>
+                <li><code>src</code> — адрес встраиваемой страницы</li>
+                <li><code>width</code> и <code>height</code> — размеры окна</li>
+                <li><code>title</code> — описание для экранных дикторов (важно для доступности)</li>
+                <li><code>allowfullscreen</code> — разрешает полноэкранный режим (если поддерживается)</li>
+            </ul>
+
+            <pre><code>&lt;iframe 
+    src="https://yandex.ru/map-widget/v1/?um=constructor%3A2db63a63f205dca3de3aa818c9efd55b229f1672184db551f27411e68f56a0f9&amp;source=constructor" 
+    width="600" 
+    height="450" 
+    title="Интерактивная карта Санкт-Петербурга" 
+    allowfullscreen&gt;
+&lt;/iframe&gt;</code></pre>
+
+            <p><strong>Как это выглядит в браузере:</strong></p>
+            <div class="live-example">
+                <iframe 
+                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A2db63a63f205dca3de3aa818c9efd55b229f1672184db551f27411e68f56a0f9&amp;source=constructor" 
+                    width="600" 
+                    height="450" 
+                    title="Интерактивная карта Санкт-Петербурга" 
+                    style="border:1px solid #ccc; border-radius: 12px;"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="lecture-note">
+                📌 Код карты можно сгенерировать в <a href="https://yandex.ru/map-constructor/" target="_blank" rel="noopener noreferrer">конструкторе Яндекс.Карт</a>. Многие сервисы предоставляют готовый код для встраивания — ищите кнопку «Поделиться» → «Встроить» или «Embed».
+            </div>
+
+            <h2>4. Что нельзя делать с медиа</h2>
+            <ul>
+                <li>Встраивать чужой контент без разрешения (проверяйте лицензию).</li>
+                <li>Забывать атрибут <code>controls</code> для видео/аудио — пользователь не сможет управлять воспроизведением.</li>
+                <li>Использовать автовоспроизведение с звуком — это раздражает и часто блокируется браузерами.</li>
+                <li>Загружать огромные файлы — используйте сжатие и современные форматы (mp4 для видео, mp3 для аудио).</li>
+            </ul>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Медиа делают сайт живым. Но помните: видео и аудио — тяжёлый контент. Сжимайте файлы, не злоупотребляйте автовоспроизведением, всегда давайте пользователю контроль. И всегда проверяйте лицензию, если берёте чужой контент».
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/html/lecture-html-11.html" class="prev">← Семантические теги</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>
