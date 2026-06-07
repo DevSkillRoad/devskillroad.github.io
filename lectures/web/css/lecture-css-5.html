@@ -47,7 +47,7 @@
     <div class="content">
         <div class="lecture-nav">
             <a href="/lectures/web/css/lecture-css-4.html" class="prev">← Единицы измерения</a>
-            <span class="next disabled">Следующая лекция →</span>
+            <a href="/lectures/web/css/lecture-css-6.html" class="next">Подключение шрифтов →</a>
         </div>
 
         <h1 class="lecture-title">Шрифты и текст в CSS</h1>
@@ -57,7 +57,7 @@
         </div>
 
         <div class="lecture-content">
-            <p>В этой лекции мы разберём свойства CSS, которые отвечают за внешний вид текста: шрифт, размер, жирность, выравнивание, цвет и межстрочный интервал.</p>
+            <p>В этой лекции мы разберём основные свойства CSS, которые отвечают за внешний вид текста: шрифт, размер, жирность, выравнивание, цвет, межстрочный интервал и дополнительные эффекты.</p>
 
             <h2>1. Цвет текста — color</h2>
             <p>Задаёт цвет текста. Способы задания мы уже изучили в лекции 2.</p>
@@ -170,7 +170,7 @@
             <pre><code>.tight {
     line-height: 1.2;
 }
-.normal {
+.normal-lh {
     line-height: 1.5;
 }
 .loose {
@@ -216,7 +216,7 @@
                 <p style="text-align: left; background: #f0f0f0; padding: 8px;">left — по левому краю</p>
                 <p style="text-align: center; background: #f0f0f0; padding: 8px;">center — по центру</p>
                 <p style="text-align: right; background: #f0f0f0; padding: 8px;">right — по правому краю</p>
-                <p style="text-align: justify; background: #f0f0f0; padding: 8px;">justify — по ширине. Этот текст растягивается, чтобы занимать всю ширину блока. Особенно заметно в длинных абзацах.</p>
+                <p style="text-align: justify; background: #f0f0f0; padding: 8px;">justify — по ширине. Этот текст растягивается, чтобы занимать всю ширину блока.</p>
             </div>
 
             <h2>8. Оформление текста — text-decoration</h2>
@@ -247,14 +247,68 @@
                 <p><span style="text-decoration: overline;">overline — линия сверху</span></p>
             </div>
 
+            <h2>9. Регистр текста — text-transform</h2>
+            <p>Позволяет менять регистр текста без изменения HTML.</p>
+            <p><strong>Возможные значения:</strong></p>
+            <ul>
+                <li><code>none</code> — без изменений (по умолчанию)</li>
+                <li><code>uppercase</code> — все буквы заглавные</li>
+                <li><code>lowercase</code> — все буквы строчные</li>
+                <li><code>capitalize</code> — первая буква каждого слова заглавная</li>
+            </ul>
+            <pre><code>.uppercase {
+    text-transform: uppercase;
+}
+.lowercase {
+    text-transform: lowercase;
+}
+.capitalize {
+    text-transform: capitalize;
+}</code></pre>
+            <div class="live-example">
+                <p style="text-transform: uppercase;">uppercase — все буквы ЗАГЛАВНЫЕ</p>
+                <p style="text-transform: lowercase;">lowercase — все буквы строчные</p>
+                <p style="text-transform: capitalize;">capitalize — Каждое Слово С Заглавной</p>
+            </div>
+
+            <h2>10. Расстояние между буквами — letter-spacing</h2>
+            <p>Увеличивает или уменьшает расстояние между символами.</p>
+            <p><strong>Возможные значения:</strong> <code>normal</code> (по умолчанию), пиксели (<code>2px</code>), <code>em</code>, <code>rem</code>.</p>
+            <pre><code>.tight {
+    letter-spacing: -0.5px;
+}
+.normal-ls {
+    letter-spacing: normal;
+}
+.wide {
+    letter-spacing: 3px;
+}</code></pre>
+            <div class="live-example">
+                <p style="letter-spacing: -0.5px;">letter-spacing: -0.5px (плотно)</p>
+                <p style="letter-spacing: normal;">letter-spacing: normal (обычно)</p>
+                <p style="letter-spacing: 3px;">letter-spacing: 3px (широко)</p>
+            </div>
+
+            <h2>11. Отступ первой строки — text-indent</h2>
+            <p>Задаёт отступ первой строки абзаца (как «красная строка»).</p>
+            <p><strong>Возможные значения:</strong> пиксели, <code>em</code>, проценты.</p>
+            <pre><code>.indent {
+    text-indent: 2em;
+}</code></pre>
+            <div class="live-example">
+                <p style="text-indent: 2em; background: #f0f0f0; padding: 8px;">
+                    text-indent: 2em — это пример абзаца с отступом первой строки. Такой отступ часто используют в книгах и статьях.
+                </p>
+            </div>
+
             <div class="lecture-note">
-                <strong>📓 Из тетради:</strong> «Шрифт — это голос вашего сайта. Главное — текст должен быть читаемым. Размер не меньше 14–16px, строки не слишком плотные, контраст достаточный. И помните: для ссылок подчёркивание обычно убирают, но оставляют его при наведении — это мы разберём в лекции про псевдоклассы».
+                <strong>📓 Из тетради:</strong> «Шрифт — это голос вашего сайта. Главное — текст должен быть читаемым. Размер не меньше 14–16px, строки не слишком плотные, контраст достаточный. Для ссылок подчёркивание обычно убирают, но оставляют его при наведении — это мы разберём в лекции про псевдоклассы».
             </div>
         </div>
 
         <div class="lecture-nav">
             <a href="/lectures/web/css/lecture-css-4.html" class="prev">← Единицы измерения</a>
-            <span class="next disabled">Следующая лекция →</span>
+            <a href="/lectures/web/css/lecture-css-6.html" class="next">Подключение шрифтов →</a>
         </div>
     </div>
 

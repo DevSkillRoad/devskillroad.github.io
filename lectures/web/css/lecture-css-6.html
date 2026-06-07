@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Подключение шрифтов и типографика</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-top">
+            <a href="/" class="logo-link">
+                <div class="logo-image"></div>
+            </a>
+            <a href="/" class="title-link">
+                <div class="title">
+                    <h1>DevSkillRoad</h1>
+                </div>
+            </a>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="dropdown">
+                <button class="dropbtn">📚 Лекции HTML</button>
+                <div class="dropdown-content">
+                    <a href="/lectures/web/html/intro-html.html">📖 Введение в HTML</a>
+                    <a href="/lectures/web/html/lecture-html-1.html">Основы HTML</a>
+                    <a href="/lectures/web/html/lecture-html-2.html">Блочные и строчные</a>
+                    <a href="/lectures/web/html/lecture-html-3.html">Заголовки h1–h6</a>
+                    <a href="/lectures/web/html/lecture-html-4.html">Текстовые теги</a>
+                    <a href="/lectures/web/html/lecture-html-5.html">Смысловое выделение</a>
+                    <a href="/lectures/web/html/lecture-html-6.html">Списки</a>
+                    <a href="/lectures/web/html/lecture-html-7.html">Ссылки</a>
+                    <a href="/lectures/web/html/lecture-html-8.html">Изображения</a>
+                    <a href="/lectures/web/html/lecture-html-9.html">Таблицы</a>
+                    <a href="/lectures/web/html/lecture-html-10.html">Формы</a>
+                    <a href="/lectures/web/html/lecture-html-11.html">Семантические теги</a>
+                    <a href="/lectures/web/html/lecture-html-12.html">Медиа</a>
+                    <a href="/lectures/web/html/lecture-html-13.html">Спецсимволы</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-5.html" class="prev">← Шрифты и текст</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+
+        <h1 class="lecture-title">Подключение шрифтов и типографика</h1>
+        
+        <div class="lecture-meta">
+            🔤 Веб-шрифты, @font-face, сервисы со шрифтами
+        </div>
+
+        <div class="lecture-content">
+            <p>В прошлой лекции мы разобрали основные свойства текста. Теперь посмотрим, откуда брать шрифты для сайта и как их подключать.</p>
+
+            <h2>1. Системные шрифты и их типы</h2>
+            <p>Каждый компьютер имеет набор предустановленных шрифтов. Разные операционные системы имеют разные наборы. Поэтому в CSS принято перечислять несколько шрифтов, а в конце указывать тип.</p>
+            <p><strong>Типы шрифтов (семейства):</strong></p>
+            <ul>
+                <li><code>serif</code> — шрифты с засечками (Times New Roman, Georgia)</li>
+                <li><code>sans-serif</code> — шрифты без засечек (Arial, Helvetica, Roboto)</li>
+                <li><code>monospace</code> — моноширинные шрифты (Courier New, Consolas)</li>
+                <li><code>cursive</code> — рукописные шрифты (Comic Sans MS)</li>
+                <li><code>fantasy</code> — декоративные шрифты (Impact)</li>
+            </ul>
+            <pre><code>body {
+    font-family: Arial, Helvetica, sans-serif;
+}</code></pre>
+            <div class="live-example">
+                <p style="font-family: Arial, Helvetica, sans-serif;">Arial, Helvetica, sans-serif</p>
+            </div>
+
+            <h2>2. Запасные шрифты (fallback)</h2>
+            <p>Вы перечисляете несколько шрифтов через запятую. Если первый не найден, браузер пробует второй, затем третий. В конце обязательно указывают тип шрифта (serif, sans-serif и т.д.).</p>
+            <pre><code>h1 {
+    font-family: 'Roboto', 'Arial', sans-serif;
+}</code></pre>
+            <div class="live-example">
+                <h1 style="font-family: 'Roboto', 'Arial', sans-serif; font-size: 1.2rem;">Roboto, Arial, sans-serif</h1>
+            </div>
+
+            <h2>3. Где брать шрифты для сайта</h2>
+            <p><strong>Популярные сервисы (бесплатно):</strong></p>
+            <ul>
+                <li><strong>Google Fonts</strong> — крупнейший каталог веб-шрифтов (много латиницы, есть кириллица)</li>
+                <li><strong>Font Squirrel</strong> — качественные шрифты с открытыми лицензиями</li>
+                <li><strong>FontSpace</strong> — большая библиотека бесплатных шрифтов</li>
+                <li><strong>DaFont</strong> — огромный каталог (внимание с лицензиями)</li>
+            </ul>
+            <p><strong>Российские сервисы:</strong></p>
+            <ul>
+                <li><strong>Вшрифте</strong> — каталог кириллических шрифтов</li>
+                <li><strong>Шрифты.рф</strong> — русскоязычная библиотека</li>
+                <li><strong>MyFonts</strong> (раздел кириллицы) — профессиональные шрифты (есть платные)</li>
+            </ul>
+            <div class="lecture-note">
+                📌 <strong>Важно о лицензиях:</strong> Всегда проверяйте лицензию перед использованием. Самые популярные открытые лицензии: <strong>SIL Open Font License (OFL)</strong> — разрешает коммерческое использование, встраивание в веб, модификацию.
+            </div>
+
+            <h2>4. Подключение шрифтов через @font-face</h2>
+            <p>Если вы скачали файл шрифта (.woff2, .woff, .ttf), его можно подключить через правило <code>@font-face</code>.</p>
+            <p><strong>Форматы для веба (от лучшего к худшему):</strong></p>
+            <ul>
+                <li><strong>WOFF2</strong> — самый современный и лёгкий</li>
+                <li><strong>WOFF</strong> — предшественник WOFF2, тоже сжатый</li>
+                <li><strong>TTF/OTF</strong> — для установки на компьютер, для сайта можно, но не оптимально (тяжёлые)</li>
+            </ul>
+            <pre><code>@font-face {
+    font-family: 'Great Vibes';
+    src: url('/fonts/great-vibes.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.special-header {
+    font-family: 'Great Vibes', cursive;
+}</code></pre>
+            <div class="live-example">
+                <p style="font-family: 'Great Vibes', cursive; font-size: 1.5rem;">Great Vibes — пример подключённого шрифта</p>
+            </div>
+            <div class="lecture-note">
+                📌 <strong>font-display: swap</strong> — говорит браузеру сначала показать текст системным шрифтом, а когда загрузится красивый — подменить. Это ускоряет видимое отображение страницы.
+            </div>
+
+            <h2>5. Как получить готовый WOFF2</h2>
+            <p>Не все шрифты сразу доступны в веб-форматах. Есть несколько способов:</p>
+            <ul>
+                <li><strong>Скачать с сервиса, где есть @font-face kit</strong> — Font Squirrel часто даёт готовые архивы с веб-форматами</li>
+                <li><strong>Конвертировать онлайн</strong> — например, <strong>convertio.co</strong> или <strong>onlinefontconverter.com</strong> (из TTF/OTF в WOFF2)</li>
+                <li><strong>Использовать API Google Fonts</strong> — Google сам отдаст браузеру оптимальный формат</li>
+            </ul>
+
+            <h2>6. Практический пример: Great Vibes</h2>
+            <p>Мы скачали шрифт <strong>Great Vibes</strong> в формате WOFF2 и положили в папку <code>/fonts/</code>. Теперь подключим его:</p>
+            <pre><code>@font-face {
+    font-family: 'Great Vibes';
+    src: url('/fonts/great-vibes.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+}</code></pre>
+            <div class="live-example">
+                <h1 style="font-family: 'Great Vibes', cursive; font-size: 2rem; font-weight: normal;">Заголовок шрифтом Great Vibes</h1>
+            </div>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Шрифты — это не только про красоту, но и про доступность. Используйте запасные шрифты, проверяйте контраст, не делайте текст слишком мелким. И всегда проверяйте лицензию перед использованием шрифта в коммерческом проекте».
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-5.html" class="prev">← Шрифты и текст</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>
