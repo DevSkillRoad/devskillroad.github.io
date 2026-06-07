@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Единицы измерения в CSS</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-top">
+            <a href="/" class="logo-link">
+                <div class="logo-image"></div>
+            </a>
+            <a href="/" class="title-link">
+                <div class="title">
+                    <h1>DevSkillRoad</h1>
+                </div>
+            </a>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="dropdown">
+                <button class="dropbtn">📚 Лекции HTML</button>
+                <div class="dropdown-content">
+                    <a href="/lectures/web/html/intro-html.html">📖 Введение в HTML</a>
+                    <a href="/lectures/web/html/lecture-html-1.html">Основы HTML</a>
+                    <a href="/lectures/web/html/lecture-html-2.html">Блочные и строчные</a>
+                    <a href="/lectures/web/html/lecture-html-3.html">Заголовки h1–h6</a>
+                    <a href="/lectures/web/html/lecture-html-4.html">Текстовые теги</a>
+                    <a href="/lectures/web/html/lecture-html-5.html">Смысловое выделение</a>
+                    <a href="/lectures/web/html/lecture-html-6.html">Списки</a>
+                    <a href="/lectures/web/html/lecture-html-7.html">Ссылки</a>
+                    <a href="/lectures/web/html/lecture-html-8.html">Изображения</a>
+                    <a href="/lectures/web/html/lecture-html-9.html">Таблицы</a>
+                    <a href="/lectures/web/html/lecture-html-10.html">Формы</a>
+                    <a href="/lectures/web/html/lecture-html-11.html">Семантические теги</a>
+                    <a href="/lectures/web/html/lecture-html-12.html">Медиа</a>
+                    <a href="/lectures/web/html/lecture-html-13.html">Спецсимволы</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-3.html" class="prev">← Свойства цвета</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+
+        <h1 class="lecture-title">Единицы измерения в CSS</h1>
+        
+        <div class="lecture-meta">
+            📏 px, %, vw, vh
+        </div>
+
+        <div class="lecture-content">
+            <p>В CSS размеры задаются разными единицами. Одни привязаны к экрану (<code>px</code>), другие — к родительскому элементу (<code>%</code>), третьи — к окну браузера (<code>vw</code>, <code>vh</code>).</p>
+
+            <h2>1. Пиксели — px</h2>
+            <p><strong>Самая популярная единица.</strong> Один пиксель — это одна точка на экране. Пиксели не зависят от размера шрифта или окна браузера. Используются для точных размеров.</p>
+            <pre><code>font-size: 16px;
+width: 200px;
+padding: 10px;
+border: 1px solid black;</code></pre>
+
+            <div class="live-example">
+                <div style="width: 200px; height: 50px; background: #530899; color: white; text-align: center; line-height: 50px;">
+                    200px
+                </div>
+                <p style="font-size: 16px; margin: 10px 0 0 0;">Текст размером 16px</p>
+            </div>
+
+            <div class="lecture-note">
+                📌 <strong>Правило:</strong> Для точных размеров (границы, отступы, ширина картинок) используйте <code>px</code>.
+            </div>
+
+            <h2>2. Проценты — %</h2>
+            <p>Размер задаётся относительно родительского элемента. Если у родителя ширина 400px, а дочернему блоку задать <code>width: 50%</code>, он будет шириной 200px.</p>
+            <pre><code>.parent {
+    width: 400px;
+}
+.child {
+    width: 50%;  /* 200px */
+}</code></pre>
+
+            <div class="live-example">
+                <div style="width: 400px; background: #e5e7eb; padding: 10px;">
+                    <div style="width: 50%; background: #530899; color: white; text-align: center; padding: 10px; box-sizing: border-box;">
+                        50% от 400px = 200px
+                    </div>
+                </div>
+            </div>
+
+            <div class="lecture-note">
+                📌 Проценты удобны для адаптивной вёрстки. Например, картинка шириной 100% всегда будет растягиваться на всю ширину родителя.
+            </div>
+
+            <h2>3. vw и vh — относительно окна браузера (viewport)</h2>
+            <ul>
+                <li><code>1vw</code> = 1% от ширины окна браузера</li>
+                <li><code>1vh</code> = 1% от высоты окна браузера</li>
+            </ul>
+            <p>Используются для создания адаптивных блоков, которые всегда занимают определённую часть экрана.</p>
+
+            <pre><code>.full-width {
+    width: 100vw;   /* на всю ширину экрана */
+    height: 50vh;   /* половина высоты экрана */
+}</code></pre>
+
+            <div class="live-example">
+                <div style="width: 50vw; background: #530899; color: white; text-align: center; padding: 10px; box-sizing: border-box;">
+                    Ширина 50% от окна браузера (50vw)
+                </div>
+                <p style="font-size: 14px; margin-top: 10px;">Попробуйте изменить ширину окна — блок подстроится.</p>
+            </div>
+
+            <div class="lecture-note">
+                📌 <strong>Важно:</strong> vw и vh считаются от размера окна браузера, а не от родительского элемента. Это удобно для полноэкранных блоков.
+            </div>
+
+            <h2>4. Сравнение и выбор единиц</h2>
+
+            <table class="units-table">
+                <thead>
+                    <tr>
+                        <th>Единица</th>
+                        <th>Относительно чего</th>
+                        <th>Когда использовать</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>px</code></td>
+                        <td>абсолютная (пиксели экрана)</td>
+                        <td>границы, точные размеры, мелкие отступы</td>
+                    </tr>
+                    <tr>
+                        <td><code>%</code></td>
+                        <td>родительского элемента</td>
+                        <td>адаптивная ширина, раскладка</td>
+                    </tr>
+                    <tr>
+                        <td><code>vw</code>, <code>vh</code></td>
+                        <td>размера окна браузера</td>
+                        <td>блоки на всю ширину/высоту экрана</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="lecture-note">
+                📌 <strong>О других единицах:</strong> <code>em</code> и <code>rem</code> мы разберём в лекции, посвящённой шрифтам и тексту, потому что они привязаны к размеру шрифта.
+            </div>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Правило большого пальца: границы и мелкие отступы — в px, ширину блоков — в % или vw, полноэкранные блоки — в vw/vh. А для шрифтов — своя история, к ней вернёмся позже».
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-3.html" class="prev">← Свойства цвета</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>

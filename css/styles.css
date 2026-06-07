@@ -434,6 +434,41 @@ li code,
     font-size: 14px;
 }
 
+/* Таблица единиц измерения (лекция 4) */
+.units-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: #f8f9fa;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #d1d5db;
+}
+
+.units-table th,
+.units-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #d1d5db;
+}
+
+.units-table th {
+    background: #e5e7eb;
+    font-weight: 600;
+    color: var(--color-first);
+}
+
+.units-table td code {
+    color: #1a1a1a;
+    background: transparent;
+    padding: 0;
+    font-weight: 600;
+}
+
+.units-table tr:hover {
+    background: #f1f3f5;
+}
+
 /* ===== АДАПТИВ ===== */
 @media (max-width: 700px) {
     .content {
