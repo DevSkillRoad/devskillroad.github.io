@@ -436,6 +436,50 @@ li code,
     overflow: visible;
 }
 
+/* Таблица спецсимволов */
+.special-chars-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: #f8f9fa;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #d1d5db;
+}
+
+.special-chars-table th,
+.special-chars-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #d1d5db;
+}
+
+.special-chars-table th {
+    background: #e5e7eb;
+    font-weight: 600;
+    color: var(--color-first);
+}
+
+.special-chars-table .code-cell {
+    background: #e5e7eb;
+}
+
+.special-chars-table .code-cell code {
+    color: #1a1a1a;
+    background: transparent;
+    padding: 0;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.special-chars-table tr:hover {
+    background: #f1f3f5;
+}
+
+.special-chars-table td:first-child {
+    font-weight: 500;
+}
+
 /* ===== АДАПТИВ ===== */
 @media (max-width: 700px) {
     .content {

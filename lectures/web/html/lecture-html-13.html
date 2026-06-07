@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Спецсимволы в HTML</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <a href="/index.html" class="logo-link">
+            <div class="logo-image"></div>
+        </a>
+        <a href="/index.html" class="title-link">
+            <div class="title">
+                <h1>DevSkillRoad</h1>
+            </div>
+        </a>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/html/lecture-html-12.html" class="prev">← Медиа</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+
+        <h1 class="lecture-title">Спецсимволы в HTML</h1>
+        
+        <div class="lecture-meta">
+            &amp;nbsp; &amp;lt; &amp;gt; &amp;copy; &amp;mdash; и другие
+        </div>
+
+        <div class="lecture-content">
+            <p>В HTML есть символы, которые нельзя написать просто так. Например, угловые скобки используются для тегов, а амперсанд — для начала самой спецпоследовательности. Для их отображения применяют <strong>HTML-сущности</strong> (спецсимволы).</p>
+
+            <h2>1. Основные спецсимволы</h2>
+
+            <table class="special-chars-table">
+                <thead>
+                    <tr>
+                        <th>Результат</th>
+                        <th>Как написать в коде</th>
+                        <th>Описание</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>&lt;</td>
+                        <td class="code-cell"><code>&amp;lt;</code></td>
+                        <td>Меньше (less than) — нужно для показа тегов на странице</td>
+                    </tr>
+                    <tr>
+                        <td>&gt;</td>
+                        <td class="code-cell"><code>&amp;gt;</code></td>
+                        <td>Больше (greater than) — нужно для показа тегов на странице</td>
+                    </tr>
+                    <tr>
+                        <td>&amp;</td>
+                        <td class="code-cell"><code>&amp;amp;</code></td>
+                        <td>Амперсанд (ampersand) — нужен, чтобы написать сам спецсимвол</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td class="code-cell"><code>&amp;nbsp;</code></td>
+                        <td>Неразрывный пробел — запрещает перенос строки в этом месте</td>
+                    </tr>
+                    <tr>
+                        <td>&copy;</td>
+                        <td class="code-cell"><code>&amp;copy;</code></td>
+                        <td>Знак копирайта (copyright)</td>
+                    </tr>
+                    <tr>
+                        <td>&reg;</td>
+                        <td class="code-cell"><code>&amp;reg;</code></td>
+                        <td>Зарегистрированная торговая марка (registered)</td>
+                    </tr>
+                    <tr>
+                        <td>&trade;</td>
+                        <td class="code-cell"><code>&amp;trade;</code></td>
+                        <td>Торговая марка (trademark) — ™</td>
+                    </tr>
+                    <tr>
+                        <td>&mdash;</td>
+                        <td class="code-cell"><code>&amp;mdash;</code></td>
+                        <td>Длинное тире (em dash) — используется в тексте как пауза</td>
+                    </tr>
+                    <tr>
+                        <td>&ndash;</td>
+                        <td class="code-cell"><code>&amp;ndash;</code></td>
+                        <td>Короткое тире (en dash) — для диапазонов (10–20 км)</td>
+                    </tr>
+                    <tr>
+                        <td>&laquo;</td>
+                        <td class="code-cell"><code>&amp;laquo;</code></td>
+                        <td>Левая двойная кавычка-ёлочка («)</td>
+                    </tr>
+                    <tr>
+                        <td>&raquo;</td>
+                        <td class="code-cell"><code>&amp;raquo;</code></td>
+                        <td>Правая двойная кавычка-ёлочка (»)</td>
+                    </tr>
+                    <tr>
+                        <td>&hellip;</td>
+                        <td class="code-cell"><code>&amp;hellip;</code></td>
+                        <td>Многоточие (…)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>2. Когда это нужно</h2>
+
+            <h3>Пример 1: показать код на странице</h3>
+            <p>Если вы хотите показать пример тега в своей лекции, нужно заменять угловые скобки на <code>&amp;lt;</code> и <code>&amp;gt;</code>.</p>
+
+            <pre><code>&amp;lt;p&amp;gt;Это абзац&amp;lt;/p&amp;gt;</code></pre>
+
+            <p><strong>Что увидит пользователь:</strong></p>
+            <div class="live-example">
+                &lt;p&gt;Это абзац&lt;/p&gt;
+            </div>
+
+            <h3>Пример 2: неразрывный пробел</h3>
+            <p>Обычный пробел браузер может перенести на новую строку. Неразрывный пробел <code>&amp;nbsp;</code> запрещает перенос в этом месте.</p>
+
+            <pre><code>Это &amp;nbsp;&amp;nbsp;&amp;nbsp; три неразрывных пробела.</code></pre>
+
+            <p><strong>Что увидит пользователь:</strong></p>
+            <div class="live-example">
+                Это &nbsp;&nbsp;&nbsp; три неразрывных пробела.
+            </div>
+
+            <div class="lecture-note">
+                📌 Неразрывный пробел часто используют в ФИО (Иван&amp;nbsp;Петров) или между числом и единицей измерения (10&amp;nbsp;кг).
+            </div>
+
+            <h3>Пример 3: типографские символы</h3>
+            <p>Длинное тире, кавычки-ёлочки, знаки копирайта делают текст профессиональнее.</p>
+
+            <pre><code>&amp;copy; 2025 DevSkillRoad&amp;nbsp;&amp;mdash;&amp;nbsp;Все права защищены.</code></pre>
+
+            <p><strong>Что увидит пользователь:</strong></p>
+            <div class="live-example">
+                © 2025 DevSkillRoad — Все права защищены.
+            </div>
+
+            <h2>3. Полные справочники</h2>
+            <p>В интернете есть полные таблицы всех HTML-сущностей (например, на справочных сайтах). Если вам понадобится редкий символ — вы легко его найдёте по запросу «HTML спецсимволы таблица».</p>
+
+            <h2>4. Что нельзя делать</h2>
+            <ul>
+                <li>Использовать обычные угловые скобки для показа кода — браузер примет их за теги.</li>
+                <li>Злоупотреблять <code>&amp;nbsp;</code> вместо отступов — для отступов есть CSS.</li>
+                <li>Заменять все кавычки на спецсимволы — обычные двойные и одинарные работают нормально.</li>
+            </ul>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Спецсимволы нужны нечасто, но когда нужны — без них никуда. Запомните &amp;lt;, &amp;gt;, &amp;amp;, &amp;nbsp; и &amp;copy; — остальные можно посмотреть в справочнике».
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/html/lecture-html-12.html" class="prev">← Медиа</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>
