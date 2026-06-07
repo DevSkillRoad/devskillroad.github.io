@@ -3,19 +3,7 @@
     --color-second: #14b8a6;
 }
 
-.header,
-.content,
-.grid-cards,
-.card,
-.how-to-read,
-.read-card,
-.footer-note,
-.hero,
-.live-example,
-pre,
-code,
-.lecture-nav,
-.lecture-nav * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -25,23 +13,31 @@ body {
     font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.5;
     background-color: #e3e3e3;
-    margin: 0;
     padding: 20px;
 }
 
 /* ===== ШАПКА ===== */
 .header {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 20px 30px;
     background: white;
     border-radius: 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.header .logo-image {
+.header-top {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 30px 10px 30px;
+}
+
+.logo-link,
+.title-link {
+    text-decoration: none;
+}
+
+.logo-image {
     background: url("/images/logo.svg");
     background-size: 80px;
     background-repeat: no-repeat;
@@ -51,28 +47,80 @@ body {
     transition: transform 1.3s ease;
 }
 
-.header .logo-image:hover {
+.logo-image:hover {
     transform: rotate(360deg) scale(1.05);
 }
 
-.header .title h1 {
+.title h1 {
     font-size: 32px;
     color: var(--color-first);
     letter-spacing: -0.5px;
 }
 
-/* Убираем стандартное оформление ссылок в шапке */
-.logo-link,
-.title-link {
-    text-decoration: none;
+/* ===== ВЫПАДАЮЩЕЕ МЕНЮ ===== */
+.main-nav {
+    padding: 10px 30px 10px 30px;
+    border-top: 1px solid #e5e7eb;
 }
 
-.title-link h1 {
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    color: var(--color-second);
+    padding: 10px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: 0.2s;
+    background: transparent;
+}
+
+.dropbtn:hover {
+    background: rgba(20, 184, 166, 0.1);
+    color: #0f7e6e;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    min-width: 260px;
+    background: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    z-index: 1000;
+    padding: 8px 0;
+    margin-top: 0;
+}
+
+.dropdown-content a {
     color: var(--color-first);
+    padding: 5px 20px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.dropdown-content a:hover {
+    background: #f0eef7;
+}
+
+/* Главное правило: меню видно при наведении на кнопку ИЛИ на само меню */
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
+    display: block;
 }
 
 /* ===== ОСНОВНОЙ КОНТЕНТ ===== */
 .content {
+    max-width: 1200px;
     margin: 20px auto 0 auto;
     background: white;
     padding: 40px;
@@ -124,7 +172,6 @@ h2 {
     border-left: 4px solid var(--color-second);
 }
 
-/* Кнопка начала обучения */
 .hero-button {
     margin-top: 25px;
     text-align: center;
@@ -152,7 +199,7 @@ h2 {
     transform: translateY(0);
 }
 
-/* ===== КАРТОЧКИ "ДЛЯ КОГО" ===== */
+/* ===== КАРТОЧКИ ===== */
 .grid-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -219,48 +266,7 @@ hr {
     margin: 30px 0;
 }
 
-/* ===== ДОПОЛНЕНИЯ ДЛЯ ЛЕКЦИИ ===== */
-.todo-note {
-    background: #fff3cd;
-    border-left: 4px solid #ffc107;
-    padding: 12px 20px;
-    border-radius: 12px;
-    margin-bottom: 25px;
-    font-size: 14px;
-    color: #856404;
-}
-
-.complexity-list {
-    list-style: none;
-    padding-left: 0;
-}
-
-.complexity-list li {
-    padding: 10px 0;
-    border-bottom: 1px solid #e5e7eb;
-}
-
-.complexity-list .low {
-    color: #2b9348;
-}
-
-.complexity-list .medium {
-    color: #e9c46a;
-}
-
-.complexity-list .high {
-    color: #e76f51;
-}
-
-.lecture-content ul {
-    margin: 15px 0 20px 25px;
-}
-
-.lecture-content li {
-    margin-bottom: 8px;
-    line-height: 1.5;
-}
-
+/* ===== ЛЕКЦИИ ===== */
 .lecture-nav {
     display: flex;
     justify-content: space-between;
@@ -289,36 +295,47 @@ hr {
 .lecture-nav .next.disabled {
     opacity: 0.4;
     cursor: not-allowed;
-    background: #f0eef7;
 }
 
-.lecture-nav .prev.disabled:hover,
-.lecture-nav .next.disabled:hover {
-    background: #f0eef7;
-}
-
-.lecture-nav a.prev,
-.lecture-nav a.next {
-    text-decoration: none;
-}
-
-.definitions-list {
-    list-style: none;
-    padding-left: 0;
-}
-
-.definitions-list li {
-    background: #f8f9fa;
-    margin: 12px 0;
-    padding: 12px 16px;
-    border-radius: 12px;
+.lecture-title {
+    font-size: 32px;
+    margin-bottom: 15px;
     border-left: 4px solid var(--color-second);
+    padding-left: 20px;
 }
 
-.definitions-list li strong {
-    color: var(--color-first);
-    min-width: 100px;
-    display: inline-block;
+.lecture-meta {
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.lecture-content h2 {
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+
+.lecture-content p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.lecture-content ul {
+    margin: 15px 0 20px 25px;
+}
+
+.lecture-content li {
+    margin-bottom: 8px;
+}
+
+.lecture-note {
+    background: #fef9e3;
+    padding: 20px;
+    border-radius: 16px;
+    border-left: 4px solid #f59e0b;
+    margin: 30px 0;
 }
 
 .lecture-warning {
@@ -331,50 +348,7 @@ hr {
     color: #856404;
 }
 
-/* Стиль для отдельной плашки с кодом */
-.code-block {
-    background: #2d3a3a;
-    border-radius: 16px;
-    padding: 20px;
-    margin: 20px 0;
-    overflow-x: auto;
-    border-left: 4px solid var(--color-second);
-}
-
-.code-block pre {
-    margin: 0;
-    background: none;
-    padding: 0;
-}
-
-.code-block code {
-    color: #d4d4d4;
-    background: none;
-}
-
-/* Примеры работы тегов в лекциях */
-.example-block {
-    background: #f8f9fa;
-    padding: 15px;
-    border-radius: 12px;
-    margin: 15px 0;
-    border-left: 3px solid var(--color-second);
-}
-
-.example-block p,
-.example-block div,
-.example-block span,
-.example-block strong,
-.example-block em,
-.example-block a {
-    background: #fff;
-    padding: 4px 8px;
-    margin: 4px;
-    border-radius: 6px;
-    /* display: inline-block; чтобы рамки не разрывались, но это не CSS-урок */
-}
-
-/* Все примеры кода — в единых плашках */
+/* Все примеры кода */
 pre {
     background: #2d3a3a;
     border-radius: 16px;
@@ -391,7 +365,7 @@ code {
     color: #e4e4e4;
 }
 
-/* Код внутри текста (строчный) — другой фон, чтобы не сливался */
+/* Код внутри текста */
 p code,
 li code,
 .lecture-note code,
@@ -404,7 +378,7 @@ li code,
     border-left: none;
 }
 
-/* Живые примеры в лекциях (только для демонстрации, без CSS-обучения) */
+/* Живые примеры */
 .live-example {
     background: #f8f9fa;
     padding: 20px;
@@ -413,18 +387,6 @@ li code,
     border: 1px solid #e2e8f0;
 }
 
-.live-example h1,
-.live-example h2,
-.live-example h3,
-.live-example h4,
-.live-example h5,
-.live-example h6 {
-    margin: 8px 0;
-    background: transparent;
-    padding: 0;
-}
-
-/* Внутри живых примеров pre должен выглядеть как обычный текст, не как плашка с кодом */
 .live-example pre {
     background: transparent;
     border-left: none;
@@ -472,24 +434,13 @@ li code,
     font-size: 14px;
 }
 
-.special-chars-table tr:hover {
-    background: #f1f3f5;
-}
-
-.special-chars-table td:first-child {
-    font-weight: 500;
-}
-
 /* ===== АДАПТИВ ===== */
 @media (max-width: 700px) {
     .content {
         padding: 20px;
     }
 
-    .grid-cards {
-        grid-template-columns: 1fr;
-    }
-
+    .grid-cards,
     .how-to-read {
         grid-template-columns: 1fr;
     }
@@ -498,17 +449,26 @@ li code,
         flex-direction: column;
     }
 
-    .header {
-        padding: 15px 20px;
+    .header-top {
+        padding: 15px 20px 8px 20px;
     }
 
-    .header .logo-image {
+    .main-nav {
+        padding: 0 20px 15px 20px;
+    }
+
+    .dropbtn {
+        padding: 8px 18px;
+        font-size: 14px;
+    }
+
+    .logo-image {
         background-size: 60px;
         width: 60px;
         height: 60px;
     }
 
-    .header .title h1 {
+    .title h1 {
         font-size: 24px;
     }
 
