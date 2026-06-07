@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Селекторы в CSS</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-top">
+            <a href="/" class="logo-link">
+                <div class="logo-image"></div>
+            </a>
+            <a href="/" class="title-link">
+                <div class="title">
+                    <h1>DevSkillRoad</h1>
+                </div>
+            </a>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="dropdown">
+                <button class="dropbtn">📚 Лекции HTML</button>
+                <div class="dropdown-content">
+                    <a href="/lectures/web/html/intro-html.html">📖 Введение в HTML</a>
+                    <a href="/lectures/web/html/lecture-html-1.html">Основы HTML</a>
+                    <a href="/lectures/web/html/lecture-html-2.html">Блочные и строчные</a>
+                    <a href="/lectures/web/html/lecture-html-3.html">Заголовки h1–h6</a>
+                    <a href="/lectures/web/html/lecture-html-4.html">Текстовые теги</a>
+                    <a href="/lectures/web/html/lecture-html-5.html">Смысловое выделение</a>
+                    <a href="/lectures/web/html/lecture-html-6.html">Списки</a>
+                    <a href="/lectures/web/html/lecture-html-7.html">Ссылки</a>
+                    <a href="/lectures/web/html/lecture-html-8.html">Изображения</a>
+                    <a href="/lectures/web/html/lecture-html-9.html">Таблицы</a>
+                    <a href="/lectures/web/html/lecture-html-10.html">Формы</a>
+                    <a href="/lectures/web/html/lecture-html-11.html">Семантические теги</a>
+                    <a href="/lectures/web/html/lecture-html-12.html">Медиа</a>
+                    <a href="/lectures/web/html/lecture-html-13.html">Спецсимволы</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/intro-css.html" class="prev">← Введение в CSS</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+
+        <h1 class="lecture-title">Селекторы в CSS</h1>
+        
+        <div class="lecture-meta">
+            🎯 Как обратиться к элементу на странице
+        </div>
+
+        <div class="lecture-content">
+            <p><strong>Селектор</strong> — это часть CSS-правила, которая указывает, к каким элементам HTML применять стили. Селекторов много, но самые важные мы разберём в этой лекции.</p>
+
+            <p>Общий синтаксис:</p>
+            <pre><code>селектор {
+    свойство: значение;
+}</code></pre>
+
+            <h2>1. Селектор по тегу</h2>
+            <p>Обращается ко всем элементам с указанным тегом. Самый простой способ — он применяется ко всем элементам этого типа на странице.</p>
+            <p>Пример CSS:</p>
+            <pre><code>p {
+    color: blue;
+}</code></pre>
+            <p>HTML:</p>
+            <pre><code>&lt;p&gt;Этот текст станет синим&lt;/p&gt;
+&lt;p&gt;И этот тоже&lt;/p&gt;</code></pre>
+
+            <p><strong>Результат в браузере:</strong></p>
+            <div class="live-example">
+                <p style="color: blue;">Этот текст станет синим</p>
+                <p style="color: blue;">И этот тоже</p>
+            </div>
+
+            <h2>2. Селектор по классу</h2>
+            <p>Обращается ко всем элементам с определённым атрибутом <code>class</code>. В HTML класс добавляется через атрибут <code>class</code>, а в CSS обозначается точкой <code>.</code>.</p>
+            <p>Пример CSS:</p>
+            <pre><code>.text-red {
+    color: red;
+}</code></pre>
+            <p>HTML:</p>
+            <pre><code>&lt;p class="text-red"&gt;Этот текст красный&lt;/p&gt;
+&lt;h3 class="text-red"&gt;И этот заголовок красный&lt;/h3&gt;</code></pre>
+
+            <p><strong>Результат в браузере:</strong></p>
+            <div class="live-example">
+                <p style="color: red;">Этот текст красный</p>
+                <h3 style="color: red; font-size: 1.2rem; margin: 0;">И этот заголовок красный</h3>
+            </div>
+
+            <div class="lecture-note">
+                📌 <strong>Важно:</strong> Один класс можно применить к разным тегам. Одному тегу можно дать несколько классов через пробел: <code>class="text-red card"</code>.
+            </div>
+
+            <h2>3. Селектор по id</h2>
+            <p>Обращается к элементу с определённым атрибутом <code>id</code>. <strong>id должен быть уникальным на странице</strong>. В HTML id добавляется через атрибут <code>id</code>, в CSS обозначается решёткой <code>#</code>.</p>
+            <p>Пример CSS:</p>
+            <pre><code>#unique-text {
+    color: green;
+}</code></pre>
+            <p>HTML:</p>
+            <pre><code>&lt;p id="unique-text"&gt;Этот текст зелёный, и такой id только один&lt;/p&gt;</code></pre>
+
+            <p><strong>Результат в браузере:</strong></p>
+            <div class="live-example">
+                <p style="color: green;">Этот текст зелёный, и такой id только один</p>
+            </div>
+
+            <div class="lecture-warning">
+                ⚠️ <strong>Важно:</strong> id используйте редко — только для уникальных элементов. Для стилизации чаще используют классы.
+            </div>
+
+            <h2>4. Приоритет селекторов</h2>
+            <p>Что произойдёт, если на один элемент действуют разные селекторы? Победит тот, у кого выше приоритет.</p>
+            <p><strong>Порядок приоритета (от самого сильного к слабому):</strong></p>
+            <ul>
+                <li><strong>id</strong> — самый сильный</li>
+                <li><strong>класс</strong> — сильнее, чем селектор по тегу</li>
+                <li><strong>тег</strong> — самый слабый</li>
+            </ul>
+
+            <p>Пример:</p>
+            <pre><code>.text-blue { color: blue; }      /* класс */
+#text-red { color: red; }        /* id */
+p { color: green; }              /* тег */</code></pre>
+            <pre><code>&lt;p id="text-red" class="text-blue"&gt;Какой цвет?&lt;/p&gt;</code></pre>
+
+            <p><strong>Результат:</strong> текст будет <span style="color: red; font-weight: 500;">красным</span>, потому что у id самый высокий приоритет.</p>
+
+            <div class="live-example">
+                <p id="priority-demo" style="color: red;">Какой цвет? (красный, победил id)</p>
+            </div>
+
+            <div class="lecture-note">
+                📌 <strong>Запомните:</strong> id → класс → тег. Чем точнее селектор, тем он сильнее.
+            </div>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Помните: селектор по тегу — для всех элементов типа, по классу — для группы элементов, по id — для одного уникального. Начинайте с классов — это самый удобный и безопасный способ».
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/intro-css.html" class="prev">← Введение в CSS</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>
