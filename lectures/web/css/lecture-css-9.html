@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Flexbox. Часть 1</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-top">
+            <a href="/" class="logo-link">
+                <div class="logo-image"></div>
+            </a>
+            <a href="/" class="title-link">
+                <div class="title">
+                    <h1>DevSkillRoad</h1>
+                </div>
+            </a>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="dropdown">
+                <button class="dropbtn">📚 Лекции HTML</button>
+                <div class="dropdown-content">
+                    <a href="/lectures/web/html/intro-html.html">📖 Введение в HTML</a>
+                    <a href="/lectures/web/html/lecture-html-1.html">Основы HTML</a>
+                    <a href="/lectures/web/html/lecture-html-2.html">Блочные и строчные</a>
+                    <a href="/lectures/web/html/lecture-html-3.html">Заголовки h1–h6</a>
+                    <a href="/lectures/web/html/lecture-html-4.html">Текстовые теги</a>
+                    <a href="/lectures/web/html/lecture-html-5.html">Смысловое выделение</a>
+                    <a href="/lectures/web/html/lecture-html-6.html">Списки</a>
+                    <a href="/lectures/web/html/lecture-html-7.html">Ссылки</a>
+                    <a href="/lectures/web/html/lecture-html-8.html">Изображения</a>
+                    <a href="/lectures/web/html/lecture-html-9.html">Таблицы</a>
+                    <a href="/lectures/web/html/lecture-html-10.html">Формы</a>
+                    <a href="/lectures/web/html/lecture-html-11.html">Семантические теги</a>
+                    <a href="/lectures/web/html/lecture-html-12.html">Медиа</a>
+                    <a href="/lectures/web/html/lecture-html-13.html">Спецсимволы</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-8.html" class="prev">← Позиционирование</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+
+        <h1 class="lecture-title">Flexbox. Часть 1</h1>
+        
+        <div class="lecture-meta">
+            🤸 display: flex, flex-direction, justify-content, align-items
+        </div>
+
+        <div class="lecture-content">
+            <p>Flexbox (Flexible Box Layout) — мощный инструмент для создания гибких и адаптивных раскладок. Он позволяет легко выравнивать элементы, распределять пространство и управлять порядком.</p>
+
+            <h2>1. display: flex — включаем флекс</h2>
+            <p>Свойство <code>display: flex</code> превращает родительский элемент в <strong>флекс-контейнер</strong>, а его прямые дочерние элементы — в <strong>флекс-элементы</strong>.</p>
+            <p>По умолчанию все флекс-элементы выстраиваются в строку (<code>row</code>) и сжимаются под ширину своего содержимого. При <code>flex-direction: column</code> элементы сжимаются под высоту содержимого, но растягиваются по ширине.</p>
+            <pre><code>.flex-container {
+    display: flex;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: flex; background: #f0f0f0; padding: 10px;">
+                    <div style="background: #530899; color: white; padding: 10px;">1</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">2</div>
+                    <div style="background: #ffc107; padding: 10px;">3</div>
+                </div>
+                <p style="margin-top: 10px;">Три элемента — в одной строке, сжаты под ширину содержимого</p>
+            </div>
+
+            <h2>2. flex-direction — направление оси</h2>
+            <p>Определяет, в каком направлении выстраиваются флекс-элементы.</p>
+            <p><strong>Возможные значения:</strong></p>
+            <ul>
+                <li><code>row</code> — по горизонтали (слева направо) — значение по умолчанию</li>
+                <li><code>row-reverse</code> — по горизонтали (справа налево)</li>
+                <li><code>column</code> — по вертикали (сверху вниз)</li>
+                <li><code>column-reverse</code> — по вертикали (снизу вверх)</li>
+            </ul>
+
+            <p><strong>flex-direction: row</strong></p>
+            <pre><code>.container {
+    display: flex;
+    flex-direction: row;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: flex; flex-direction: row; background: #f0f0f0; padding: 10px;">
+                    <div style="background: #530899; color: white; padding: 10px;">1</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">2</div>
+                    <div style="background: #ffc107; padding: 10px;">3</div>
+                </div>
+            </div>
+
+            <p><strong>flex-direction: row-reverse</strong></p>
+            <pre><code>.container {
+    display: flex;
+    flex-direction: row-reverse;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: flex; flex-direction: row-reverse; background: #f0f0f0; padding: 10px;">
+                    <div style="background: #530899; color: white; padding: 10px;">1</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">2</div>
+                    <div style="background: #ffc107; padding: 10px;">3</div>
+                </div>
+            </div>
+
+            <p><strong>flex-direction: column</strong></p>
+            <pre><code>.container {
+    display: flex;
+    flex-direction: column;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: flex; flex-direction: column; background: #f0f0f0; padding: 10px; width: 200px;">
+                    <div style="background: #530899; color: white; padding: 10px;">1</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">2</div>
+                    <div style="background: #ffc107; padding: 10px;">3</div>
+                </div>
+            </div>
+
+            <p><strong>flex-direction: column-reverse</strong></p>
+            <pre><code>.container {
+    display: flex;
+    flex-direction: column-reverse;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: flex; flex-direction: column-reverse; background: #f0f0f0; padding: 10px; width: 200px;">
+                    <div style="background: #530899; color: white; padding: 10px;">1</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">2</div>
+                    <div style="background: #ffc107; padding: 10px;">3</div>
+                </div>
+            </div>
+
+            <div class="lecture-note">
+                📌 <strong>Важное отличие:</strong> При <code>flex-direction: row</code> элементы сжимаются под ширину содержимого. При <code>flex-direction: column</code> элементы растягиваются по ширине (на всю доступную ширину контейнера), но сжимаются по высоте под содержимое. В примере <code>column</code> и <code>column-reverse</code> у родителя задана ширина 200px, чтобы показать растяжение.
+            </div>
+
+            <h2>3. justify-content — выравнивание по главной оси</h2>
+            <p>Управляет распределением свободного пространства вдоль главной оси (направления флекса).</p>
+            <p><strong>Возможные значения:</strong></p>
+            <ul>
+                <li><code>flex-start</code> — прижаты к началу (по умолчанию)</li>
+                <li><code>flex-end</code> — прижаты к концу</li>
+                <li><code>center</code> — по центру</li>
+                <li><code>space-between</code> — равномерно, первый у начала, последний у конца</li>
+                <li><code>space-around</code> — равные отступы вокруг каждого</li>
+                <li><code>space-evenly</code> — полностью равные отступы между и по краям</li>
+            </ul>
+
+            <p><strong>justify-content: flex-start</strong></p>
+            <pre><code>.container {
+    display: flex;
+    justify-content: flex-start;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: flex; justify-content: flex-start; background: #f0f0f0; padding: 10px;">
+                    <div style="background: #530899; color: white; padding: 10px;">1</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">2</div>
+                    <div style="background: #ffc107; padding: 10px;">3</div>
+                </div>
+            </div>
+
+            <p><strong>justify-content: flex-end</strong></p>
+            <pre><code>.container {
+    display: flex;
+    justify-content: flex-end;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: flex; justify-content: flex-end; background: #f0f0f0; padding: 10px;">
+                    <div style="background: #530899; color: white; padding: 10px;">1</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">2</div>
+                    <div style="background: #ffc107; padding: 10px;">3</div>
+                </div>
+            </div>
+
+            <p><strong>justify-content: center</strong></p>
+            <pre><code>.container {
+    display: flex;
+    justify-content: center;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: flex; justify-content: center; background: #f0f0f0; padding: 10px;">
+                    <div style="background: #530899; color: white; padding: 10px;">1</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">2</div>
+                    <div style="background: #ffc107; padding: 10px;">3</div>
+                </div>
+            </div>
+
+            <p><strong>justify-content: space-between</strong></p>
+            <pre><code>.container {
+    display: flex;
+    justify-content: space-between;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: flex; justify-content: space-between; background: #f0f0f0; padding: 10px;">
+                    <div style="background: #530899; color: white; padding: 10px;">1</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">2</div>
+                    <div style="background: #ffc107; padding: 10px;">3</div>
+                </div>
+            </div>
+
+            <p><strong>justify-content: space-around</strong></p>
+            <pre><code>.container {
+    display: flex;
+    justify-content: space-around;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: flex; justify-content: space-around; background: #f0f0f0; padding: 10px;">
+                    <div style="background: #530899; color: white; padding: 10px;">1</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">2</div>
+                    <div style="background: #ffc107; padding: 10px;">3</div>
+                </div>
+            </div>
+
+            <p><strong>justify-content: space-evenly</strong></p>
+            <pre><code>.container {
+    display: flex;
+    justify-content: space-evenly;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: flex; justify-content: space-evenly; background: #f0f0f0; padding: 10px;">
+                    <div style="background: #530899; color: white; padding: 10px;">1</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">2</div>
+                    <div style="background: #ffc107; padding: 10px;">3</div>
+                </div>
+            </div>
+
+            <h2>4. align-items — выравнивание по поперечной оси</h2>
+            <p>Управляет выравниванием флекс-элементов вдоль поперечной оси (перпендикулярной главной).</p>
+            <p><strong>Возможные значения:</strong></p>
+            <ul>
+                <li><code>stretch</code> — растягиваются на всю высоту (по умолчанию)</li>
+                <li><code>flex-start</code> — прижаты к началу</li>
+                <li><code>flex-end</code> — прижаты к концу</li>
+                <li><code>center</code> — по центру</li>
+                <li><code>baseline</code> — по базовой линии текста</li>
+            </ul>
+
+            <p><strong>align-items: stretch (по умолчанию)</strong></p>
+            <pre><code>.container {
+    display: flex;
+    align-items: stretch;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: flex; align-items: stretch; background: #f0f0f0; padding: 10px; height: 100px;">
+                    <div style="background: #530899; color: white; padding: 10px;">1</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">2</div>
+                    <div style="background: #ffc107; padding: 10px;">3</div>
+                </div>
+            </div>
+
+            <p><strong>align-items: flex-start</strong></p>
+            <pre><code>.container {
+    display: flex;
+    align-items: flex-start;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: flex; align-items: flex-start; background: #f0f0f0; padding: 10px; height: 100px;">
+                    <div style="background: #530899; color: white; padding: 10px;">1</div>
+                    <div style="background: #14b8a6; color: white; padding: 30px;">2</div>
+                    <div style="background: #ffc107; padding: 20px;">3</div>
+                </div>
+            </div>
+
+            <p><strong>align-items: flex-end</strong></p>
+            <pre><code>.container {
+    display: flex;
+    align-items: flex-end;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: flex; align-items: flex-end; background: #f0f0f0; padding: 10px; height: 100px;">
+                    <div style="background: #530899; color: white; padding: 10px;">Текст 1</div>
+                    <div style="background: #14b8a6; color: white; padding: 30px;">Текст 2</div>
+                    <div style="background: #ffc107; padding: 20px;">Текст 3</div>
+                </div>
+            </div>
+
+            <p><strong>align-items: center</strong></p>
+            <pre><code>.container {
+    display: flex;
+    align-items: center;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: flex; align-items: center; background: #f0f0f0; padding: 10px; gap: 10px;">
+                    <div style="background: #530899; color: white; padding: 5px 10px; font-size: 12px;">маленький</div>
+                    <div style="background: #14b8a6; color: white; padding: 15px 10px; font-size: 24px;">КРУПНЫЙ</div>
+                    <div style="background: #ffc107; padding: 8px 10px; font-size: 16px;">Средний</div>
+                </div>
+                <p style="margin-top: 5px; font-size: 14px;">✅ Все блоки выровнены по <strong>геометрическому центру</strong>. Они «висят» ровно посередине контейнера.</p>
+            </div>
+
+            <p><strong>align-items: baseline</strong></p>
+            <pre><code>.container {
+    display: flex;
+    align-items: baseline;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: flex; align-items: baseline; background: #f0f0f0; padding: 10px; gap: 10px;">
+                    <div style="background: #530899; color: white; padding: 5px 10px; font-size: 12px;">маленький</div>
+                    <div style="background: #14b8a6; color: white; padding: 15px 10px; font-size: 24px;">КРУПНЫЙ</div>
+                    <div style="background: #ffc107; padding: 8px 10px; font-size: 16px;">Средний</div>
+                </div>
+                <p style="margin-top: 5px; font-size: 14px;">✅ Блоки выровнены по <strong>базовой линии текста</strong> (нижней линии букв). Обратите внимание, как «маленький» и «КРУПНЫЙ» выровнены по нижнему краю букв, несмотря на разную высоту блоков.</p>
+            </div>
+
+            <div class="lecture-note">
+                📌 <strong>Разница между center и baseline наглядно:</strong>
+                <ul>
+                    <li><strong>center</strong> — выравнивает блоки по их геометрическому центру (середине блока).</li>
+                    <li><strong>baseline</strong> — выравнивает блоки по базовой линии текста (воображаемой линии, по которой «стоят» буквы).</li>
+                </ul>
+                В примере выше: <code>center</code> — все три блока центрированы по вертикали. <code>baseline</code> — тексты "стоят" на одной линии, поэтому маленький блок приподнимается, а крупный опускается.
+            </div>
+
+            <div class="lecture-note">
+                📌 <strong>Главная и поперечная ось:</strong> При <code>flex-direction: row</code> главная ось — горизонтальная (x), поперечная — вертикальная (y). При <code>flex-direction: column</code> — наоборот.
+            </div>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Flexbox — лучший друг верстальщика. Запомните: display: flex на родителе, justify-content для выравнивания по главной оси, align-items по поперечной. Этого достаточно для 80% задач».
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-8.html" class="prev">← Позиционирование</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>
