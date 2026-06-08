@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Адаптив. Медиа-запросы</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-top">
+            <a href="/" class="logo-link">
+                <div class="logo-image"></div>
+            </a>
+            <a href="/" class="title-link">
+                <div class="title">
+                    <h1>DevSkillRoad</h1>
+                </div>
+            </a>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="dropdown">
+                <button class="dropbtn">📚 Лекции HTML</button>
+                <div class="dropdown-content">
+                    <a href="/lectures/web/html/intro-html.html">📖 Введение в HTML</a>
+                    <a href="/lectures/web/html/lecture-html-1.html">Основы HTML</a>
+                    <a href="/lectures/web/html/lecture-html-2.html">Блочные и строчные</a>
+                    <a href="/lectures/web/html/lecture-html-3.html">Заголовки h1–h6</a>
+                    <a href="/lectures/web/html/lecture-html-4.html">Текстовые теги</a>
+                    <a href="/lectures/web/html/lecture-html-5.html">Смысловое выделение</a>
+                    <a href="/lectures/web/html/lecture-html-6.html">Списки</a>
+                    <a href="/lectures/web/html/lecture-html-7.html">Ссылки</a>
+                    <a href="/lectures/web/html/lecture-html-8.html">Изображения</a>
+                    <a href="/lectures/web/html/lecture-html-9.html">Таблицы</a>
+                    <a href="/lectures/web/html/lecture-html-10.html">Формы</a>
+                    <a href="/lectures/web/html/lecture-html-11.html">Семантические теги</a>
+                    <a href="/lectures/web/html/lecture-html-12.html">Медиа</a>
+                    <a href="/lectures/web/html/lecture-html-13.html">Спецсимволы</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-12.html" class="prev">← Grid. Часть 2</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+
+        <h1 class="lecture-title">Адаптив. Медиа-запросы</h1>
+        
+        <div class="lecture-meta">
+            📱 @media, max-width, min-width, mobile-first
+        </div>
+
+        <div class="lecture-content">
+            <p>Адаптив — это способность сайта подстраиваться под разные размеры экрана: от больших мониторов до маленьких телефонов. Достигается с помощью <strong>медиа-запросов</strong>.</p>
+
+            <h2>1. viewport — настройка области просмотра</h2>
+            <p>Без этого тега мобильные браузеры будут показывать страницу как на десктопе (уменьшенную). Нужно добавить в <code>&lt;head&gt;</code>:</p>
+            <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+            <p>Это говорит браузеру: «Ширина страницы равна ширине экрана, масштаб 100%».</p>
+
+            <h2>2. Синтаксис медиа-запроса</h2>
+            <p>Медиа-запрос позволяет применять CSS только при определённых условиях (например, при ширине экрана меньше 768px).</p>
+            <pre><code>@media (условие) {
+    /* CSS-правила, которые сработают только при выполнении условия */
+}</code></pre>
+
+            <h2>3. Важное замечание про пиксели на современных телефонах</h2>
+            <p>Современные телефоны имеют очень высокое разрешение экрана. Например, у iPhone 13 — 1170x2532 пикселя. Но это <strong>физические пиксели</strong>.</p>
+            <p>В CSS мы работаем с <strong>логическими пикселями (CSS-пикселями)</strong>. Браузер сам пересчитывает физические пиксели в логические так, чтобы сайт выглядел примерно одинаково на разных устройствах. Поэтому даже на самом дорогом телефоне ширина экрана в CSS-пикселях будет около <strong>375–430px</strong>.</p>
+            <p>Это сделано специально: чтобы сайт, который хорошо выглядит на старом iPhone SE (320px), нормально смотрелся и на новом флагмане. Вы пишете адаптив под логические размеры (320px, 768px, 1024px), а браузер сам масштабирует картинку под реальный экран.</p>
+            <div class="lecture-note">
+                📌 <strong>Вывод:</strong> не бойтесь, что ваш адаптив сломается на новых телефонах. CSS-пиксели остаются в привычных пределах. Используйте стандартные точки перелома — они работают.
+            </div>
+
+            <h2>4. max-width — для десктоп-first подхода</h2>
+            <p>Сначала пишем стили для больших экранов, потом для меньших.</p>
+            
+            <p><strong>Пример 1: изменение цвета фона</strong></p>
+            <pre><code>/* Стили для широких экранов (десктоп) */
+body {
+    background-color: white;
+}
+
+@media (max-width: 1024px) {
+    body {
+        background-color: #f0f0f0;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        background-color: #e0e0e0;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        background-color: #ccc;
+    }
+}</code></pre>
+            <p><em>Попробуйте изменить ширину окна браузера — фон будет темнеть при уменьшении экрана.</em></p>
+
+            <p><strong>Пример 2: изменение размера шрифта</strong></p>
+            <pre><code>h1 {
+    font-size: 32px;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 18px;
+    }
+}</code></pre>
+
+            <p><strong>Пример 3: скрытие элемента на маленьких экранах</strong></p>
+            <pre><code>.sidebar {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;  /* скрываем боковую панель на телефонах */
+    }
+}</code></pre>
+
+            <div class="lecture-note">
+                📌 <strong>Десктоп-first:</strong> начинаем с больших экранов, потом добавляем ограничения <code>max-width</code> для меньших.
+            </div>
+
+            <h2>5. min-width — для mobile-first подхода</h2>
+            <p>Сначала пишем стили для телефонов, потом для больших экранов.</p>
+            <pre><code>/* Стили для всех экранов (телефон) */
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* При ширине экрана 768px и больше */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        gap: 20px;
+    }
+}
+
+/* При ширине экрана 1024px и больше */
+@media (min-width: 1024px) {
+    .container {
+        gap: 30px;
+    }
+}</code></pre>
+            <div class="lecture-note">
+                📌 <strong>Mobile-first:</strong> начинаем с маленьких экранов, потом добавляем ограничения <code>min-width</code> для больших. Рекомендуется современными стандартами.
+            </div>
+
+            <h2>6. Точки перелома (breakpoints)</h2>
+            <p>Стандартные размеры экранов, при которых обычно меняется дизайн (логические CSS-пиксели):</p>
+            <ul>
+                <li><strong>320px – 480px</strong> — маленькие телефоны (iPhone SE, Samsung Galaxy A)</li>
+                <li><strong>481px – 768px</strong> — телефоны (портрет) и маленькие планшеты</li>
+                <li><strong>769px – 1024px</strong> — планшеты (ландшафт) и маленькие ноутбуки</li>
+                <li><strong>1025px – 1200px</strong> — десктоп (большинство ноутбуков)</li>
+                <li><strong>1201px и больше</strong> — широкие мониторы</li>
+            </ul>
+            <p>Эти размеры — не жёсткое правило, а проверенная отправная точка. Вы сами решаете, где менять дизайн.</p>
+
+            <h2>7. Пример: адаптивная сетка карточек</h2>
+            <p>На телефоне — одна колонка, на планшете — две, на десктопе — три.</p>
+            <pre><code>.card-grid {
+    display: grid;
+    grid-template-columns: 1fr;  /* одна колонка на телефоне */
+    gap: 15px;
+}
+
+@media (min-width: 768px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);  /* две колонки */
+    }
+}
+
+@media (min-width: 1024px) {
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);  /* три колонки */
+    }
+}</code></pre>
+            <div class="live-example">
+                <div style="display: grid; grid-template-columns: 1fr; gap: 10px; background: #f0f0f0; padding: 10px;">
+                    <div style="background: #530899; color: white; padding: 15px;">Карточка 1</div>
+                    <div style="background: #14b8a6; color: white; padding: 15px;">Карточка 2</div>
+                    <div style="background: #ffc107; padding: 15px;">Карточка 3</div>
+                </div>
+                <p style="margin-top: 5px;">▶ При ширине экрана менее 768px — одна колонка. При 768px и более — две колонки. При 1024px и более — три колонки.</p>
+            </div>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Адаптив — это не только про CSS. Это про уважение к пользователю, который смотрит сайт с телефона. Проверяйте свои макеты на разных экранах. И помните: mobile-first — это не тренд, а стандарт».
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-12.html" class="prev">← Grid. Часть 2</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>
