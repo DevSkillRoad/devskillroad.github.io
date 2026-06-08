@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Flexbox. Часть 2</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-top">
+            <a href="/" class="logo-link">
+                <div class="logo-image"></div>
+            </a>
+            <a href="/" class="title-link">
+                <div class="title">
+                    <h1>DevSkillRoad</h1>
+                </div>
+            </a>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="dropdown">
+                <button class="dropbtn">📚 Лекции HTML</button>
+                <div class="dropdown-content">
+                    <a href="/lectures/web/html/intro-html.html">📖 Введение в HTML</a>
+                    <a href="/lectures/web/html/lecture-html-1.html">Основы HTML</a>
+                    <a href="/lectures/web/html/lecture-html-2.html">Блочные и строчные</a>
+                    <a href="/lectures/web/html/lecture-html-3.html">Заголовки h1–h6</a>
+                    <a href="/lectures/web/html/lecture-html-4.html">Текстовые теги</a>
+                    <a href="/lectures/web/html/lecture-html-5.html">Смысловое выделение</a>
+                    <a href="/lectures/web/html/lecture-html-6.html">Списки</a>
+                    <a href="/lectures/web/html/lecture-html-7.html">Ссылки</a>
+                    <a href="/lectures/web/html/lecture-html-8.html">Изображения</a>
+                    <a href="/lectures/web/html/lecture-html-9.html">Таблицы</a>
+                    <a href="/lectures/web/html/lecture-html-10.html">Формы</a>
+                    <a href="/lectures/web/html/lecture-html-11.html">Семантические теги</a>
+                    <a href="/lectures/web/html/lecture-html-12.html">Медиа</a>
+                    <a href="/lectures/web/html/lecture-html-13.html">Спецсимволы</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-9.html" class="prev">← Flexbox. Часть 1</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+
+        <h1 class="lecture-title">Flexbox. Часть 2</h1>
+        
+        <div class="lecture-meta">
+            🤸 flex-wrap, gap, align-self, flex-grow, flex-shrink, order
+        </div>
+
+        <div class="lecture-content">
+            <p>В прошлой лекции мы разобрали основы Flexbox. Теперь переходим к более гибким настройкам: перенос строк, расстояния между элементами, управление размером и порядком.</p>
+
+            <h2>1. flex-wrap — перенос на новую строку</h2>
+            <p>По умолчанию все флекс-элементы сжимаются, чтобы поместиться в одну строку. <code>flex-wrap</code> позволяет переносить их на следующую строку, если не хватает места.</p>
+            <p><strong>Возможные значения:</strong></p>
+            <ul>
+                <li><code>nowrap</code> — без переноса (по умолчанию)</li>
+                <li><code>wrap</code> — перенос на новую строку</li>
+                <li><code>wrap-reverse</code> — перенос на новую строку в обратном порядке</li>
+            </ul>
+
+            <p><strong>flex-wrap: nowrap (по умолчанию)</strong></p>
+            <pre><code>.container {
+    display: flex;
+    flex-wrap: nowrap;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: flex; flex-wrap: nowrap; background: #f0f0f0; padding: 10px; width: 300px;">
+                    <div style="background: #530899; color: white; padding: 10px; width: 120px;">1 (120px)</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px; width: 120px;">2 (120px)</div>
+                    <div style="background: #ffc107; padding: 10px; width: 120px;">3 (120px)</div>
+                </div>
+                <p style="margin-top: 5px;">⚠️ Элементы сжались, чтобы поместиться (не поместились по ширине)</p>
+            </div>
+
+            <p><strong>flex-wrap: wrap</strong></p>
+            <pre><code>.container {
+    display: flex;
+    flex-wrap: wrap;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: flex; flex-wrap: wrap; background: #f0f0f0; padding: 10px; width: 300px;">
+                    <div style="background: #530899; color: white; padding: 10px; width: 120px;">1 (120px)</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px; width: 120px;">2 (120px)</div>
+                    <div style="background: #ffc107; padding: 10px; width: 120px;">3 (120px)</div>
+                </div>
+                <p style="margin-top: 5px;">✅ Третий элемент перенёсся на новую строку</p>
+            </div>
+
+            <h2>2. gap — расстояние между элементами</h2>
+            <p>Задаёт отступы между флекс-элементами (работает и в Grid). Не добавляет отступы по краям.</p>
+            <pre><code>.container {
+    display: flex;
+    gap: 20px;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: flex; gap: 20px; background: #f0f0f0; padding: 10px;">
+                    <div style="background: #530899; color: white; padding: 10px;">1</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">2</div>
+                    <div style="background: #ffc107; padding: 10px;">3</div>
+                </div>
+                <p style="margin-top: 5px;">✅ Между элементами расстояние 20px, по краям — нет</p>
+            </div>
+
+            <h2>3. align-self — выравнивание одного элемента</h2>
+            <p>Позволяет переопределить <code>align-items</code> для конкретного элемента. Применяется к самому элементу, а не к контейнеру.</p>
+            <p><strong>Возможные значения:</strong></p>
+            <ul>
+                <li><code>stretch</code> — растянуть на всю высоту (по умолчанию)</li>
+                <li><code>flex-start</code> — прижать к началу</li>
+                <li><code>flex-end</code> — прижать к концу</li>
+                <li><code>center</code> — по центру</li>
+                <li><code>baseline</code> — по базовой линии текста</li>
+            </ul>
+
+            <p><strong>align-self: stretch (по умолчанию)</strong></p>
+            <pre><code>.container {
+    display: flex;
+    align-items: flex-start;
+}
+.special {
+    align-self: stretch;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: flex; align-items: flex-start; background: #f0f0f0; padding: 10px; height: 100px;">
+                    <div style="background: #530899; color: white; padding: 10px;">1</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px; align-self: stretch;">2 (stretch)</div>
+                    <div style="background: #ffc107; padding: 10px;">3</div>
+                </div>
+                <p style="margin-top: 5px;">✅ Второй элемент растянулся на всю высоту</p>
+            </div>
+
+            <p><strong>align-self: center</strong></p>
+            <pre><code>.container {
+    display: flex;
+    align-items: flex-start;
+}
+.special {
+    align-self: center;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: flex; align-items: flex-start; background: #f0f0f0; padding: 10px; height: 100px;">
+                    <div style="background: #530899; color: white; padding: 10px;">1</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px; align-self: center;">2 (center)</div>
+                    <div style="background: #ffc107; padding: 10px;">3</div>
+                </div>
+                <p style="margin-top: 5px;">✅ Второй элемент выровнялся по центру</p>
+            </div>
+
+            <h2>4. flex-grow — как элемент занимает лишнее место</h2>
+            <p>Определяет, как элемент будет растягиваться, если есть свободное место. Значение — число (0, 1, 2...). По умолчанию <code>0</code> — элемент не растягивается.</p>
+            <pre><code>.container {
+    display: flex;
+}
+.item1 {
+    flex-grow: 1;
+}
+.item2 {
+    flex-grow: 2;
+}
+.item3 {
+    flex-grow: 0;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: flex; background: #f0f0f0; padding: 10px;">
+                    <div style="background: #530899; color: white; padding: 10px; flex-grow: 1;">flex-grow: 1</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px; flex-grow: 2;">flex-grow: 2</div>
+                    <div style="background: #ffc107; padding: 10px; flex-grow: 0;">flex-grow: 0</div>
+                </div>
+                <p style="margin-top: 5px;">✅ Второй элемент занял в 2 раза больше лишнего места, чем первый. Третий не растянулся.</p>
+            </div>
+
+            <h2>5. flex-shrink — как элемент сжимается при нехватке места</h2>
+            <p>Определяет, как элемент будет сжиматься, если места недостаточно. По умолчанию <code>1</code> — все сжимаются равномерно. <code>0</code> — не сжимается.</p>
+            <pre><code>.container {
+    display: flex;
+    width: 300px;
+}
+.item1 {
+    width: 150px;
+    flex-shrink: 0;
+}
+.item2 {
+    width: 150px;
+    flex-shrink: 1;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: flex; background: #f0f0f0; padding: 10px; width: 300px;">
+                    <div style="background: #530899; color: white; padding: 10px; width: 150px; flex-shrink: 0;">150px (не сжимается)</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px; width: 150px; flex-shrink: 1;">150px (сжимается)</div>
+                </div>
+                <p style="margin-top: 5px;">✅ Первый элемент сохранил 150px, второй сжался</p>
+            </div>
+
+            <h2>6. order — изменение порядка элементов</h2>
+            <p>Позволяет менять порядок элементов без изменения HTML. По умолчанию все элементы имеют <code>order: 0</code>. Чем меньше число, тем элемент выше.</p>
+            <pre><code>.container {
+    display: flex;
+}
+.item1 {
+    order: 3;
+}
+.item2 {
+    order: 1;
+}
+.item3 {
+    order: 2;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: flex; background: #f0f0f0; padding: 10px;">
+                    <div style="background: #530899; color: white; padding: 10px; order: 3;">1 (order: 3)</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px; order: 1;">2 (order: 1)</div>
+                    <div style="background: #ffc107; padding: 10px; order: 2;">3 (order: 2)</div>
+                </div>
+                <p style="margin-top: 5px;">✅ Порядок в HTML: 1, 2, 3. Порядок на экране: 2, 3, 1</p>
+            </div>
+
+            <h2>7. Сокращённая запись flex</h2>
+            <p>Свойство <code>flex</code> объединяет три свойства в одном: <code>flex-grow</code>, <code>flex-shrink</code> и <code>flex-basis</code> (базовый размер элемента).</p>
+            <p><strong>Синтаксис:</strong></p>
+            <ul>
+                <li><code>flex: 1;</code> — <code>flex-grow: 1</code>, <code>flex-shrink: 1</code>, <code>flex-basis: 0</code></li>
+                <li><code>flex: 0 1 auto;</code> — значения по умолчанию</li>
+                <li><code>flex: 2 0 100px;</code> — <code>flex-grow: 2</code>, <code>flex-shrink: 0</code>, <code>flex-basis: 100px</code></li>
+            </ul>
+            <pre><code>.item {
+    flex: 1;           /* займёт всё доступное место */
+}
+.item2 {
+    flex: 0 1 auto;    /* поведение по умолчанию */
+}
+.item3 {
+    flex: 2 0 150px;   /* растянется в 2 раза больше, минимальная ширина 150px */
+}</code></pre>
+            <div class="live-example">
+                <div style="display: flex; background: #f0f0f0; padding: 10px;">
+                    <div style="background: #530899; color: white; padding: 10px; flex: 1;">flex: 1</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px; flex: 2;">flex: 2</div>
+                    <div style="background: #ffc107; padding: 10px; flex: 0;">flex: 0</div>
+                </div>
+                <p style="margin-top: 5px;">✅ Первый и второй растянулись пропорционально, третий не растянулся</p>
+            </div>
+
+            <div class="lecture-note">
+                📌 <strong>Совет:</strong> Самое частое использование — <code>flex: 1</code> на элементе, чтобы он занял всё доступное место в контейнере.
+            </div>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Flexbox — это не магия, а набор правил. flex-grow для растяжения, flex-shrink для сжатия, order для порядка. Освоите — сможете собрать любой макет».
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-9.html" class="prev">← Flexbox. Часть 1</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>
