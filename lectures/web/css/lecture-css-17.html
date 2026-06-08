@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Псевдоклассы. Часть 2</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-top">
+            <a href="/" class="logo-link">
+                <div class="logo-image"></div>
+            </a>
+            <a href="/" class="title-link">
+                <div class="title">
+                    <h1>DevSkillRoad</h1>
+                </div>
+            </a>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="dropdown">
+                <button class="dropbtn">📚 Лекции HTML</button>
+                <div class="dropdown-content">
+                    <a href="/lectures/web/html/intro-html.html">📖 Введение в HTML</a>
+                    <a href="/lectures/web/html/lecture-html-1.html">Основы HTML</a>
+                    <a href="/lectures/web/html/lecture-html-2.html">Блочные и строчные</a>
+                    <a href="/lectures/web/html/lecture-html-3.html">Заголовки h1–h6</a>
+                    <a href="/lectures/web/html/lecture-html-4.html">Текстовые теги</a>
+                    <a href="/lectures/web/html/lecture-html-5.html">Смысловое выделение</a>
+                    <a href="/lectures/web/html/lecture-html-6.html">Списки</a>
+                    <a href="/lectures/web/html/lecture-html-7.html">Ссылки</a>
+                    <a href="/lectures/web/html/lecture-html-8.html">Изображения</a>
+                    <a href="/lectures/web/html/lecture-html-9.html">Таблицы</a>
+                    <a href="/lectures/web/html/lecture-html-10.html">Формы</a>
+                    <a href="/lectures/web/html/lecture-html-11.html">Семантические теги</a>
+                    <a href="/lectures/web/html/lecture-html-12.html">Медиа</a>
+                    <a href="/lectures/web/html/lecture-html-13.html">Спецсимволы</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-16.html" class="prev">← Псевдоклассы. Часть 1</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+
+        <h1 class="lecture-title">Псевдоклассы. Часть 2</h1>
+        
+        <div class="lecture-meta">
+            🎯 :nth-child, :not, :is, :where
+        </div>
+
+        <div class="lecture-content">
+            <p>Продолжаем изучать псевдоклассы. В этой части разберём более сложные и мощные инструменты для выборки элементов.</p>
+
+            <h2>1. :nth-child() — выбор по порядковому номеру</h2>
+            <p>Выбирает элементы по их порядковому номеру внутри родителя.</p>
+            <p><strong>Возможные значения:</strong></p>
+            <ul>
+                <li>Число: <code>2</code> (второй элемент)</li>
+                <li><code>odd</code> — нечётные элементы</li>
+                <li><code>even</code> — чётные элементы</li>
+                <li>Формула: <code>2n</code> (чётные), <code>2n+1</code> (нечётные), <code>3n</code> (каждый третий)</li>
+                <li>Формула со смещением: <code>n+3</code> (с третьего элемента), <code>-n+3</code> (первые три)</li>
+            </ul>
+
+            <p><strong>Пример 1: каждый второй элемент (чётные)</strong></p>
+            <pre><code>li:nth-child(even) {
+    background-color: #f0f0f0;
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-even li:nth-child(even) {
+                        background-color: #f0f0f0;
+                    }
+                </style>
+                <ul class="demo-even">
+                    <li>Элемент 1</li>
+                    <li>Элемент 2 (чётный)</li>
+                    <li>Элемент 3</li>
+                    <li>Элемент 4 (чётный)</li>
+                    <li>Элемент 5</li>
+                </ul>
+                <p style="margin-top: 5px;">✅ Чётные элементы имеют серый фон</p>
+            </div>
+
+            <p><strong>Пример 2: каждый третий элемент</strong></p>
+            <pre><code>li:nth-child(3n) {
+    background-color: #14b8a6;
+    color: white;
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-third li:nth-child(3n) {
+                        background-color: #14b8a6;
+                        color: white;
+                    }
+                </style>
+                <ul class="demo-third">
+                    <li>Элемент 1</li>
+                    <li>Элемент 2</li>
+                    <li>Элемент 3 (3n)</li>
+                    <li>Элемент 4</li>
+                    <li>Элемент 5</li>
+                    <li>Элемент 6 (3n)</li>
+                </ul>
+                <p style="margin-top: 5px;">✅ Третий и шестой элементы выделены</p>
+            </div>
+
+            <p><strong>Пример 3: первые три элемента</strong></p>
+            <pre><code>li:nth-child(-n+3) {
+    font-weight: bold;
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-first-three li:nth-child(-n+3) {
+                        font-weight: bold;
+                        color: #530899;
+                    }
+                </style>
+                <ul class="demo-first-three">
+                    <li>Элемент 1 (жирный)</li>
+                    <li>Элемент 2 (жирный)</li>
+                    <li>Элемент 3 (жирный)</li>
+                    <li>Элемент 4</li>
+                    <li>Элемент 5</li>
+                </ul>
+                <p style="margin-top: 5px;">✅ Первые три элемента выделены жирным</p>
+            </div>
+
+            <h2>2. :nth-of-type() — выбор по типу и порядку</h2>
+            <p>Отличие от <code>:nth-child</code>: считает только элементы одного типа (например, только <code>&lt;p&gt;</code>).</p>
+            <pre><code>p:nth-of-type(2) {
+    background-color: #14b8a6;
+    color: white;
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-type p:nth-of-type(2) {
+                        background-color: #14b8a6;
+                        color: white;
+                        padding: 5px;
+                    }
+                </style>
+                <div class="demo-type">
+                    <h3>Заголовок</h3>
+                    <p>Первый абзац (не считается, потому что p)</p>
+                    <p>Второй абзац (будет выделен)</p>
+                    <p>Третий абзац</p>
+                </div>
+                <p style="margin-top: 5px;">✅ Выбран второй <code>&lt;p&gt;</code>, не считая заголовок</p>
+            </div>
+            <div class="lecture-note">
+                📌 <strong>Разница:</strong> <code>:nth-child</code> считает всех детей подряд. <code>:nth-of-type</code> считает только элементы с таким же тегом.
+            </div>
+
+            <h2>3. :not() — исключение элементов</h2>
+            <p>Выбирает все элементы, которые не соответствуют селектору внутри скобок.</p>
+            <pre><code>li:not(.special) {
+    opacity: 0.5;
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-not li:not(.special) {
+                        opacity: 0.5;
+                    }
+                </style>
+                <ul class="demo-not">
+                    <li>Обычный элемент</li>
+                    <li class="special">Особый элемент (не изменится)</li>
+                    <li>Обычный элемент</li>
+                </ul>
+                <p style="margin-top: 5px;">✅ Все элементы без класса <code>.special</code> стали полупрозрачными</p>
+            </div>
+
+            <h2>4. :is() — группировка селекторов</h2>
+            <p>Позволяет группировать селекторы, сокращая код.</p>
+            <p><strong>Без :is() (нужно перечислять каждый селектор):</strong></p>
+            <pre><code>h1.special, h2.special, h3.special {
+    color: #14b8a6;
+}</code></pre>
+            <p><strong>С :is() (группируем заголовки):</strong></p>
+            <pre><code>:is(h1, h2, h3).special {
+    color: #14b8a6;
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-is :is(h1, h2, h3).special {
+                        color: #14b8a6;
+                    }
+                </style>
+                <div class="demo-is">
+                    <h1 class="special">Заголовок h1</h1>
+                    <h2 class="special">Заголовок h2</h2>
+                    <h3 class="special">Заголовок h3</h3>
+                    <p class="special">Абзац (не изменится)</p>
+                </div>
+                <p style="margin-top: 5px;">✅ Все заголовки с классом <code>.special</code> стали бирюзовыми (абзац не изменился)</p>
+            </div>
+
+            <h2>5. :where() — группировка с нулевой специфичностью</h2>
+            <p>Работает как <code>:is()</code>, но имеет нулевой вес — его легко переопределить.</p>
+            <pre><code>:where(h1, h2, h3).special {
+    color: #14b8a6;
+}</code></pre>
+
+            <p><strong>Сравнение :is() и :where() на примере</strong></p>
+            <p>Представьте, что у вас есть правило, которое должно применяться ко всем заголовкам, но потом вы хотите переопределить цвет для одного из них.</p>
+            
+            <p><strong>С :is() — переопределить сложнее</strong></p>
+            <pre><code>:is(h1, h2, h3).special {
+    color: #14b8a6;  /* этот стиль имеет вес 10 (класс) */
+}
+h2.special {
+    color: #ffc107;  /* этот стиль тоже имеет вес 10 (класс) — не перебивает */
+}</code></pre>
+            
+            <p><strong>С :where() — переопределить легко</strong></p>
+            <pre><code>:where(h1, h2, h3).special {
+    color: #14b8a6;  /* этот стиль имеет вес 0 (нулевая специфичность) */
+}
+h2.special {
+    color: #ffc107;  /* этот стиль имеет вес 10 (класс) — перебивает */
+}</code></pre>
+
+            <div class="live-example">
+                <style>
+                    .demo-is-where :is(h1, h2, h3).is-special {
+                        color: #14b8a6;
+                    }
+                    .demo-is-where h2.is-special {
+                        color: #ffc107;
+                    }
+                    .demo-is-where :where(h1, h2, h3).where-special {
+                        color: #14b8a6;
+                    }
+                    .demo-is-where h2.where-special {
+                        color: #ffc107;
+                    }
+                </style>
+                <div class="demo-is-where">
+                    <p><strong>С :is() — второму заголовку не удалось переопределить цвет:</strong></p>
+                    <h1 class="is-special">Заголовок h1 (бирюзовый)</h1>
+                    <h2 class="is-special">Заголовок h2 (остался бирюзовым)</h2>
+                    
+                    <p><strong>С :where() — второй заголовок переопределил цвет:</strong></p>
+                    <h1 class="where-special">Заголовок h1 (бирюзовый)</h1>
+                    <h2 class="where-special">Заголовок h2 (жёлтый)</h2>
+                </div>
+                <p style="margin-top: 5px;">✅ В примере с <code>:is()</code> второй заголовок остался бирюзовым. В примере с <code>:where()</code> второй заголовок стал жёлтым — его легче переопределить.</p>
+            </div>
+
+            <div class="lecture-note">
+                📌 <strong>Разница между :is() и :where():</strong>
+                <ul>
+                    <li><code>:is()</code> — имеет вес самого специфичного селектора внутри. В примере выше вес равен классу (10).</li>
+                    <li><code>:where()</code> — всегда имеет вес 0. Его легко переопределить другим правилом.</li>
+                    <li><strong>Когда использовать:</strong> <code>:is()</code> для обычной группировки, <code>:where()</code> когда вы точно знаете, что правило нужно будет часто переопределять.</li>
+                </ul>
+            </div>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «<code>:nth-child</code> — один из самых мощных псевдоклассов. Освоите формулы — сможете выбирать любые элементы: чётные, нечётные, каждый третий, первые три, начиная с пятого. <code>:not</code> и <code>:is</code> сделают код чище. А <code>:where</code> пригодится в больших проектах, где важна переопределяемость стилей».
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-16.html" class="prev">← Псевдоклассы. Часть 1</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>
