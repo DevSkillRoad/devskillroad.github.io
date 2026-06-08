@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Переходы в CSS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-top">
+            <a href="/" class="logo-link">
+                <div class="logo-image"></div>
+            </a>
+            <a href="/" class="title-link">
+                <div class="title">
+                    <h1>DevSkillRoad</h1>
+                </div>
+            </a>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="dropdown">
+                <button class="dropbtn">📚 Лекции HTML</button>
+                <div class="dropdown-content">
+                    <a href="/lectures/web/html/intro-html.html">📖 Введение в HTML</a>
+                    <a href="/lectures/web/html/lecture-html-1.html">Основы HTML</a>
+                    <a href="/lectures/web/html/lecture-html-2.html">Блочные и строчные</a>
+                    <a href="/lectures/web/html/lecture-html-3.html">Заголовки h1–h6</a>
+                    <a href="/lectures/web/html/lecture-html-4.html">Текстовые теги</a>
+                    <a href="/lectures/web/html/lecture-html-5.html">Смысловое выделение</a>
+                    <a href="/lectures/web/html/lecture-html-6.html">Списки</a>
+                    <a href="/lectures/web/html/lecture-html-7.html">Ссылки</a>
+                    <a href="/lectures/web/html/lecture-html-8.html">Изображения</a>
+                    <a href="/lectures/web/html/lecture-html-9.html">Таблицы</a>
+                    <a href="/lectures/web/html/lecture-html-10.html">Формы</a>
+                    <a href="/lectures/web/html/lecture-html-11.html">Семантические теги</a>
+                    <a href="/lectures/web/html/lecture-html-12.html">Медиа</a>
+                    <a href="/lectures/web/html/lecture-html-13.html">Спецсимволы</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-18.html" class="prev">← Псевдоэлементы</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+
+        <h1 class="lecture-title">Переходы в CSS</h1>
+        
+        <div class="lecture-meta">
+            ✨ transition: плавные изменения свойств
+        </div>
+
+        <div class="lecture-content">
+            <p>Переходы (transitions) позволяют сделать изменение свойств элемента плавным, а не мгновенным. Например, при наведении на кнопку она может плавно менять цвет фона или увеличиваться.</p>
+
+            <h2>1. transition-property — какие свойства анимировать</h2>
+            <p>Указывает, какие свойства CSS будут участвовать в переходе.</p>
+            <p><strong>Возможные значения:</strong></p>
+            <ul>
+                <li><code>all</code> — все изменяющиеся свойства (по умолчанию)</li>
+                <li><code>название свойства</code> — например, <code>background-color</code>, <code>transform</code>, <code>opacity</code></li>
+                <li><code>none</code> — никакие свойства не анимируются</li>
+            </ul>
+            <pre><code>.button {
+    transition-property: background-color, transform;
+}</code></pre>
+
+            <h2>2. transition-duration — длительность перехода</h2>
+            <p>Задаёт время, за которое произойдёт переход. Указывается в секундах (<code>s</code>) или миллисекундах (<code>ms</code>).</p>
+            <pre><code>.button {
+    transition-duration: 0.3s;  /* 300 миллисекунд */
+}</code></pre>
+
+            <h2>3. transition-timing-function — функция ускорения</h2>
+            <p>Определяет, как меняется скорость перехода во времени.</p>
+            <p><strong>Возможные значения:</strong></p>
+            <ul>
+                <li><code>ease</code> — медленно в начале, быстро в середине, медленно в конце (по умолчанию)</li>
+                <li><code>linear</code> — равномерно</li>
+                <li><code>ease-in</code> — медленно в начале</li>
+                <li><code>ease-out</code> — медленно в конце</li>
+                <li><code>ease-in-out</code> — медленно в начале и в конце</li>
+                <li><code>cubic-bezier()</code> — своя кривая ускорения (можно задать точные параметры)</li>
+            </ul>
+            <pre><code>.button {
+    transition-timing-function: ease-out;
+}</code></pre>
+
+            <h2>4. transition-delay — задержка перед началом</h2>
+            <p>Задаёт время ожидания перед началом перехода.</p>
+            <pre><code>.button {
+    transition-delay: 0.2s;  /* начнётся через 0.2 секунды */
+}</code></pre>
+
+            <h2>5. Сокращённое свойство transition</h2>
+            <p>Объединяет все свойства перехода в одной строке.</p>
+            <p><strong>Синтаксис:</strong> <code>transition: свойство длительность задержка функция-ускорения</code></p>
+            <pre><code>.button {
+    transition: background-color 0.3s ease 0.1s;
+}</code></pre>
+
+            <h2>6. Примеры переходов</h2>
+
+            <p><strong>Пример 1: плавное изменение цвета фона при наведении</strong></p>
+            <pre><code>.btn {
+    background-color: #530899;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+.btn:hover {
+    background-color: #14b8a6;
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-btn1 {
+                        background-color: #530899;
+                        color: white;
+                        padding: 10px 20px;
+                        border: none;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        transition: background-color 0.3s ease;
+                    }
+                    .demo-btn1:hover {
+                        background-color: #14b8a6;
+                    }
+                </style>
+                <button class="demo-btn1">Наведи на меня</button>
+                <p style="margin-top: 5px;">✅ При наведении фон плавно меняется с фиолетового на бирюзовый</p>
+            </div>
+
+            <p><strong>Пример 2: плавное увеличение кнопки (transform + transition)</strong></p>
+            <pre><code>.btn {
+    transition: transform 0.2s ease;
+}
+.btn:hover {
+    transform: scale(1.1);
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-btn2 {
+                        background-color: #530899;
+                        color: white;
+                        padding: 10px 20px;
+                        border: none;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        transition: transform 0.2s ease;
+                        display: inline-block;
+                    }
+                    .demo-btn2:hover {
+                        transform: scale(1.1);
+                    }
+                </style>
+                <button class="demo-btn2">Наведи на меня</button>
+                <p style="margin-top: 5px;">✅ При наведении кнопка плавно увеличивается</p>
+            </div>
+
+            <p><strong>Пример 3: несколько свойств одновременно</strong></p>
+            <pre><code>.btn {
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+.btn:hover {
+    background-color: #14b8a6;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-btn3 {
+                        background-color: #530899;
+                        color: white;
+                        padding: 10px 20px;
+                        border: none;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+                    }
+                    .demo-btn3:hover {
+                        background-color: #14b8a6;
+                        transform: scale(1.05);
+                        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+                    }
+                </style>
+                <button class="demo-btn3">Наведи на меня</button>
+                <p style="margin-top: 5px;">✅ Меняется цвет, размер и тень — всё плавно</p>
+            </div>
+
+            <p><strong>Пример 4: плавное появление с задержкой</strong></p>
+            <pre><code>.box {
+    opacity: 0.3;
+    transition: opacity 0.5s ease 0.2s;
+}
+.box:hover {
+    opacity: 1;
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-box {
+                        background-color: #530899;
+                        color: white;
+                        padding: 20px;
+                        border-radius: 8px;
+                        opacity: 0.3;
+                        transition: opacity 0.5s ease 0.2s;
+                    }
+                    .demo-box:hover {
+                        opacity: 1;
+                    }
+                </style>
+                <div class="demo-box">Наведи на меня — появлюсь через 0.2 секунды</div>
+                <p style="margin-top: 5px;">✅ При наведении блок становится полностью видимым с задержкой 0.2 секунды</p>
+            </div>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Переходы делают интерфейс живым и отзывчивым. Не переусердствуйте: 0.2–0.3 секунды — оптимальная длительность для большинства переходов. Слишком долгие анимации раздражают, слишком быстрые — незаметны. И помните: не все свойства можно анимировать (например, `display: none` не анимируется, используйте `opacity` и `visibility`).
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-18.html" class="prev">← Псевдоэлементы</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>
