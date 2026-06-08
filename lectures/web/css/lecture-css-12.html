@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Grid. Часть 2</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-top">
+            <a href="/" class="logo-link">
+                <div class="logo-image"></div>
+            </a>
+            <a href="/" class="title-link">
+                <div class="title">
+                    <h1>DevSkillRoad</h1>
+                </div>
+            </a>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="dropdown">
+                <button class="dropbtn">📚 Лекции HTML</button>
+                <div class="dropdown-content">
+                    <a href="/lectures/web/html/intro-html.html">📖 Введение в HTML</a>
+                    <a href="/lectures/web/html/lecture-html-1.html">Основы HTML</a>
+                    <a href="/lectures/web/html/lecture-html-2.html">Блочные и строчные</a>
+                    <a href="/lectures/web/html/lecture-html-3.html">Заголовки h1–h6</a>
+                    <a href="/lectures/web/html/lecture-html-4.html">Текстовые теги</a>
+                    <a href="/lectures/web/html/lecture-html-5.html">Смысловое выделение</a>
+                    <a href="/lectures/web/html/lecture-html-6.html">Списки</a>
+                    <a href="/lectures/web/html/lecture-html-7.html">Ссылки</a>
+                    <a href="/lectures/web/html/lecture-html-8.html">Изображения</a>
+                    <a href="/lectures/web/html/lecture-html-9.html">Таблицы</a>
+                    <a href="/lectures/web/html/lecture-html-10.html">Формы</a>
+                    <a href="/lectures/web/html/lecture-html-11.html">Семантические теги</a>
+                    <a href="/lectures/web/html/lecture-html-12.html">Медиа</a>
+                    <a href="/lectures/web/html/lecture-html-13.html">Спецсимволы</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-11.html" class="prev">← Grid. Часть 1</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+
+        <h1 class="lecture-title">Grid. Часть 2</h1>
+        
+        <div class="lecture-meta">
+            🧩 grid-column, grid-row, grid-area, выравнивание в Grid
+        </div>
+
+        <div class="lecture-content">
+            <p>В прошлой лекции мы научились создавать сетку. Теперь научимся размещать элементы в нужных местах, объединять ячейки и управлять выравниванием.</p>
+
+            <h2>1. grid-column — объединение колонок</h2>
+            <p>Позволяет элементу занимать несколько колонок.</p>
+            
+            <p><strong>Что такое «линии» в Grid?</strong></p>
+            <p>В Grid есть невидимые линии, которые разделяют колонки и строки. Например, если у вас 3 колонки, то линий будет 4:</p>
+            <ul>
+                <li>Линия 1 — левый край первой колонки</li>
+                <li>Линия 2 — между первой и второй колонкой</li>
+                <li>Линия 3 — между второй и третьей колонкой</li>
+                <li>Линия 4 — правый край третьей колонки</li>
+            </ul>
+            
+            <p><strong>Запись <code>grid-column: 1 / 3</code> означает:</strong> элемент начинается с линии 1 и заканчивается на линии 3, то есть занимает колонки 1 и 2.</p>
+            
+            <pre><code>.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.item {
+    grid-column: 1 / 3;  /* с линии 1 до линии 3 (занимает 2 колонки) */
+}</code></pre>
+            <div class="live-example">
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; background: #f0f0f0; padding: 10px;">
+                    <div style="background: #530899; color: white; padding: 10px; grid-column: 1 / 3;">1/3 (занимает 2 колонки)</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">2</div>
+                    <div style="background: #ffc107; padding: 10px;">3</div>
+                    <div style="background: #530899; color: white; padding: 10px;">4</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">5</div>
+                    <div style="background: #ffc107; padding: 10px;">6</div>
+                </div>
+                <p style="margin-top: 5px;">✅ Первый элемент занял колонки 1 и 2 (с линии 1 до линии 3)</p>
+            </div>
+
+            <p><strong>Сокращённая запись с span:</strong></p>
+            <pre><code>.item {
+    grid-column: span 2;  /* занять 2 колонки, начиная с текущей позиции */
+}</code></pre>
+            <div class="live-example">
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; background: #f0f0f0; padding: 10px;">
+                    <div style="background: #530899; color: white; padding: 10px;">1</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px; grid-column: span 2;">span 2 (занимает 2 колонки)</div>
+                    <div style="background: #ffc107; padding: 10px;">3</div>
+                    <div style="background: #530899; color: white; padding: 10px;">4</div>
+                </div>
+                <p style="margin-top: 5px;">✅ Второй элемент растянулся на 2 колонки</p>
+            </div>
+
+            <h2>2. grid-row — объединение строк</h2>
+            <p>Работает так же, как <code>grid-column</code>, но для строк. Линии строк считаются аналогично.</p>
+            <pre><code>.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 60px);
+}
+.item {
+    grid-row: 1 / 3;  /* с линии 1 до линии 3 (занимает 2 строки) */
+}</code></pre>
+            <div class="live-example">
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 60px); gap: 5px; background: #f0f0f0; padding: 10px;">
+                    <div style="background: #530899; color: white; padding: 10px; grid-row: 1 / 3;">1/3 (занимает 2 строки)</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">2</div>
+                    <div style="background: #ffc107; padding: 10px;">3</div>
+                    <div style="background: #530899; color: white; padding: 10px;">4</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">5</div>
+                    <div style="background: #ffc107; padding: 10px;">6</div>
+                </div>
+                <p style="margin-top: 5px;">✅ Первый элемент занял строки 1 и 2 (с линии 1 до линии 3)</p>
+            </div>
+
+            <h2>3. grid-area — размещение элемента в сетке</h2>
+            <p><code>grid-area</code> позволяет указать, какие строки и колонки занимает элемент. Записывается так:</p>
+            <p><code>grid-area: строка-начала / колонка-начала / строка-конца / колонка-конца</code></p>
+            <p>Например: <code>grid-area: 2 / 2 / 4 / 4;</code> — элемент начинается со строки 2 и колонки 2, заканчивается на строке 4 и колонке 4 (занимает 2 строки и 2 колонки).</p>
+            
+            <pre><code>.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 50px);
+}
+.item {
+    grid-area: 2 / 2 / 4 / 4;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: grid; grid-template-columns: repeat(4, 60px); grid-template-rows: repeat(4, 50px); gap: 3px; background: #f0f0f0; padding: 10px;">
+                    <div style="background: #530899; color: white; padding: 10px; grid-area: 1 / 1 / 2 / 5;">строка 1, колонки 1-4</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px; grid-area: 2 / 1 / 5 / 2;">колонка 1, строки 2-4</div>
+                    <div style="background: #ffc107; padding: 10px; grid-area: 2 / 2 / 4 / 4;">центр (строки 2-3, колонки 2-3)</div>
+                    <div style="background: #530899; color: white; padding: 10px; grid-area: 4 / 2 / 5 / 5;">низ (строка 4, колонки 2-4)</div>
+                </div>
+                <p style="margin-top: 5px;">✅ Разные элементы занимают разные области сетки</p>
+            </div>
+
+            <h3>grid-template-areas — рисуем сетку словами (самый понятный способ)</h3>
+            <p><strong>Как это работает:</strong> Вы пишете схему будущей сетки прямо в CSS. Каждая строка в кавычках — это одна строка сетки. Каждое слово — это имя области, которая может занимать одну или несколько ячеек подряд.</p>
+            
+            <p><strong>Пример:</strong></p>
+            <pre><code>.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: 
+        "header header header"
+        "sidebar content content"
+        "footer footer footer";
+}
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.content { grid-area: content; }
+.footer { grid-area: footer; }</code></pre>
+
+            <p><strong>Как читать эту схему:</strong></p>
+            <ul>
+                <li>Строка 1: три слова <code>header</code> → объединяются в одну область "header" шириной в 3 колонки</li>
+                <li>Строка 2: <code>sidebar</code> (1 колонка) и <code>content content</code> (объединяются в область "content" шириной в 2 колонки)</li>
+                <li>Строка 3: три слова <code>footer</code> → объединяются в одну область "footer" шириной в 3 колонки</li>
+            </ul>
+
+            <div class="live-example">
+                <div style="display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 5px; background: #f0f0f0; padding: 10px;">
+                    <div style="background: #530899; color: white; padding: 10px; grid-column: 1 / 4;">header</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px; grid-row: 2;">sidebar</div>
+                    <div style="background: #ffc107; padding: 10px; grid-column: span 2;">content</div>
+                    <div style="background: #530899; color: white; padding: 10px; grid-column: 1 / 4;">footer</div>
+                </div>
+                <p style="margin-top: 5px;">✅ Типовая структура сайта: шапка, боковая панель, основной контент, подвал</p>
+            </div>
+
+            <div class="lecture-note">
+                📌 <strong>Правила grid-template-areas:</strong>
+                <ul>
+                    <li>Одинаковые слова в одной строке подряд → объединяются в одну область</li>
+                    <li>Разные слова → разные ячейки</li>
+                    <li>Точка <code>.</code> → пустая ячейка</li>
+                </ul>
+            </div>
+
+            <h2>4. justify-items и align-items — выравнивание всех элементов в ячейках</h2>
+            <p>Управляют выравниванием всех элементов в сетке по горизонтали (justify-items) и вертикали (align-items) внутри своих ячеек.</p>
+            <p><strong>Возможные значения:</strong></p>
+            <ul>
+                <li><code>stretch</code> — растянуть на всю ячейку (по умолчанию)</li>
+                <li><code>start</code> — прижать к началу</li>
+                <li><code>end</code> — прижать к концу</li>
+                <li><code>center</code> — по центру</li>
+            </ul>
+            <pre><code>.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    justify-items: center;
+    align-items: center;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: grid; grid-template-columns: repeat(3, 120px); justify-items: center; align-items: center; background: #f0f0f0; padding: 10px; gap: 5px; height: 120px;">
+                    <div style="background: #530899; color: white; padding: 10px; width: 60px;">1</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px; width: 60px;">2</div>
+                    <div style="background: #ffc107; padding: 10px; width: 60px;">3</div>
+                    <div style="background: #530899; color: white; padding: 10px; width: 60px;">4</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px; width: 60px;">5</div>
+                    <div style="background: #ffc107; padding: 10px; width: 60px;">6</div>
+                </div>
+                <p style="margin-top: 5px;">✅ Все элементы выровнены по центру своих ячеек (и по горизонтали, и по вертикали)</p>
+            </div>
+
+            <h2>5. justify-self и align-self — выравнивание одного элемента</h2>
+            <p>Переопределяют выравнивание для конкретного элемента.</p>
+            <pre><code>.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 130px);
+    justify-items: start;
+}
+.special {
+    justify-self: center;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: grid; grid-template-columns: repeat(3, 130px); justify-items: start; background: #f0f0f0; padding: 10px; gap: 5px;">
+                    <div style="background: #530899; color: white; padding: 10px; width: 70px;">1</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px; width: 70px; justify-self: center;">2 (center)</div>
+                    <div style="background: #ffc107; padding: 10px; width: 70px;">3</div>
+                    <div style="background: #530899; color: white; padding: 10px; width: 70px;">4</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px; width: 70px;">5</div>
+                    <div style="background: #ffc107; padding: 10px; width: 70px;">6</div>
+                </div>
+                <p style="margin-top: 5px;">✅ Второй элемент выровнялся по центру, остальные — по левому краю</p>
+            </div>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Grid даёт полный контроль над двухмерной раскладкой. Научитесь комбинировать объединение ячеек и выравнивание — сможете сверстать любой макет: от визитки до панели администратора».
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-11.html" class="prev">← Grid. Часть 1</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>
