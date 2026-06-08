@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Фоны и градиенты в CSS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-top">
+            <a href="/" class="logo-link">
+                <div class="logo-image"></div>
+            </a>
+            <a href="/" class="title-link">
+                <div class="title">
+                    <h1>DevSkillRoad</h1>
+                </div>
+            </a>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="dropdown">
+                <button class="dropbtn">📚 Лекции HTML</button>
+                <div class="dropdown-content">
+                    <a href="/lectures/web/html/intro-html.html">📖 Введение в HTML</a>
+                    <a href="/lectures/web/html/lecture-html-1.html">Основы HTML</a>
+                    <a href="/lectures/web/html/lecture-html-2.html">Блочные и строчные</a>
+                    <a href="/lectures/web/html/lecture-html-3.html">Заголовки h1–h6</a>
+                    <a href="/lectures/web/html/lecture-html-4.html">Текстовые теги</a>
+                    <a href="/lectures/web/html/lecture-html-5.html">Смысловое выделение</a>
+                    <a href="/lectures/web/html/lecture-html-6.html">Списки</a>
+                    <a href="/lectures/web/html/lecture-html-7.html">Ссылки</a>
+                    <a href="/lectures/web/html/lecture-html-8.html">Изображения</a>
+                    <a href="/lectures/web/html/lecture-html-9.html">Таблицы</a>
+                    <a href="/lectures/web/html/lecture-html-10.html">Формы</a>
+                    <a href="/lectures/web/html/lecture-html-11.html">Семантические теги</a>
+                    <a href="/lectures/web/html/lecture-html-12.html">Медиа</a>
+                    <a href="/lectures/web/html/lecture-html-13.html">Спецсимволы</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-13.html" class="prev">← Адаптив</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+
+        <h1 class="lecture-title">Фоны и градиенты в CSS</h1>
+        
+        <div class="lecture-meta">
+            🎨 background-image, градиенты, позиционирование фона
+        </div>
+
+        <div class="lecture-content">
+            <p>С позиционированием и раскладкой мы немного разобрались (Flexbox, Grid, адаптив). Теперь вернёмся к красоте — будем украшать фон: добавлять изображения, градиенты и управлять их расположением.</p>
+            <p>Напомню, свойство <code>background-color</code> (цвет фона) мы уже изучили в лекции 3. Сейчас пойдём дальше.</p>
+
+            <h2>1. background-image — фоновое изображение</h2>
+            <p>Задаёт изображение в качестве фона. Указывается путь к файлу.</p>
+            <pre><code>.bg-image {
+    background-image: url('/images/logo.svg');
+    background-size: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 40px;
+}</code></pre>
+            <div class="live-example">
+                <div style="background-image: url('/images/logo.svg'); background-size: 50px; background-repeat: no-repeat; background-position: center; padding: 50px; border: 1px solid #ccc; text-align: center;">
+                    Фоновое изображение (логотип по центру)
+                </div>
+            </div>
+
+            <h2>2. background-repeat — повторение фона</h2>
+            <p>Управляет тем, повторяется ли фоновое изображение.</p>
+            <p><strong>Возможные значения:</strong></p>
+            <ul>
+                <li><code>repeat</code> — повторяется по горизонтали и вертикали (по умолчанию)</li>
+                <li><code>repeat-x</code> — только по горизонтали</li>
+                <li><code>repeat-y</code> — только по вертикали</li>
+                <li><code>no-repeat</code> — не повторяется</li>
+            </ul>
+            <pre><code>.repeat-x {
+    background-image: url('/images/logo.svg');
+    background-repeat: repeat-x;
+    background-size: 30px;
+}</code></pre>
+            <div class="live-example">
+                <div style="background-image: url('/images/logo.svg'); background-repeat: repeat-x; background-size: 30px; height: 60px; border: 1px solid #ccc;">
+                </div>
+                <p style="margin-top: 5px;">✅ Логотип повторяется только по горизонтали</p>
+            </div>
+
+            <h2>3. background-size — размер фона</h2>
+            <p><strong>Возможные значения:</strong></p>
+            <ul>
+                <li><code>auto</code> — оригинальный размер (по умолчанию)</li>
+                <li><code>cover</code> — масштабирует изображение так, чтобы оно полностью покрыло элемент</li>
+                <li><code>contain</code> — масштабирует так, чтобы изображение полностью поместилось внутри элемента</li>
+                <li><code>ширина высота</code> — например, <code>100px 50px</code></li>
+            </ul>
+            <pre><code>.bg-cover {
+    background-image: url('/images/logo.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}</code></pre>
+            <div class="live-example">
+                <div style="background-image: url('/images/logo.svg'); background-size: cover; background-repeat: no-repeat; width: 100%; height: 100px; border: 1px solid #ccc;">
+                </div>
+                <p style="margin-top: 5px;">✅ cover — изображение растянулось, чтобы заполнить весь блок</p>
+            </div>
+
+            <h2>4. background-position — позиция фона</h2>
+            <p>Задаёт начальное положение фонового изображения.</p>
+            <p><strong>Возможные значения:</strong></p>
+            <ul>
+                <li>Ключевые слова: <code>left</code>, <code>center</code>, <code>right</code>, <code>top</code>, <code>bottom</code></li>
+                <li>Пиксели: <code>20px 30px</code> (сдвиг по горизонтали и вертикали)</li>
+                <li>Проценты: <code>50% 50%</code> (центр)</li>
+            </ul>
+            <pre><code>.bg-position {
+    background-image: url('/images/logo.svg');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 50px;
+}</code></pre>
+            <div class="live-example">
+                <div style="background-image: url('/images/logo.svg'); background-repeat: no-repeat; background-position: right bottom; background-size: 50px; height: 100px; border: 1px solid #ccc;">
+                </div>
+                <p style="margin-top: 5px;">✅ Изображение прижато к правому нижнему углу</p>
+            </div>
+
+            <h2>5. linear-gradient — линейный градиент</h2>
+            <p>Плавный переход между цветами по прямой линии.</p>
+            <p><strong>Синтаксис:</strong> <code>linear-gradient(направление, цвет1, цвет2, ...)</code></p>
+            <p><strong>Возможные направления:</strong></p>
+            <ul>
+                <li><code>to bottom</code> — сверху вниз (по умолчанию)</li>
+                <li><code>to top</code> — снизу вверх</li>
+                <li><code>to right</code> — слева направо</li>
+                <li><code>to left</code> — справа налево</li>
+                <li><code>to top right</code> — по диагонали (вверх и вправо)</li>
+                <li><code>45deg</code> — под углом 45 градусов</li>
+                <li><code>90deg</code> — под углом 90 градусов (то же, что to right)</li>
+            </ul>
+
+            <p><strong>Пример 1: сверху вниз</strong></p>
+            <pre><code>.gradient-down {
+    background: linear-gradient(to bottom, #530899, #14b8a6);
+}</code></pre>
+            <div class="live-example">
+                <div style="background: linear-gradient(to bottom, #530899, #14b8a6); color: white; padding: 20px; text-align: center;">
+                    linear-gradient(to bottom, #530899, #14b8a6)
+                </div>
+            </div>
+
+            <p><strong>Пример 2: слева направо</strong></p>
+            <pre><code>.gradient-right {
+    background: linear-gradient(to right, #530899, #14b8a6);
+}</code></pre>
+            <div class="live-example">
+                <div style="background: linear-gradient(to right, #530899, #14b8a6); color: white; padding: 20px; text-align: center;">
+                    linear-gradient(to right, #530899, #14b8a6)
+                </div>
+            </div>
+
+            <p><strong>Пример 3: три цвета</strong></p>
+            <pre><code>.gradient-three {
+    background: linear-gradient(to right, #530899, #14b8a6, #ffc107);
+}</code></pre>
+            <div class="live-example">
+                <div style="background: linear-gradient(to right, #530899, #14b8a6, #ffc107); padding: 20px; text-align: center;">
+                    linear-gradient(to right, #530899, #14b8a6, #ffc107)
+                </div>
+            </div>
+
+            <p><strong>Пример 4: диагональный градиент (to top right)</strong></p>
+            <pre><code>.gradient-diagonal {
+    background: linear-gradient(to top right, #530899, #14b8a6);
+}</code></pre>
+            <div class="live-example">
+                <div style="background: linear-gradient(to top right, #530899, #14b8a6); color: white; padding: 20px; text-align: center;">
+                    linear-gradient(to top right, #530899, #14b8a6)
+                </div>
+            </div>
+
+            <p><strong>Пример 5: под углом 45 градусов</strong></p>
+            <pre><code>.gradient-angle {
+    background: linear-gradient(45deg, #530899, #14b8a6);
+}</code></pre>
+            <div class="live-example">
+                <div style="background: linear-gradient(45deg, #530899, #14b8a6); color: white; padding: 20px; text-align: center;">
+                    linear-gradient(45deg, #530899, #14b8a6)
+                </div>
+            </div>
+            <div class="lecture-note">
+                📌 Разница между <code>to top right</code> и <code>45deg</code>: <code>to top right</code> строго в угол, <code>45deg</code> под углом 45 градусов от горизонтали. Визуально они похожи, но при неквадратном блоке разница заметна.
+            </div>
+
+            <h2>6. radial-gradient — радиальный градиент</h2>
+            <p>Градиент, расходящийся от центра к краям (круг или эллипс).</p>
+            <pre><code>.radial {
+    background: radial-gradient(circle, #530899, #14b8a6, #ffc107);
+}</code></pre>
+            <div class="live-example">
+                <div style="background: radial-gradient(circle, #530899, #14b8a6, #ffc107); padding: 40px; text-align: center; color: white;">
+                    radial-gradient(circle, #530899, #14b8a6, #ffc107)
+                </div>
+            </div>
+
+            <h2>7. Сокращённое свойство background</h2>
+            <p>Объединяет все свойства фона в одной строке. Порядок не важен, но рекомендуется:</p>
+            <p><code>background: цвет изображение повторение позиция / размер</code></p>
+            <pre><code>.bg-short {
+    background: #f0f0f0 url('/images/logo.svg') no-repeat center / 50px;
+}</code></pre>
+            <div class="live-example">
+                <div style="background: #f0f0f0 url('/images/logo.svg') no-repeat center / 50px; height: 100px; border: 1px solid #ccc;">
+                </div>
+                <p style="margin-top: 5px;">✅ Светло-серый фон + логотип по центру + размер 50px</p>
+            </div>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Фон создаёт настроение страницы. Но помните: изображения и градиенты — это тяжёлый контент. Не перегружайте сайт. И всегда проверяйте контраст — текст на фоне должен быть читаемым».
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-13.html" class="prev">← Адаптив</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>
