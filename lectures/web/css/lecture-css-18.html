@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Псевдоэлементы в CSS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-top">
+            <a href="/" class="logo-link">
+                <div class="logo-image"></div>
+            </a>
+            <a href="/" class="title-link">
+                <div class="title">
+                    <h1>DevSkillRoad</h1>
+                </div>
+            </a>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="dropdown">
+                <button class="dropbtn">📚 Лекции HTML</button>
+                <div class="dropdown-content">
+                    <a href="/lectures/web/html/intro-html.html">📖 Введение в HTML</a>
+                    <a href="/lectures/web/html/lecture-html-1.html">Основы HTML</a>
+                    <a href="/lectures/web/html/lecture-html-2.html">Блочные и строчные</a>
+                    <a href="/lectures/web/html/lecture-html-3.html">Заголовки h1–h6</a>
+                    <a href="/lectures/web/html/lecture-html-4.html">Текстовые теги</a>
+                    <a href="/lectures/web/html/lecture-html-5.html">Смысловое выделение</a>
+                    <a href="/lectures/web/html/lecture-html-6.html">Списки</a>
+                    <a href="/lectures/web/html/lecture-html-7.html">Ссылки</a>
+                    <a href="/lectures/web/html/lecture-html-8.html">Изображения</a>
+                    <a href="/lectures/web/html/lecture-html-9.html">Таблицы</a>
+                    <a href="/lectures/web/html/lecture-html-10.html">Формы</a>
+                    <a href="/lectures/web/html/lecture-html-11.html">Семантические теги</a>
+                    <a href="/lectures/web/html/lecture-html-12.html">Медиа</a>
+                    <a href="/lectures/web/html/lecture-html-13.html">Спецсимволы</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-17.html" class="prev">← Псевдоклассы. Часть 2</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+
+        <h1 class="lecture-title">Псевдоэлементы в CSS</h1>
+        
+        <div class="lecture-meta">
+            ✨ ::before, ::after, ::first-letter, ::first-line, ::selection
+        </div>
+
+        <div class="lecture-content">
+            <p>Псевдоэлементы позволяют стилизовать части элемента или добавлять новое содержимое без изменения HTML. Отличаются от псевдоклассов двойным двоеточием <code>::</code>.</p>
+
+            <h2>1. ::before и ::after — вставка содержимого</h2>
+            <p>Псевдоэлементы <code>::before</code> и <code>::after</code> вставляют содержимое до или после содержимого элемента. Обязательно требуется свойство <code>content</code>.</p>
+            
+            <p><strong>Пример 1: добавление иконки перед текстом</strong></p>
+            <pre><code>.note::before {
+    content: "📌 ";
+    color: #14b8a6;
+    font-weight: bold;
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-before::before {
+                        content: "📌 ";
+                        color: #14b8a6;
+                        font-weight: bold;
+                    }
+                </style>
+                <div class="demo-before">Это важное примечание</div>
+                <p style="margin-top: 5px;">✅ Перед текстом появилась иконка и пробел</p>
+            </div>
+
+            <p><strong>Пример 2: добавление текста после элемента</strong></p>
+            <pre><code>.price::after {
+    content: " ₽";
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-after::after {
+                        content: " ₽";
+                        color: #530899;
+                        font-weight: bold;
+                    }
+                </style>
+                <div class="demo-after">1000</div>
+                <p style="margin-top: 5px;">✅ После числа добавился символ валюты</p>
+            </div>
+
+            <p><strong>Пример 3: декоративная линия через ::after</strong></p>
+            <pre><code>.title::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #14b8a6;
+    margin-top: 5px;
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-line::after {
+                        content: "";
+                        display: block;
+                        width: 50px;
+                        height: 3px;
+                        background-color: #14b8a6;
+                        margin-top: 5px;
+                    }
+                </style>
+                <h3 class="demo-line">Заголовок с линией</h3>
+                <p style="margin-top: 5px;">✅ Под заголовком появилась декоративная линия</p>
+            </div>
+
+            <h2>2. ::first-letter — первая буква</h2>
+            <p>Позволяет стилизовать первую букву текста внутри элемента.</p>
+            <pre><code>p::first-letter {
+    font-size: 2rem;
+    color: #14b8a6;
+    font-weight: bold;
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-first-letter::first-letter {
+                        font-size: 2rem;
+                        color: #14b8a6;
+                        font-weight: bold;
+                    }
+                </style>
+                <p class="demo-first-letter">Этот абзац начинается с большой и красивой буквы.</p>
+                <p style="margin-top: 5px;">✅ Первая буква увеличена и выделена цветом</p>
+            </div>
+
+            <h2>3. ::first-line — первая строка</h2>
+            <p>Стилизует первую строку текста внутри элемента (зависит от ширины окна). Первая строка определяется браузером по переносам, а не по тегу <code>&lt;br&gt;</code>.</p>
+            <pre><code>p::first-line {
+    font-weight: bold;
+    color: #530899;
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-first-line {
+                        width: 300px;
+                    }
+                    .demo-first-line::first-line {
+                        font-weight: bold;
+                        color: #530899;
+                    }
+                </style>
+                <p class="demo-first-line">Это очень длинный текст, который точно не поместится в одну строку, потому что мы ограничили ширину контейнера. Первая строка будет выделена, а вторая и следующие — нет.</p>
+                <p style="margin-top: 5px;">✅ Первая строка выделена жирным и фиолетовым, остальные — обычные</p>
+            </div>
+            <div class="lecture-note">
+                📌 <strong>Важно:</strong> <code>::first-line</code> работает только с блочными элементами и зависит от ширины контейнера. Первая строка — это то, что браузер отобразит на первой строке, а не то, что написано на первой строке в HTML-коде.
+            </div>
+
+            <h2>4. ::selection — выделенный текст</h2>
+            <p>Стилизует текст, который пользователь выделил мышкой.</p>
+            <pre><code>::selection {
+    background-color: #14b8a6;
+    color: white;
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-selection::selection {
+                        background-color: #14b8a6;
+                        color: white;
+                    }
+                </style>
+                <p class="demo-selection">Попробуй выделить этот текст мышкой. Фон выделения станет бирюзовым, а текст — белым.</p>
+                <p style="margin-top: 5px;">✅ При выделении текст меняет цвета</p>
+            </div>
+
+            <div class="lecture-note">
+                📌 <strong>Важно:</strong> Псевдоэлементы <code>::before</code> и <code>::after</code> не работают без свойства <code>content</code>. Даже пустое <code>content: "";</code> нужно писать обязательно.
+            </div>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Псевдоэлементы — это способ добавлять украшения, не загрязняя HTML. Иконки, подписи, декоративные линии — всё это можно сделать через CSS. Но помните: вставляемый контент не индексируется поисковиками, поэтому важную информацию (цены, ключевые слова) ставьте прямо в HTML».
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-17.html" class="prev">← Псевдоклассы. Часть 2</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>
