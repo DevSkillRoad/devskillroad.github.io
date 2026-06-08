@@ -20,7 +20,7 @@
                 </div>
             </a>
         </div>
-        
+
         <nav class="main-nav">
             <div class="dropdown">
                 <button class="dropbtn">📚 Лекции HTML</button>
@@ -51,13 +51,14 @@
         </div>
 
         <h1 class="lecture-title">Блочная модель в CSS</h1>
-        
+
         <div class="lecture-meta">
-            📦 width, height, padding, margin, border, box-sizing
+            📦 width, height, padding, margin, border, outline, box-sizing
         </div>
 
         <div class="lecture-content">
-            <p>Каждый элемент на странице — это прямоугольник. Блочная модель описывает, из каких частей он состоит и как эти части влияют на размер и расположение.</p>
+            <p>Каждый элемент на странице — это прямоугольник. Блочная модель описывает, из каких частей он состоит и
+                как эти части влияют на размер и расположение.</p>
 
             <p><strong>Схема блочной модели:</strong></p>
             <div style="background: #f0f0f0; padding: 20px; text-align: center; margin: 20px 0; border-radius: 12px;">
@@ -78,9 +79,12 @@
             </div>
 
             <h2>1. Ширина и высота — width, height</h2>
-            <p>Задают ширину и высоту элемента. <strong>Как именно они работают, зависит от свойства <code>box-sizing</code></strong> (см. раздел 6).</p>
-            <p>По умолчанию (<code>content-box</code>) <code>width</code> задаёт только ширину содержимого. <code>padding</code> и <code>border</code> добавляются сверху.</p>
-            <p>При <code>border-box</code> <code>width</code> включает в себя <code>padding</code> и <code>border</code>.</p>
+            <p>Задают ширину и высоту элемента. <strong>Как именно они работают, зависит от свойства
+                    <code>box-sizing</code></strong> (см. раздел 6).</p>
+            <p>По умолчанию (<code>content-box</code>) <code>width</code> задаёт только ширину содержимого.
+                <code>padding</code> и <code>border</code> добавляются сверху.</p>
+            <p>При <code>border-box</code> <code>width</code> включает в себя <code>padding</code> и
+                <code>border</code>.</p>
             <p><strong>Возможные значения:</strong></p>
             <ul>
                 <li><code>px</code> — пиксели</li>
@@ -93,13 +97,15 @@
     height: 100px;
 }</code></pre>
             <div class="live-example">
-                <div style="width: 200px; height: 100px; background: #530899; color: white; text-align: center; line-height: 100px;">
+                <div
+                    style="width: 200px; height: 100px; background: #530899; color: white; text-align: center; line-height: 100px;">
                     200×100
                 </div>
             </div>
 
             <h2>2. Внутренние отступы — padding</h2>
-            <p>Расстояние от границы содержимого до границы элемента. Увеличивает видимый размер элемента. Фон и граница распространяются на область padding.</p>
+            <p>Расстояние от границы содержимого до границы элемента. Увеличивает видимый размер элемента. Фон и граница
+                распространяются на область padding.</p>
             <p><strong>Возможные значения:</strong> пиксели, <code>em</code>, <code>rem</code>, проценты.</p>
             <pre><code>.no-padding {
     background: #f0f0f0;
@@ -109,7 +115,8 @@
     padding: 20px;
 }</code></pre>
             <div class="live-example">
-                <div style="background: #f0f0f0; margin-bottom: 10px; padding: 0;">Без padding (текст прилип к краю)</div>
+                <div style="background: #f0f0f0; margin-bottom: 10px; padding: 0;">Без padding (текст прилип к краю)
+                </div>
                 <div style="background: #f0f0f0; padding: 20px;">С padding: 20px (текст отодвинут от края)</div>
             </div>
             <div class="lecture-note">
@@ -124,9 +131,11 @@
             </div>
 
             <h2>3. Внешние отступы — margin</h2>
-            <p>Расстояние от границы элемента до соседних элементов. Не увеличивает видимый размер элемента, но влияет на расположение. Фон и граница не распространяются на margin.</p>
-            <p><strong>Возможные значения:</strong> пиксели, <code>em</code>, <code>rem</code>, <code>auto</code> (центрирование), проценты.</p>
-            
+            <p>Расстояние от границы элемента до соседних элементов. Не увеличивает видимый размер элемента, но влияет
+                на расположение. Фон и граница не распространяются на margin.</p>
+            <p><strong>Возможные значения:</strong> пиксели, <code>em</code>, <code>rem</code>, <code>auto</code>
+                (центрирование), проценты.</p>
+
             <p><strong>Пример: разница между padding и margin наглядно</strong></p>
             <pre><code>.parent {
     background: #f0f0f0;
@@ -155,7 +164,8 @@
                 </div>
             </div>
             <div class="lecture-note">
-                📌 <strong>Margin collapse (схлопывание):</strong> если у двух соседних элементов задан нижний и верхний отступы, браузер выберет больший из них, а не сложит. Это особенность блочной модели.
+                📌 <strong>Margin collapse (схлопывание):</strong> если у двух соседних элементов задан нижний и верхний
+                отступы, браузер выберет больший из них, а не сложит. Это особенность блочной модели.
             </div>
 
             <h2>4. Границы — border</h2>
@@ -179,19 +189,55 @@
 }</code></pre>
             <div class="live-example">
                 <div style="border: 2px solid #530899; padding: 10px; margin-bottom: 10px;">solid — сплошная линия</div>
-                <div style="border: 2px dashed #14b8a6; padding: 10px; margin-bottom: 10px;">dashed — штриховая линия</div>
+                <div style="border: 2px dashed #14b8a6; padding: 10px; margin-bottom: 10px;">dashed — штриховая линия
+                </div>
                 <div style="border: 2px dotted #ffc107; padding: 10px;">dotted — точечная линия</div>
+            </div>
+
+            <h2>5. outline — обводка (не влияет на размер)</h2>
+            <p>Похожа на <code>border</code>, но <strong>не увеличивает размер элемента</strong> и не влияет на
+                расположение соседей. Часто используется для подсветки активных элементов (например, при фокусе на поле
+                ввода).</p>
+            <pre><code>.outline-example:focus {
+    outline: 3px solid #14b8a6;
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-outline:focus {
+                        outline: 3px solid #14b8a6;
+                        border-radius: 4px;
+                    }
+                </style>
+                <input type="text" class="demo-outline" placeholder="Кликни сюда — появится обводка"
+                    style="padding: 8px;">
+                <p style="margin-top: 5px;">✅ Обводка не сдвигает соседние элементы</p>
+            </div>
+            <div class="lecture-note">
+                📌 <strong>Отличие от border:</strong> <code>border</code> увеличивает размер элемента.
+                <code>outline</code> рисуется поверх и не меняет раскладку.
             </div>
 
             <h2>5. Разница между padding и margin</h2>
             <table class="special-chars-table">
                 <thead>
-                    <tr><th>padding</th><th>margin</th></tr>
+                    <tr>
+                        <th>padding</th>
+                        <th>margin</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr><td>Внутренний отступ (внутри элемента)</td><td>Внешний отступ (снаружи элемента)</td></tr>
-                    <tr><td>Увеличивает видимый размер элемента</td><td>Не увеличивает видимый размер</td></tr>
-                    <tr><td>Фон и граница распространяются на padding</td><td>Фон и граница не затрагивают margin</td></tr>
+                    <tr>
+                        <td>Внутренний отступ (внутри элемента)</td>
+                        <td>Внешний отступ (снаружи элемента)</td>
+                    </tr>
+                    <tr>
+                        <td>Увеличивает видимый размер элемента</td>
+                        <td>Не увеличивает видимый размер</td>
+                    </tr>
+                    <tr>
+                        <td>Фон и граница распространяются на padding</td>
+                        <td>Фон и граница не затрагивают margin</td>
+                    </tr>
                 </tbody>
             </table>
 
@@ -199,8 +245,10 @@
             <p>Свойство <code>box-sizing</code> определяет, включаются ли padding и border в ширину и высоту.</p>
             <p><strong>Возможные значения:</strong></p>
             <ul>
-                <li><code>content-box</code> (по умолчанию) — width задаёт только ширину содержимого. padding и border прибавляются сверху.</li>
-                <li><code>border-box</code> — width включает в себя содержимое, padding и border. Самый удобный вариант.</li>
+                <li><code>content-box</code> (по умолчанию) — width задаёт только ширину содержимого. padding и border
+                    прибавляются сверху.</li>
+                <li><code>border-box</code> — width включает в себя содержимое, padding и border. Самый удобный вариант.
+                </li>
             </ul>
             <pre><code>.content-box {
     box-sizing: content-box;
@@ -217,23 +265,28 @@
     /* реальная ширина: 200px */
 }</code></pre>
             <div class="live-example">
-                <div style="box-sizing: content-box; width: 200px; padding: 20px; border: 2px solid #530899; background: #f0f0f0; margin-bottom: 10px;">
+                <div
+                    style="box-sizing: content-box; width: 200px; padding: 20px; border: 2px solid #530899; background: #f0f0f0; margin-bottom: 10px;">
                     content-box<br>
                     width: 200px<br>
                     реальная ширина: ~244px
                 </div>
-                <div style="box-sizing: border-box; width: 200px; padding: 20px; border: 2px solid #530899; background: #f0f0f0;">
+                <div
+                    style="box-sizing: border-box; width: 200px; padding: 20px; border: 2px solid #530899; background: #f0f0f0;">
                     border-box<br>
                     width: 200px<br>
                     реальная ширина: 200px
                 </div>
             </div>
             <div class="lecture-note">
-                📌 <strong>Совет:</strong> Многие разработчики используют глобальное правило <code>* { box-sizing: border-box; }</code>, чтобы все элементы считали размеры предсказуемо.
+                📌 <strong>Совет:</strong> Многие разработчики используют глобальное правило
+                <code>* { box-sizing: border-box; }</code>, чтобы все элементы считали размеры предсказуемо.
             </div>
 
             <div class="lecture-note">
-                <strong>📓 Из тетради:</strong> «Блочная модель — это фундамент вёрстки. Поймите разницу между padding и margin, научитесь считать реальные размеры. И всегда помните про box-sizing: border-box — он спасёт вас от неожиданных расползаний верстки».
+                <strong>📓 Из тетради:</strong> «Блочная модель — это фундамент вёрстки. Поймите разницу между padding и
+                margin, научитесь считать реальные размеры. И всегда помните про box-sizing: border-box — он спасёт вас
+                от неожиданных расползаний верстки».
             </div>
         </div>
 
