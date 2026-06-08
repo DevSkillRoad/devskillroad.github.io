@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Grid. Часть 1</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-top">
+            <a href="/" class="logo-link">
+                <div class="logo-image"></div>
+            </a>
+            <a href="/" class="title-link">
+                <div class="title">
+                    <h1>DevSkillRoad</h1>
+                </div>
+            </a>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="dropdown">
+                <button class="dropbtn">📚 Лекции HTML</button>
+                <div class="dropdown-content">
+                    <a href="/lectures/web/html/intro-html.html">📖 Введение в HTML</a>
+                    <a href="/lectures/web/html/lecture-html-1.html">Основы HTML</a>
+                    <a href="/lectures/web/html/lecture-html-2.html">Блочные и строчные</a>
+                    <a href="/lectures/web/html/lecture-html-3.html">Заголовки h1–h6</a>
+                    <a href="/lectures/web/html/lecture-html-4.html">Текстовые теги</a>
+                    <a href="/lectures/web/html/lecture-html-5.html">Смысловое выделение</a>
+                    <a href="/lectures/web/html/lecture-html-6.html">Списки</a>
+                    <a href="/lectures/web/html/lecture-html-7.html">Ссылки</a>
+                    <a href="/lectures/web/html/lecture-html-8.html">Изображения</a>
+                    <a href="/lectures/web/html/lecture-html-9.html">Таблицы</a>
+                    <a href="/lectures/web/html/lecture-html-10.html">Формы</a>
+                    <a href="/lectures/web/html/lecture-html-11.html">Семантические теги</a>
+                    <a href="/lectures/web/html/lecture-html-12.html">Медиа</a>
+                    <a href="/lectures/web/html/lecture-html-13.html">Спецсимволы</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-10.html" class="prev">← Flexbox. Часть 2</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+
+        <h1 class="lecture-title">Grid. Часть 1</h1>
+        
+        <div class="lecture-meta">
+            🧱 display: grid, grid-template-columns, grid-template-rows, gap, fr, repeat()
+        </div>
+
+        <div class="lecture-content">
+            <p>CSS Grid — это мощная система для создания двухмерных макетов (строки и колонки одновременно). В отличие от Flexbox (одномерного), Grid позволяет управлять расположением элементов по вертикали и горизонтали сразу.</p>
+
+            <h2>1. display: grid — включаем сетку</h2>
+            <p>Свойство <code>display: grid</code> превращает родительский элемент в <strong>грид-контейнер</strong>, а его прямые дочерние элементы — в <strong>грид-элементы</strong>.</p>
+            <pre><code>.grid-container {
+    display: grid;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: grid; background: #f0f0f0; padding: 10px;">
+                    <div style="background: #530899; color: white; padding: 10px;">1</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">2</div>
+                    <div style="background: #ffc107; padding: 10px;">3</div>
+                </div>
+                <p style="margin-top: 5px;">Без задания колонок элементы выстраиваются в колонку (по умолчанию одна колонка)</p>
+            </div>
+
+            <h2>2. grid-template-columns — задаём колонки</h2>
+            <p>Определяет количество и ширину колонок. Каждое значение — ширина одной колонки.</p>
+            <pre><code>.grid-container {
+    display: grid;
+    grid-template-columns: 100px 200px 100px;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: grid; grid-template-columns: 100px 200px 100px; background: #f0f0f0; padding: 10px; gap: 5px;">
+                    <div style="background: #530899; color: white; padding: 10px;">100px</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">200px</div>
+                    <div style="background: #ffc107; padding: 10px;">100px</div>
+                    <div style="background: #530899; color: white; padding: 10px;">4</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">5</div>
+                    <div style="background: #ffc107; padding: 10px;">6</div>
+                </div>
+                <p style="margin-top: 5px;">✅ 3 колонки разной ширины. Элементы заполняют их по порядку</p>
+            </div>
+
+            <h2>3. grid-template-rows — задаём строки</h2>
+            <p>Определяет количество и высоту строк.</p>
+            <pre><code>.grid-container {
+    display: grid;
+    grid-template-columns: 100px 100px;
+    grid-template-rows: 80px 120px;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: grid; grid-template-columns: 100px 100px; grid-template-rows: 80px 120px; background: #f0f0f0; padding: 10px; gap: 5px;">
+                    <div style="background: #530899; color: white; padding: 10px;">1</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">2</div>
+                    <div style="background: #ffc107; padding: 10px;">3</div>
+                    <div style="background: #530899; color: white; padding: 10px;">4</div>
+                </div>
+                <p style="margin-top: 5px;">✅ Первая строка 80px, вторая — 120px</p>
+            </div>
+
+            <h2>4. gap — расстояние между ячейками</h2>
+            <p>Задаёт отступы между строками и колонками. Не добавляет отступы по краям.</p>
+            <pre><code>.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; background: #f0f0f0; padding: 10px;">
+                    <div style="background: #530899; color: white; padding: 10px;">1</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">2</div>
+                    <div style="background: #ffc107; padding: 10px;">3</div>
+                    <div style="background: #530899; color: white; padding: 10px;">4</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">5</div>
+                    <div style="background: #ffc107; padding: 10px;">6</div>
+                </div>
+                <p style="margin-top: 5px;">✅ Между всеми ячейками расстояние 15px</p>
+            </div>
+
+            <h2>5. fr — гибкая единица измерения</h2>
+            <p><code>fr</code> (fraction) — единица, обозначающая долю свободного пространства. Позволяет создавать гибкие сетки, которые подстраиваются под размер контейнера.</p>
+            <pre><code>.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}</code></pre>
+            <div class="live-example">
+                <div style="display: grid; grid-template-columns: 1fr 2fr 1fr; background: #f0f0f0; padding: 10px; gap: 5px;">
+                    <div style="background: #530899; color: white; padding: 10px;">1fr</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">2fr</div>
+                    <div style="background: #ffc107; padding: 10px;">1fr</div>
+                    <div style="background: #530899; color: white; padding: 10px;">1fr</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">2fr</div>
+                    <div style="background: #ffc107; padding: 10px;">1fr</div>
+                </div>
+                <p style="margin-top: 5px;">✅ Средняя колонка в 2 раза шире крайних. Сетка растягивается под контейнер</p>
+            </div>
+
+            <h2>6. repeat() — сокращённая запись</h2>
+            <p>Функция <code>repeat()</code> позволяет не писать одинаковые значения много раз.</p>
+            <pre><code>.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* то же самое, что: 1fr 1fr 1fr 1fr */
+}</code></pre>
+            <div class="live-example">
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); background: #f0f0f0; padding: 10px; gap: 5px;">
+                    <div style="background: #530899; color: white; padding: 10px;">1fr</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">1fr</div>
+                    <div style="background: #ffc107; padding: 10px;">1fr</div>
+                    <div style="background: #530899; color: white; padding: 10px;">1fr</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">1fr</div>
+                    <div style="background: #ffc107; padding: 10px;">1fr</div>
+                    <div style="background: #530899; color: white; padding: 10px;">1fr</div>
+                    <div style="background: #14b8a6; color: white; padding: 10px;">1fr</div>
+                </div>
+                <p style="margin-top: 5px;">✅ 4 одинаковые колонки (записано одной строкой вместо четырёх)</p>
+            </div>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Grid — это как шахматная доска. Вы задаёте сетку, а потом расставляете фигуры по клеткам. Освоите — сможете делать любые макеты: от галерей до сложных дашбордов».
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-10.html" class="prev">← Flexbox. Часть 2</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>
