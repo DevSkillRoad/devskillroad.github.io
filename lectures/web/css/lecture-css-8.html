@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Позиционирование в CSS</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-top">
+            <a href="/" class="logo-link">
+                <div class="logo-image"></div>
+            </a>
+            <a href="/" class="title-link">
+                <div class="title">
+                    <h1>DevSkillRoad</h1>
+                </div>
+            </a>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="dropdown">
+                <button class="dropbtn">📚 Лекции HTML</button>
+                <div class="dropdown-content">
+                    <a href="/lectures/web/html/intro-html.html">📖 Введение в HTML</a>
+                    <a href="/lectures/web/html/lecture-html-1.html">Основы HTML</a>
+                    <a href="/lectures/web/html/lecture-html-2.html">Блочные и строчные</a>
+                    <a href="/lectures/web/html/lecture-html-3.html">Заголовки h1–h6</a>
+                    <a href="/lectures/web/html/lecture-html-4.html">Текстовые теги</a>
+                    <a href="/lectures/web/html/lecture-html-5.html">Смысловое выделение</a>
+                    <a href="/lectures/web/html/lecture-html-6.html">Списки</a>
+                    <a href="/lectures/web/html/lecture-html-7.html">Ссылки</a>
+                    <a href="/lectures/web/html/lecture-html-8.html">Изображения</a>
+                    <a href="/lectures/web/html/lecture-html-9.html">Таблицы</a>
+                    <a href="/lectures/web/html/lecture-html-10.html">Формы</a>
+                    <a href="/lectures/web/html/lecture-html-11.html">Семантические теги</a>
+                    <a href="/lectures/web/html/lecture-html-12.html">Медиа</a>
+                    <a href="/lectures/web/html/lecture-html-13.html">Спецсимволы</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-7.html" class="prev">← Блочная модель</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+
+        <h1 class="lecture-title">Позиционирование в CSS</h1>
+        
+        <div class="lecture-meta">
+            📍 position, top, left, z-index
+        </div>
+
+        <div class="lecture-content">
+            <p>Свойство <code>position</code> определяет, как элемент располагается на странице. Вместе со свойствами <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code> и <code>z-index</code> можно управлять положением и наложением элементов.</p>
+
+            <h2>1. static — значение по умолчанию</h2>
+            <p>Элемент располагается в обычном потоке страницы. Свойства <code>top</code>, <code>left</code> и <code>z-index</code> не работают.</p>
+            <pre><code>.static {
+    position: static;
+    /* top, left не сработают */
+}</code></pre>
+            <div class="live-example">
+                <div style="background: #f0f0f0; padding: 10px; margin-bottom: 5px;">Элемент 1 (static)</div>
+                <div style="background: #f0f0f0; padding: 10px;">Элемент 2 (static) — идёт по порядку</div>
+            </div>
+
+            <h2>2. relative — относительно себя</h2>
+            <p>Элемент остаётся в потоке, но его можно сдвинуть относительно исходного положения. Сдвиг не влияет на соседние элементы.</p>
+            <p><strong>Свойства смещения:</strong> <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code>.</p>
+            <pre><code>.relative {
+    position: relative;
+    top: 10px;
+    left: 20px;
+}</code></pre>
+            <div class="live-example">
+                <div style="background: #f0f0f0; padding: 10px;">Обычный блок</div>
+                <div style="background: #14b8a6; color: white; padding: 10px; position: relative; top: 10px; left: 20px;">
+                    position: relative; top: 10px; left: 20px;
+                </div>
+                <div style="background: #f0f0f0; padding: 10px; margin-top: 10px;">Соседний блок (не заметил сдвиг)</div>
+            </div>
+            <div class="lecture-note">
+                📌 <strong>Важно:</strong> При relative элемент остаётся в потоке. Соседние элементы ведут себя так, будто он не сдвигался.
+            </div>
+
+            <h2>3. absolute — абсолютное позиционирование</h2>
+            <p>Элемент <strong>вырывается из потока</strong> (соседние элементы его игнорируют). Позиционируется относительно ближайшего позиционированного родителя (не static). Если такого нет — относительно окна браузера.</p>
+            <pre><code>.parent {
+    position: relative;
+    height: 150px;
+    background: #f0f0f0;
+}
+.absolute {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}</code></pre>
+            <div class="live-example">
+                <div style="position: relative; height: 120px; background: #f0f0f0; border: 1px solid #ccc;">
+                    <div style="position: absolute; bottom: 10px; right: 10px; background: #530899; color: white; padding: 8px;">
+                        absolute — прижат к правому нижнему углу
+                    </div>
+                </div>
+                <p style="margin-top: 10px;">Текст после родителя (absolute не влияет на его положение)</p>
+            </div>
+            <div class="lecture-note">
+                📌 <strong>Ключевое:</strong> absolute позиционируется относительно <strong>первого родителя с position не static</strong>. Если такого нет — относительно окна браузера.
+            </div>
+
+            <h2>4. fixed — относительно окна браузера</h2>
+            <p>Элемент фиксируется относительно окна браузера и не двигается при прокрутке. Вырывается из потока.</p>
+            <pre><code>.fixed {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}</code></pre>
+            <div class="lecture-warning">
+                ⚠️ <strong>В этом примере fixed не показан</strong>, чтобы не мешать просмотру лекции. Представьте кнопку, которая всегда видна в правом нижнем углу экрана при прокрутке страницы.
+            </div>
+
+            <h2>5. sticky — прилипающий элемент</h2>
+            <p>Элемент ведёт себя как relative, но когда достигает заданной границы, «прилипает» и становится фиксированным.</p>
+            <pre><code>.sticky {
+    position: sticky;
+    top: 0;
+}</code></pre>
+            <div class="live-example" style="height: 150px; overflow-y: auto; border: 1px solid #ccc;">
+                <div style="height: 300px;">
+                    <div style="position: sticky; top: 0; background: #14b8a6; color: white; padding: 10px;">
+                        sticky — прилипает к верху при прокрутке
+                    </div>
+                    <p style="padding: 10px;">Прокрутите внутри этого блока ↓</p>
+                    <p style="padding: 10px;">... контент ...</p>
+                    <p style="padding: 10px;">... контент ...</p>
+                </div>
+            </div>
+
+            <h2>6. z-index — наложение слоёв</h2>
+            <p>Определяет, какой элемент будет выше при наложении. Работает только для позиционированных элементов (не static). Чем больше число, тем элемент выше.</p>
+            <pre><code>.low {
+    position: relative;
+    z-index: 1;
+}
+.high {
+    position: relative;
+    z-index: 10;
+}</code></pre>
+            <div class="live-example">
+                <div style="position: relative; width: 200px; height: 80px;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100px; height: 60px; background: #530899; color: white; z-index: 1; padding: 10px;">
+                        z-index: 1
+                    </div>
+                    <div style="position: absolute; top: 30px; left: 50px; width: 100px; height: 60px; background: #14b8a6; color: white; z-index: 2; padding: 10px;">
+                        z-index: 2 (выше)
+                    </div>
+                </div>
+            </div>
+
+            <h2>7. Сравнение всех значений position</h2>
+            <table class="special-chars-table">
+                <thead>
+                    <tr><th>Значение</th><th>В потоке</th><th>Относительно чего</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>static</td><td>✅ да</td><td>—</td></tr>
+                    <tr><td>relative</td><td>✅ да</td><td>себя</td></tr>
+                    <tr><td>absolute</td><td>❌ нет</td><td>ближайшего позиционированного родителя</td></tr>
+                    <tr><td>fixed</td><td>❌ нет</td><td>окна браузера</td></tr>
+                    <tr><td>sticky</td><td>✅ да</td><td>себя (до границы)</td></tr>
+                </tbody>
+            </table>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Позиционирование — мощный инструмент, но используйте его аккуратно. absolute и fixed вырывают элемент из потока, что может ломать вёрстку, если не понимать, как это работает. Sticky удобен для шапок и меню. И помните про z-index — чем больше число, тем выше элемент».
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-7.html" class="prev">← Блочная модель</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>
