@@ -20,7 +20,7 @@
                 </div>
             </a>
         </div>
-        
+
         <nav class="main-nav">
             <div class="dropdown">
                 <button class="dropbtn">📚 Лекции HTML</button>
@@ -51,13 +51,14 @@
         </div>
 
         <h1 class="lecture-title">Шрифты и текст в CSS</h1>
-        
+
         <div class="lecture-meta">
             🔤 Как управлять внешним видом текста
         </div>
 
         <div class="lecture-content">
-            <p>В этой лекции мы разберём основные свойства CSS, которые отвечают за внешний вид текста: шрифт, размер, жирность, выравнивание, цвет, межстрочный интервал и дополнительные эффекты.</p>
+            <p>В этой лекции мы разберём основные свойства CSS, которые отвечают за внешний вид текста: шрифт, размер,
+                жирность, выравнивание, цвет, межстрочный интервал и дополнительные эффекты.</p>
 
             <h2>1. Цвет текста — color</h2>
             <p>Задаёт цвет текста. Способы задания мы уже изучили в лекции 2.</p>
@@ -69,10 +70,12 @@
             </div>
 
             <h2>2. Шрифт — font-family</h2>
-            <p>Задаёт гарнитуру шрифта. Можно перечислять несколько через запятую — браузер выберет первый доступный. В конце указывают тип шрифта как запасной вариант.</p>
+            <p>Задаёт гарнитуру шрифта. Можно перечислять несколько через запятую — браузер выберет первый доступный. В
+                конце указывают тип шрифта как запасной вариант.</p>
             <p><strong>Возможные значения:</strong></p>
             <ul>
-                <li>Название конкретного шрифта: <code>Arial</code>, <code>'Times New Roman'</code>, <code>'Courier New'</code></li>
+                <li>Название конкретного шрифта: <code>Arial</code>, <code>'Times New Roman'</code>,
+                    <code>'Courier New'</code></li>
                 <li><code>serif</code> — шрифт с засечками (Times New Roman)</li>
                 <li><code>sans-serif</code> — шрифт без засечек (Arial)</li>
                 <li><code>monospace</code> — моноширинный шрифт (Courier New)</li>
@@ -99,7 +102,8 @@
             <p><strong>Возможные значения:</strong></p>
             <ul>
                 <li><code>px</code> — пиксели (абсолютный размер): <code>16px</code>, <code>24px</code></li>
-                <li><code>rem</code> — относительно корневого шрифта (<code>&lt;html&gt;</code>): <code>1rem</code>, <code>1.5rem</code></li>
+                <li><code>rem</code> — относительно корневого шрифта (<code>&lt;html&gt;</code>): <code>1rem</code>,
+                    <code>1.5rem</code></li>
                 <li><code>em</code> — относительно шрифта родителя: <code>1em</code>, <code>1.5em</code></li>
                 <li><code>%</code> — проценты от родителя: <code>100%</code>, <code>150%</code></li>
             </ul>
@@ -124,7 +128,8 @@
             <ul>
                 <li><code>normal</code> — обычный (400)</li>
                 <li><code>bold</code> — жирный (700)</li>
-                <li>Числа от 100 до 900: <code>100</code> (тонкий), <code>300</code> (светлый), <code>400</code> (normal), <code>700</code> (bold), <code>900</code> (очень жирный)</li>
+                <li>Числа от 100 до 900: <code>100</code> (тонкий), <code>300</code> (светлый), <code>400</code>
+                    (normal), <code>700</code> (bold), <code>900</code> (очень жирный)</li>
             </ul>
             <pre><code>.normal {
     font-weight: normal;
@@ -160,7 +165,8 @@
             </div>
 
             <h2>6. Межстрочный интервал — line-height</h2>
-            <p>Задаёт расстояние между строками текста. Рекомендуется использовать числа без единиц — они умножаются на размер шрифта.</p>
+            <p>Задаёт расстояние между строками текста. Рекомендуется использовать числа без единиц — они умножаются на
+                размер шрифта.</p>
             <p><strong>Возможные значения:</strong></p>
             <ul>
                 <li>Число без единиц (рекомендуется): <code>1.2</code>, <code>1.5</code>, <code>2</code></li>
@@ -216,7 +222,8 @@
                 <p style="text-align: left; background: #f0f0f0; padding: 8px;">left — по левому краю</p>
                 <p style="text-align: center; background: #f0f0f0; padding: 8px;">center — по центру</p>
                 <p style="text-align: right; background: #f0f0f0; padding: 8px;">right — по правому краю</p>
-                <p style="text-align: justify; background: #f0f0f0; padding: 8px;">justify — по ширине. Этот текст растягивается, чтобы занимать всю ширину блока.</p>
+                <p style="text-align: justify; background: #f0f0f0; padding: 8px;">justify — по ширине. Этот текст
+                    растягивается, чтобы занимать всю ширину блока.</p>
             </div>
 
             <h2>8. Оформление текста — text-decoration</h2>
@@ -273,7 +280,8 @@
 
             <h2>10. Расстояние между буквами — letter-spacing</h2>
             <p>Увеличивает или уменьшает расстояние между символами.</p>
-            <p><strong>Возможные значения:</strong> <code>normal</code> (по умолчанию), пиксели (<code>2px</code>), <code>em</code>, <code>rem</code>.</p>
+            <p><strong>Возможные значения:</strong> <code>normal</code> (по умолчанию), пиксели (<code>2px</code>),
+                <code>em</code>, <code>rem</code>.</p>
             <pre><code>.tight {
     letter-spacing: -0.5px;
 }
@@ -297,12 +305,107 @@
 }</code></pre>
             <div class="live-example">
                 <p style="text-indent: 2em; background: #f0f0f0; padding: 8px;">
-                    text-indent: 2em — это пример абзаца с отступом первой строки. Такой отступ часто используют в книгах и статьях.
+                    text-indent: 2em — это пример абзаца с отступом первой строки. Такой отступ часто используют в
+                    книгах и статьях.
                 </p>
             </div>
 
+            <h2>12. Дополнительные свойства для работы с текстом</h2>
+
+            <p><strong>white-space — управление переносом строк</strong></p>
+            <p><strong>Возможные значения:</strong> <code>normal</code> (по умолчанию), <code>nowrap</code> (без
+                переносов), <code>pre</code> (как в теге &lt;pre&gt;), <code>pre-wrap</code> (с переносами).</p>
+            <pre><code>.nowrap {
+    white-space: nowrap;
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-nowrap {
+                        white-space: nowrap;
+                        background: #f0f0f0;
+                        padding: 10px;
+                        border-radius: 8px;
+                        overflow-x: auto;
+                    }
+                </style>
+                <div class="demo-nowrap">
+                    Этот очень длинный текст не переносится на новую строку, появляется горизонтальная прокрутка.
+                </div>
+                <p style="margin-top: 5px;">✅ Текст не переносится, можно прокрутить вправо</p>
+            </div>
+
+            <p><strong>text-overflow — многоточие для обрезанного текста</strong></p>
+            <p>Работает только в паре с <code>overflow: hidden</code> и <code>white-space: nowrap</code>.</p>
+            <p><strong>Возможные значения:</strong> <code>clip</code> (обрезать), <code>ellipsis</code> (многоточие).
+            </p>
+            <pre><code>.ellipsis {
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-ellipsis {
+                        width: 200px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        background: #f0f0f0;
+                        padding: 10px;
+                        border-radius: 8px;
+                    }
+                </style>
+                <div class="demo-ellipsis">
+                    Этот очень длинный текст обрезается и в конце показывает многоточие.
+                </div>
+                <p style="margin-top: 5px;">✅ Длинный текст заменяется на многоточие</p>
+            </div>
+
+            <p><strong>word-break: break-all — принудительный разрыв</strong></p>
+            <div class="live-example">
+                <style>
+                    .demo-break-all {
+                        word-break: break-all;
+                        width: 200px;
+                        background: #f0f0f0;
+                        padding: 10px;
+                        border-radius: 8px;
+                    }
+                </style>
+                <div class="demo-break-all">
+                    https://verylongwebsiteaddress.com/this/is/a/very/long/url
+                </div>
+                <p style="margin-top: 5px;">✅ Ссылка разрывается в любом месте</p>
+            </div>
+
+            <p><strong>overflow-wrap: break-word — аккуратный перенос</strong></p>
+            <div class="live-example">
+                <style>
+                    .demo-break-word {
+                        overflow-wrap: break-word;
+                        width: 200px;
+                        background: #f0f0f0;
+                        padding: 10px;
+                        border-radius: 8px;
+                    }
+                </style>
+                <div class="demo-break-word">
+                    Это оченьдлинноеслово которое не помещается
+                </div>
+                <p style="margin-top: 5px;">✅ Слово переносится целиком, если есть место на новой строке</p>
+            </div>
+
             <div class="lecture-note">
-                <strong>📓 Из тетради:</strong> «Шрифт — это голос вашего сайта. Главное — текст должен быть читаемым. Размер не меньше 14–16px, строки не слишком плотные, контраст достаточный. Для ссылок подчёркивание обычно убирают, но оставляют его при наведении — это мы разберём в лекции про псевдоклассы».
+                📌 <strong>Совет:</strong> Для ссылок и длинных слов используйте <code>overflow-wrap: break-word</code>.
+                <code>white-space: nowrap</code> часто применяется для заголовков и пунктов меню. А
+                <code>text-overflow: ellipsis</code> — для списков новостей и карточек товаров.
+            </div>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Шрифт — это голос вашего сайта. Главное — текст должен быть читаемым.
+                Размер не меньше 14–16px, строки не слишком плотные, контраст достаточный. Для ссылок подчёркивание
+                обычно убирают, но оставляют его при наведении — это мы разберём в лекции про псевдоклассы».
             </div>
         </div>
 
