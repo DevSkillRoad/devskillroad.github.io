@@ -484,6 +484,70 @@ li code,
     background: #f1f3f5;
 }
 
+/* Блок с двумя кнопками выбора пути */
+.action-buttons {
+    display: flex;
+    gap: 30px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.action-card {
+    flex: 1;
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 24px;
+    text-align: center;
+    border-left: 4px solid var(--color-second);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.action-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: var(--color-first);
+}
+
+.action-card p {
+    color: #4a5568;
+    margin-bottom: 25px;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.action-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+    align-self: center;
+}
+
+.action-btn.primary {
+    background: var(--color-first);
+    color: white;
+    box-shadow: 0 4px 10px rgba(83, 8, 153, 0.3);
+}
+
+.action-btn.primary:hover {
+    background: #3a066b;
+    transform: translateY(-2px);
+}
+
+.action-btn.secondary {
+    background: #f0eef7;
+    color: var(--color-first);
+}
+
+.action-btn.secondary:hover {
+    background: #e0daf0;
+    transform: translateY(-2px);
+}
+
 /* ===== АДАПТИВ ===== */
 @media (max-width: 700px) {
     .content {
@@ -528,5 +592,9 @@ li code,
 
     h2 {
         font-size: 20px;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
     }
 }
