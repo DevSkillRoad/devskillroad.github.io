@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Дополнительные фильтры и эффекты</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-top">
+            <a href="/" class="logo-link">
+                <div class="logo-image"></div>
+            </a>
+            <a href="/" class="title-link">
+                <div class="title">
+                    <h1>DevSkillRoad</h1>
+                </div>
+            </a>
+        </div>
+
+        <nav class="main-nav">
+            <div class="dropdown">
+                <button class="dropbtn">📚 Лекции HTML</button>
+                <div class="dropdown-content">
+                    <a href="/lectures/web/html/intro-html.html">📖 Введение в HTML</a>
+                    <a href="/lectures/web/html/lecture-html-1.html">Основы HTML</a>
+                    <a href="/lectures/web/html/lecture-html-2.html">Блочные и строчные</a>
+                    <a href="/lectures/web/html/lecture-html-3.html">Заголовки h1–h6</a>
+                    <a href="/lectures/web/html/lecture-html-4.html">Текстовые теги</a>
+                    <a href="/lectures/web/html/lecture-html-5.html">Смысловое выделение</a>
+                    <a href="/lectures/web/html/lecture-html-6.html">Списки</a>
+                    <a href="/lectures/web/html/lecture-html-7.html">Ссылки</a>
+                    <a href="/lectures/web/html/lecture-html-8.html">Изображения</a>
+                    <a href="/lectures/web/html/lecture-html-9.html">Таблицы</a>
+                    <a href="/lectures/web/html/lecture-html-10.html">Формы</a>
+                    <a href="/lectures/web/html/lecture-html-11.html">Семантические теги</a>
+                    <a href="/lectures/web/html/lecture-html-12.html">Медиа</a>
+                    <a href="/lectures/web/html/lecture-html-13.html">Спецсимволы</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-23.html" class="prev">← CSS-переменные</a>
+            <a href="/lectures/web/css/lecture-css-25.html" class="next">Современные функции →</a>
+        </div>
+
+        <h1 class="lecture-title">Дополнительные фильтры и эффекты</h1>
+
+        <div class="lecture-meta">
+            🎨 backdrop-filter, mix-blend-mode, clip-path
+        </div>
+
+        <div class="lecture-content">
+            <p>В дополнение к уже изученным фильтрам (<code>blur</code>, <code>brightness</code>, <code>grayscale</code>
+                и др.) есть ещё несколько полезных эффектов.</p>
+
+            <h2>1. backdrop-filter — фильтр для фона за элементом</h2>
+            <p>Применяет фильтр к фону, который находится <strong>позади</strong> элемента. Создаёт эффект «стекла» или
+                «размытия заднего фона».</p>
+            <p><strong>Возможные значения:</strong></p>
+            <ul>
+                <li><code>blur(px)</code> — размытие фона за элементом</li>
+                <li><code>brightness(%)</code> — яркость фона за элементом</li>
+                <li><code>contrast(%)</code> — контрастность фона за элементом</li>
+                <li><code>grayscale(%)</code> — чёрно-белый фон за элементом</li>
+            </ul>
+            <pre><code>.glass {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.3);
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-backdrop-container {
+                        background: linear-gradient(45deg, #530899, #14b8a6);
+                        padding: 30px;
+                        border-radius: 16px;
+                        min-height: 150px;
+                    }
+
+                    .demo-backdrop {
+                        backdrop-filter: blur(8px);
+                        background: rgba(255, 255, 255, 0.3);
+                        padding: 20px;
+                        border-radius: 12px;
+                        color: #530899;
+                        font-weight: bold;
+                        text-align: center;
+                    }
+                </style>
+                <div class="demo-backdrop-container">
+                    <div class="demo-backdrop">
+                        Этот блок с размытым фоном за собой
+                    </div>
+                </div>
+                <p style="margin-top: 5px;">✅ Текст на размытом фоне (эффект стекла)</p>
+            </div>
+
+            <h2>2. mix-blend-mode — режимы наложения</h2>
+            <p>Определяет, как цвет элемента смешивается с цветом фона.</p>
+
+            <p><strong>Возможные значения:</strong></p>
+            <ul>
+                <li><code>normal</code> — обычный (без смешивания) — значение по умолчанию</li>
+                <li><code>multiply</code> — тёмные цвета остаются тёмными, светлые становятся прозрачными</li>
+                <li><code>screen</code> — светлые цвета остаются светлыми, тёмные становятся прозрачными</li>
+                <li><code>overlay</code> — сочетает multiply и screen в зависимости от яркости фона</li>
+                <li><code>difference</code> — показывает разницу в яркости между цветом элемента и фоном</li>
+            </ul>
+
+            <p><strong>Сравнение на примере (три буквы A на градиентном фоне):</strong></p>
+
+            <style>
+                .blend-demo {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 15px;
+                    justify-content: center;
+                    margin: 20px 0;
+                }
+
+                .blend-item {
+                    text-align: center;
+                    width: 120px;
+                }
+
+                .blend-box {
+                    width: 120px;
+                    height: 120px;
+                    background: linear-gradient(45deg, #000, #fff);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 5px;
+                    border-radius: 12px;
+                    margin-bottom: 8px;
+                }
+
+                .blend-letter {
+                    font-size: 32px;
+                    font-weight: bold;
+                    color: #14b8a6;
+                }
+
+                .blend-normal .blend-letter {
+                    mix-blend-mode: normal;
+                }
+
+                .blend-multiply .blend-letter {
+                    mix-blend-mode: multiply;
+                }
+
+                .blend-screen .blend-letter {
+                    mix-blend-mode: screen;
+                }
+
+                .blend-overlay .blend-letter {
+                    mix-blend-mode: overlay;
+                }
+
+                .blend-difference .blend-letter {
+                    mix-blend-mode: difference;
+                }
+            </style>
+
+            <div class="blend-demo">
+                <div class="blend-item blend-normal">
+                    <div class="blend-box"><span class="blend-letter">A</span><span class="blend-letter">A</span><span
+                            class="blend-letter">A</span></div>
+                    <div><strong>normal</strong></div>
+                    <div>(обычный)</div>
+                </div>
+                <div class="blend-item blend-multiply">
+                    <div class="blend-box"><span class="blend-letter">A</span><span class="blend-letter">A</span><span
+                            class="blend-letter">A</span></div>
+                    <div><strong>multiply</strong></div>
+                    <div>буквы темнеют на чёрном</div>
+                </div>
+                <div class="blend-item blend-screen">
+                    <div class="blend-box"><span class="blend-letter">A</span><span class="blend-letter">A</span><span
+                            class="blend-letter">A</span></div>
+                    <div><strong>screen</strong></div>
+                    <div>буквы светлеют на белом</div>
+                </div>
+                <div class="blend-item blend-overlay">
+                    <div class="blend-box"><span class="blend-letter">A</span><span class="blend-letter">A</span><span
+                            class="blend-letter">A</span></div>
+                    <div><strong>overlay</strong></div>
+                    <div>усиление контраста</div>
+                </div>
+                <div class="blend-item blend-difference">
+                    <div class="blend-box"><span class="blend-letter">A</span><span class="blend-letter">A</span><span
+                            class="blend-letter">A</span></div>
+                    <div><strong>difference</strong></div>
+                    <div>инверсия цвета</div>
+                </div>
+            </div>
+
+            <div class="lecture-note">
+                📌 <strong>Что здесь происходит:</strong>
+                <ul>
+                    <li>Фон — градиент от чёрного (левый верхний угол) к белому (правый нижний угол)</li>
+                    <li>Три буквы A везде одинаковые — бирюзовые (#14b8a6)</li>
+                    <li><strong>normal</strong> — буквы не смешиваются с фоном, видимы как есть</li>
+                    <li><strong>multiply</strong> — на чёрном фоне буквы почти исчезают, на белом остаются видимыми</li>
+                    <li><strong>screen</strong> — наоборот: на белом фоне буквы светлеют, на чёрном видны хорошо</li>
+                    <li><strong>overlay</strong> — усиливает контраст, буквы становятся ярче</li>
+                    <li><strong>difference</strong> — инвертирует цвет букв в зависимости от фона</li>
+                </ul>
+            </div>
+
+            <div class="lecture-note">
+                📌 <strong>Что здесь происходит:</strong>
+                <ul>
+                    <li>Фон — градиент от чёрного (слева) к белому (справа)</li>
+                    <li>Буква везде одна и та же — бирюзовая (#14b8a6)</li>
+                    <li><strong>normal</strong> — буква не смешивается с фоном, видна как есть</li>
+                    <li><strong>multiply</strong> — на чёрном фоне буква почти исчезает, на белом остаётся видимой</li>
+                    <li><strong>screen</strong> — наоборот: на белом буква светлеет, на чёрном видна хорошо</li>
+                    <li><strong>overlay</strong> — усиливает контраст, буква становится ярче</li>
+                    <li><strong>difference</strong> — инвертирует цвет буквы в зависимости от фона</li>
+                </ul>
+            </div>
+
+            <h2>3. clip-path — обрезка элемента</h2>
+            <p>Обрезает элемент по заданной форме. Кнопка остаётся кликабельной только в области видимой части.</p>
+            <p><strong>Возможные значения:</strong></p>
+            <ul>
+                <li><code>circle(50%)</code> — круг (кнопка становится круглой)</li>
+                <li><code>ellipse(50% 30%)</code> — эллипс</li>
+                <li><code>polygon(0% 0%, 100% 0%, 50% 100%)</code> — треугольник</li>
+                <li><code>inset(20%)</code> — внутренний отступ (обрезает края)</li>
+            </ul>
+            <pre><code>.circle-btn {
+    clip-path: circle(50%);
+}
+.triangle-btn {
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-clip {
+                        display: flex;
+                        gap: 20px;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                    }
+
+                    .demo-clip-circle {
+                        background: #530899;
+                        color: white;
+                        padding: 15px 25px;
+                        border: none;
+                        cursor: pointer;
+                        clip-path: circle(50%);
+                        width: 120px;
+                        height: 120px;
+                        text-align: center;
+                    }
+
+                    .demo-clip-triangle {
+                        background: #14b8a6;
+                        color: white;
+                        padding: 15px 25px;
+                        border: none;
+                        cursor: pointer;
+                        clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+                        width: 120px;
+                        height: 100px;
+                        text-align: center;
+                    }
+
+                    .demo-clip-inset {
+                        background: #ffc107;
+                        color: black;
+                        padding: 15px 25px;
+                        border: none;
+                        cursor: pointer;
+                        clip-path: inset(10%);
+                        text-align: center;
+                    }
+
+                    .demo-clip-ellipse {
+                        background: #530899;
+                        color: white;
+                        padding: 15px 25px;
+                        border: none;
+                        cursor: pointer;
+                        clip-path: ellipse(50% 30%);
+                        text-align: center;
+                    }
+                </style>
+                <div class="demo-clip">
+                    <button class="demo-clip-circle">Круг</button>
+                    <button class="demo-clip-triangle">Треугольник</button>
+                    <button class="demo-clip-inset">Обрезанная</button>
+                    <button class="demo-clip-ellipse">Эллипс</button>
+                </div>
+                <p style="margin-top: 5px;">✅ Кнопки обрезаны по разным формам. Курсор меняется только при наведении на
+                    видимую часть.</p>
+                <div class="lecture-note">
+                    📌 <strong>Важно:</strong> При использовании <code>clip-path</code> тени (<code>box-shadow</code>) и
+                    границы могут обрезаться. Если нужна тень, применяйте <code>filter: drop-shadow()</code>.
+                </div>
+            </div>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Эти эффекты делают дизайн уникальным, но не переусердствуйте:
+                <code>backdrop-filter</code> может замедлять страницу, <code>clip-path</code> обрезает тени и границы, а
+                <code>mix-blend-mode</code> не всегда предсказуем. Используйте их для акцентов, а не для всей страницы».
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-23.html" class="prev">← CSS-переменные</a>
+            <a href="/lectures/web/css/lecture-css-25.html" class="next">Современные функции →</a>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>
