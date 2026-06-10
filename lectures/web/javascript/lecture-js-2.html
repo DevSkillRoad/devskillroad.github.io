@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Типы данных в JavaScript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-top">
+            <a href="/" class="logo-link">
+                <div class="logo-image"></div>
+            </a>
+            <a href="/" class="title-link">
+                <div class="title">
+                    <h1>DevSkillRoad</h1>
+                </div>
+            </a>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="dropdown">
+                <button class="dropbtn">📖 Лекции HTML</button>
+                <div class="dropdown-content">
+                    <a href="/lectures/web/html/intro-html.html">📖 Введение в HTML</a>
+                    <a href="/lectures/web/html/lecture-html-1.html">Основы HTML</a>
+                    <a href="/lectures/web/html/lecture-html-2.html">Блочные и строчные</a>
+                    <a href="/lectures/web/html/lecture-html-3.html">Заголовки h1–h6</a>
+                    <a href="/lectures/web/html/lecture-html-4.html">Текстовые теги</a>
+                    <a href="/lectures/web/html/lecture-html-5.html">Смысловое выделение</a>
+                    <a href="/lectures/web/html/lecture-html-6.html">Списки</a>
+                    <a href="/lectures/web/html/lecture-html-7.html">Ссылки</a>
+                    <a href="/lectures/web/html/lecture-html-8.html">Изображения</a>
+                    <a href="/lectures/web/html/lecture-html-9.html">Таблицы</a>
+                    <a href="/lectures/web/html/lecture-html-10.html">Формы</a>
+                    <a href="/lectures/web/html/lecture-html-11.html">Семантические теги</a>
+                    <a href="/lectures/web/html/lecture-html-12.html">Медиа</a>
+                    <a href="/lectures/web/html/lecture-html-13.html">Спецсимволы</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">🎨 Лекции CSS</button>
+                <div class="dropdown-content">
+                    <a href="/lectures/web/css/intro-css.html">🎨 Введение в CSS</a>
+                    <a href="/lectures/web/css/lecture-css-1.html">Селекторы</a>
+                    <a href="/lectures/web/css/lecture-css-2.html">Способы задания цвета</a>
+                    <a href="/lectures/web/css/lecture-css-3.html">Свойства цвета</a>
+                    <a href="/lectures/web/css/lecture-css-4.html">Единицы измерения</a>
+                    <a href="/lectures/web/css/lecture-css-5.html">Шрифты и текст</a>
+                    <a href="/lectures/web/css/lecture-css-6.html">Подключение шрифтов</a>
+                    <a href="/lectures/web/css/lecture-css-7.html">Блочная модель</a>
+                    <a href="/lectures/web/css/lecture-css-8.html">Позиционирование</a>
+                    <a href="/lectures/web/css/lecture-css-9.html">Flexbox. Часть 1</a>
+                    <a href="/lectures/web/css/lecture-css-10.html">Flexbox. Часть 2</a>
+                    <a href="/lectures/web/css/lecture-css-11.html">Grid. Часть 1</a>
+                    <a href="/lectures/web/css/lecture-css-12.html">Grid. Часть 2</a>
+                    <a href="/lectures/web/css/lecture-css-13.html">Адаптив</a>
+                    <a href="/lectures/web/css/lecture-css-14.html">Фоны и градиенты</a>
+                    <a href="/lectures/web/css/lecture-css-15.html">Тени и эффекты</a>
+                    <a href="/lectures/web/css/lecture-css-16.html">Трансформации</a>
+                    <a href="/lectures/web/css/lecture-css-17.html">Псевдоклассы. Часть 1</a>
+                    <a href="/lectures/web/css/lecture-css-18.html">Псевдоклассы. Часть 2</a>
+                    <a href="/lectures/web/css/lecture-css-19.html">Псевдоэлементы</a>
+                    <a href="/lectures/web/css/lecture-css-20.html">Переходы</a>
+                    <a href="/lectures/web/css/lecture-css-21.html">Анимации</a>
+                    <a href="/lectures/web/css/lecture-css-22.html">Дополнительные свойства</a>
+                    <a href="/lectures/web/css/lecture-css-23.html">CSS-переменные</a>
+                    <a href="/lectures/web/css/lecture-css-24.html">Фильтры и эффекты</a>
+                    <a href="/lectures/web/css/lecture-css-25.html">Современные функции</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/javascript/lecture-js-1.html" class="prev">← Переменные</a>
+            <a href="/lectures/web/javascript/lecture-js-3.html" class="next">Операторы →</a>
+        </div>
+
+        <h1 class="lecture-title">Типы данных в JavaScript</h1>
+        
+        <div class="lecture-meta">
+            🔢 Числа, строки, булевы, null, undefined, Symbol, BigInt
+        </div>
+
+        <div class="lecture-content">
+            <p>В JavaScript переменные могут хранить данные разных типов. Всего в языке 8 основных типов данных.</p>
+
+            <h2>1. Числа (number)</h2>
+            <p>Целые числа и числа с плавающей точкой (десятичные дроби).</p>
+            <pre><code>let age = 25;      // целое число
+let price = 99.99;  // дробное число</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-number-btn {
+                        background: #530899;
+                        color: white;
+                        padding: 10px 20px;
+                        border: none;
+                        border-radius: 8px;
+                        cursor: pointer;
+                    }
+                </style>
+                <button class="demo-number-btn" onclick="let age = 25; alert('Возраст: ' + age)">Показать число</button>
+                <p style="margin-top: 5px;">✅ Переменная хранит целое число 25</p>
+            </div>
+
+            <h2>2. Строки (string)</h2>
+            <p>Текст, заключённый в кавычки. Можно использовать одинарные, двойные или обратные кавычки — все три способа работают.</p>
+            <pre><code>let name = 'Иван';       // одинарные
+let city = "Москва";     // двойные
+let text = `Привет, ${name}!`; // обратные (позволяют вставлять переменные)</code></pre>
+            <p><strong>Особенность обратных кавычек:</strong> Внутрь можно вставлять переменные через <code>${}</code>. Это удобно для создания строк с данными.</p>
+            <div class="live-example">
+                <style>
+                    .demo-string-btn {
+                        background: #14b8a6;
+                        color: white;
+                        padding: 10px 20px;
+                        border: none;
+                        border-radius: 8px;
+                        cursor: pointer;
+                    }
+                </style>
+                <button class="demo-string-btn" onclick="let name = 'Иван'; alert(`Привет, ${name}!`)">Показать строку с переменной</button>
+                <p style="margin-top: 5px;">✅ Обратные кавычки позволяют вставить переменную name внутрь строки</p>
+            </div>
+            <div class="lecture-note">
+                📌 <strong>Когда что использовать:</strong>
+                <ul>
+                    <li><strong>Одинарные или двойные кавычки</strong> — для обычного текста (без разницы)</li>
+                    <li><strong>Обратные кавычки</strong> — когда нужно вставить переменную или написать текст в несколько строк</li>
+                </ul>
+            </div>
+
+            <h2>3. Булевый тип (boolean)</h2>
+            <p>Только два значения: <code>true</code> (истина) или <code>false</code> (ложь). Используется в условиях.</p>
+            <pre><code>let isLogged = true;
+let isAdmin = false;</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-boolean-btn {
+                        background: #ffc107;
+                        padding: 10px 20px;
+                        border: none;
+                        border-radius: 8px;
+                        cursor: pointer;
+                    }
+                </style>
+                <button class="demo-boolean-btn" onclick="let isLogged = true; alert('isLogged = ' + isLogged)">Показать булево</button>
+                <p style="margin-top: 5px;">✅ Переменная хранит значение true</p>
+            </div>
+
+            <h2>4. null — «ничего», пустое значение</h2>
+            <p>Используется, когда нужно явно указать, что значения нет. Это вы сами говорите программе: «здесь ничего нет».</p>
+            <pre><code>let user = null;  // пользователь не выбран</code></pre>
+
+            <h2>5. undefined — значение не определено</h2>
+            <p>Переменная объявлена, но ей не присвоили значение. Это JavaScript сам говорит: «ты объявил переменную, но ничего в неё не положил».</p>
+            <pre><code>let temp;  // значение undefined (ничего не присвоили)</code></pre>
+            <div class="lecture-note">
+                📌 <strong>Разница между null и undefined:</strong>
+                <ul>
+                    <li><code>undefined</code> — значение не присвоено (JS сам так сказал)</li>
+                    <li><code>null</code> — вы сами сказали, что значения нет</li>
+                </ul>
+            </div>
+
+            <h2>6. Symbol — уникальный идентификатор</h2>
+            <p>Создаёт уникальное значение, которое никогда не совпадёт с другим. Используется редко, в основном для служебных нужд (например, чтобы добавить скрытое свойство в объект).</p>
+            <p><strong>Важно:</strong> В скобках пишется описание (метка) — оно не влияет на уникальность, просто для удобства разработчика.</p>
+            <pre><code>let id1 = Symbol('id');
+let id2 = Symbol('id');
+console.log(id1 === id2); // false — они разные, даже если описание одинаковое</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-symbol-btn {
+                        background: #530899;
+                        color: white;
+                        padding: 10px 20px;
+                        border: none;
+                        border-radius: 8px;
+                        cursor: pointer;
+                    }
+                </style>
+                <button class="demo-symbol-btn" onclick="let id1 = Symbol('id'); let id2 = Symbol('id'); alert('id1 === id2: ' + (id1 === id2))">Сравнить два Symbol</button>
+                <p style="margin-top: 5px;">✅ Даже с одинаковым описанием, два Symbol никогда не равны друг другу</p>
+            </div>
+            <div class="lecture-note">
+                📌 <strong>Простыми словами:</strong> Symbol — это как уникальная бирка. Даже если на двух бирках написано «id», это всё равно разные бирки. Описание в кавычках — просто надпись для человека.
+            </div>
+
+            <h2>7. BigInt — большие целые числа</h2>
+            <p>Для чисел, которые больше <code>2^53 - 1</code>. Объявляются добавлением <code>n</code> в конце.</p>
+            <pre><code>let big = 9007199254740991n;</code></pre>
+
+            <h2>8. Оператор typeof — узнать тип переменной</h2>
+            <p>Оператор <code>typeof</code> возвращает строку с типом данных.</p>
+            <pre><code>typeof 42;        // "number"
+typeof 'привет';   // "string"
+typeof true;       // "boolean"
+typeof undefined;  // "undefined"
+typeof null;       // "object"  ← это историческая ошибка языка</code></pre>
+
+            <p><strong>Проблема с null:</strong> <code>typeof null</code> возвращает <code>"object"</code>, хотя null — это отдельный тип.</p>
+            <p><strong>Как отличить null от объекта?</strong> Используйте прямое сравнение <code>=== null</code>.</p>
+            <pre><code>let data = null;
+if (data === null) {
+    console.log('Это null');
+} else if (typeof data === 'object') {
+    console.log('Это объект');
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-typeof-btn {
+                        background: #ffc107;
+                        padding: 10px 20px;
+                        border: none;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        margin: 5px;
+                    }
+                </style>
+                <button class="demo-typeof-btn" onclick="alert('typeof null: ' + typeof null)">typeof null</button>
+                <button class="demo-typeof-btn" onclick="let data = null; alert('data === null: ' + (data === null))">Проверка на null</button>
+                <button class="demo-typeof-btn" onclick="alert('typeof 42: ' + typeof 42)">typeof 42</button>
+                <button class="demo-typeof-btn" onclick="alert('typeof привет: ' + typeof 'привет')">typeof "привет"</button>
+                <p style="margin-top: 5px;">✅ Первая кнопка показывает баг. Вторая — правильную проверку на null. Третья и четвёртая — типы чисел и строк.</p>
+            </div>
+            <div class="lecture-note">
+                📌 <strong>Запомните:</strong>
+                <ul>
+                    <li><code>typeof null === "object"</code> — это баг, смиритесь</li>
+                    <li>Проверяйте на null через <code>value === null</code></li>
+                    <li>Для проверки на объект сначала исключите null: <code>value !== null && typeof value === "object"</code></li>
+                </ul>
+            </div>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Типы данных — это кирпичики, из которых строятся программы. Числа для расчётов, строки для текста, булевы для условий. Освоите их — поймёте, как работает любой код».
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/javascript/lecture-js-1.html" class="prev">← Переменные</a>
+            <a href="/lectures/web/javascript/lecture-js-3.html" class="next">Операторы →</a>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>
