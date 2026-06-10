@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Дополнительные полезные свойства CSS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-top">
+            <a href="/" class="logo-link">
+                <div class="logo-image"></div>
+            </a>
+            <a href="/" class="title-link">
+                <div class="title">
+                    <h1>DevSkillRoad</h1>
+                </div>
+            </a>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="dropdown">
+                <button class="dropbtn">📚 Лекции HTML</button>
+                <div class="dropdown-content">
+                    <a href="/lectures/web/html/intro-html.html">📖 Введение в HTML</a>
+                    <a href="/lectures/web/html/lecture-html-1.html">Основы HTML</a>
+                    <a href="/lectures/web/html/lecture-html-2.html">Блочные и строчные</a>
+                    <a href="/lectures/web/html/lecture-html-3.html">Заголовки h1–h6</a>
+                    <a href="/lectures/web/html/lecture-html-4.html">Текстовые теги</a>
+                    <a href="/lectures/web/html/lecture-html-5.html">Смысловое выделение</a>
+                    <a href="/lectures/web/html/lecture-html-6.html">Списки</a>
+                    <a href="/lectures/web/html/lecture-html-7.html">Ссылки</a>
+                    <a href="/lectures/web/html/lecture-html-8.html">Изображения</a>
+                    <a href="/lectures/web/html/lecture-html-9.html">Таблицы</a>
+                    <a href="/lectures/web/html/lecture-html-10.html">Формы</a>
+                    <a href="/lectures/web/html/lecture-html-11.html">Семантические теги</a>
+                    <a href="/lectures/web/html/lecture-html-12.html">Медиа</a>
+                    <a href="/lectures/web/html/lecture-html-13.html">Спецсимволы</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-21.html" class="prev">← Анимации</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+
+        <h1 class="lecture-title">Дополнительные полезные свойства CSS</h1>
+        
+        <div class="lecture-meta">
+            🔧 cursor, scroll-behavior, user-select, opacity, visibility, overflow, resize, pointer-events
+        </div>
+
+        <div class="lecture-content">
+            <p>В этой лекции соберём несколько полезных свойств, которые не вошли в предыдущие разделы.</p>
+
+            <h2>1. cursor — изменение вида курсора</h2>
+            <p>Меняет внешний вид курсора мыши при наведении на элемент.</p>
+            <p><strong>Возможные значения:</strong></p>
+            <ul>
+                <li><code>auto</code> — по умолчанию</li>
+                <li><code>pointer</code> — рука (как на ссылках)</li>
+                <li><code>grab</code> — рука с захватом</li>
+                <li><code>zoom-in</code> — лупа с плюсом</li>
+                <li><code>zoom-out</code> — лупа с минусом</li>
+                <li><code>help</code> — вопросительный знак</li>
+                <li><code>not-allowed</code> — запрет</li>
+                <li><code>wait</code> — ожидание (песочные часы)</li>
+                <li><code>move</code> — перемещение (крестик)</li>
+                <li><code>crosshair</code> — прицел</li>
+            </ul>
+            <pre><code>.clickable {
+    cursor: pointer;
+}
+.draggable {
+    cursor: grab;
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-cursor-pointer { cursor: pointer; background: #530899; color: white; padding: 8px 15px; display: inline-block; border-radius: 8px; }
+                    .demo-cursor-grab { cursor: grab; background: #14b8a6; color: white; padding: 8px 15px; display: inline-block; border-radius: 8px; }
+                    .demo-cursor-help { cursor: help; background: #ffc107; padding: 8px 15px; display: inline-block; border-radius: 8px; }
+                </style>
+                <div class="demo-cursor-pointer">pointer (рука)</div>
+                <div class="demo-cursor-grab" style="margin-left: 10px;">grab (захват)</div>
+                <div class="demo-cursor-help" style="margin-left: 10px;">help (помощь)</div>
+                <p style="margin-top: 5px;">✅ Наведите курсор на разные блоки</p>
+            </div>
+
+            <h2>2. scroll-behavior — плавная прокрутка</h2>
+            <p>Определяет, как будет происходить прокрутка страницы при переходе по якорным ссылкам.</p>
+            <p><strong>Возможные значения:</strong></p>
+            <ul>
+                <li><code>auto</code> — мгновенная прокрутка (по умолчанию)</li>
+                <li><code>smooth</code> — плавная прокрутка</li>
+            </ul>
+            <pre><code>html {
+    scroll-behavior: smooth;
+}</code></pre>
+            <div class="lecture-note">
+                📌 Достаточно добавить это правило один раз на весь сайт. При клике на ссылку типа <code>&lt;a href="#section"&gt;</code> страница будет плавно прокручиваться к нужному элементу.
+            </div>
+
+            <h2>3. user-select — запрет выделения текста</h2>
+            <p>Запрещает или разрешает пользователю выделять текст на элементе.</p>
+            <p><strong>Возможные значения:</strong></p>
+            <ul>
+                <li><code>auto</code> — разрешено (по умолчанию)</li>
+                <li><code>none</code> — запрещено</li>
+                <li><code>text</code> — можно выделять только текст</li>
+            </ul>
+            <pre><code>.no-select {
+    user-select: none;
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-user-select-none {
+                        user-select: none;
+                        background: #530899;
+                        color: white;
+                        padding: 10px;
+                        border-radius: 8px;
+                        margin-bottom: 10px;
+                    }
+                    .demo-user-select-text {
+                        user-select: text;
+                        background: #f0f0f0;
+                        padding: 10px;
+                        border-radius: 8px;
+                    }
+                </style>
+                <div class="demo-user-select-none">Этот текст нельзя выделить (user-select: none)</div>
+                <div class="demo-user-select-text">Этот текст можно выделить (user-select: text)</div>
+                <p style="margin-top: 5px;">✅ Попробуйте выделить текст в обоих блоках</p>
+            </div>
+
+            <h2>4. pointer-events — отключение кликов</h2>
+            <p>Определяет, реагирует ли элемент на действия мыши (клики, наведение, курсор).</p>
+            <p><strong>Возможные значения:</strong></p>
+            <ul>
+                <li><code>auto</code> — реагирует (по умолчанию)</li>
+                <li><code>none</code> — не реагирует (клик проходит сквозь элемент)</li>
+            </ul>
+            <pre><code>.no-click {
+    pointer-events: none;
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-pointer-events {
+                        pointer-events: none;
+                        background: #14b8a6;
+                        color: white;
+                        padding: 10px;
+                        border-radius: 8px;
+                        display: inline-block;
+                    }
+                </style>
+                <div class="demo-pointer-events">На этот блок нельзя кликнуть</div>
+                <p style="margin-top: 5px;">✅ При клике ничего не происходит (ссылка не сработает, если её обернуть)</p>
+            </div>
+
+            <h2>5. opacity — прозрачность</h2>
+            <p>Задаёт прозрачность элемента. Значения от 0 (полностью прозрачный) до 1 (полностью непрозрачный).</p>
+            <p><strong>Возможные значения:</strong> число от 0 до 1 (например, 0, 0.5, 1).</p>
+            <pre><code>.opacity-1 {
+    opacity: 1;     /* полностью непрозрачный */
+}
+.opacity-0-5 {
+    opacity: 0.5;   /* полупрозрачный */
+}
+.opacity-0 {
+    opacity: 0;     /* полностью прозрачный (невидим) */
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-opacity-1 {
+                        background: #530899;
+                        color: white;
+                        padding: 10px;
+                        border-radius: 8px;
+                        margin: 5px;
+                        opacity: 1;
+                    }
+                    .demo-opacity-0-5 {
+                        background: #530899;
+                        color: white;
+                        padding: 10px;
+                        border-radius: 8px;
+                        margin: 5px;
+                        opacity: 0.5;
+                    }
+                    .demo-opacity-0-1 {
+                        background: #530899;
+                        color: white;
+                        padding: 10px;
+                        border-radius: 8px;
+                        margin: 5px;
+                        opacity: 0.1;
+                    }
+                </style>
+                <div class="demo-opacity-1">opacity: 1 (полностью видим)</div>
+                <div class="demo-opacity-0-5">opacity: 0.5 (полупрозрачный)</div>
+                <div class="demo-opacity-0-1">opacity: 0.1 (почти полностью прозрачный)</div>
+                <p style="margin-top: 5px;">✅ Сравнение трёх уровней прозрачности</p>
+            </div>
+
+            <h2>6. visibility — скрытие элемента</h2>
+            <p>Скрывает элемент, но сохраняет занимаемое им место.</p>
+            <p><strong>Возможные значения:</strong></p>
+            <ul>
+                <li><code>visible</code> — элемент видим (по умолчанию)</li>
+                <li><code>hidden</code> — элемент скрыт, но место под ним остаётся</li>
+                <li><code>collapse</code> — для таблиц (скрывает строку или колонку)</li>
+            </ul>
+            <pre><code>.invisible {
+    visibility: hidden;
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-visibility-visible {
+                        visibility: visible;
+                        background: #530899;
+                        color: white;
+                        padding: 10px;
+                        border-radius: 8px;
+                        margin: 5px;
+                    }
+                    .demo-visibility-hidden {
+                        visibility: hidden;
+                        background: #530899;
+                        color: white;
+                        padding: 10px;
+                        border-radius: 8px;
+                        margin: 5px;
+                    }
+                </style>
+                <div class="demo-visibility-visible">visible — видим</div>
+                <div class="demo-visibility-hidden">hidden — скрыт (но место осталось)</div>
+                <div>Текст после скрытого блока</div>
+                <p style="margin-top: 5px;">✅ Элемент с <code>visibility: hidden</code> не виден, но место под ним осталось</p>
+            </div>
+            <div class="lecture-note">
+                📌 <strong>Разница между display: none и visibility: hidden:</strong>
+                <ul>
+                    <li><code>display: none</code> — элемент полностью удаляется из потока (место исчезает)</li>
+                    <li><code>visibility: hidden</code> — элемент не виден, но место остаётся</li>
+                </ul>
+            </div>
+
+            <h2>7. overflow — обрезка содержимого</h2>
+            <p>Определяет, что делать с содержимым, которое не помещается в элемент.</p>
+            <p><strong>Возможные значения:</strong></p>
+            <ul>
+                <li><code>visible</code> — видно всё (значение по умолчанию, вылезает за границы)</li>
+                <li><code>hidden</code> — скрыть то, что не помещается</li>
+                <li><code>scroll</code> — всегда показывать полосы прокрутки</li>
+                <li><code>auto</code> — полосы прокрутки только при необходимости</li>
+            </ul>
+            <pre><code>.overflow-hidden {
+    width: 150px;
+    height: 80px;
+    overflow: hidden;
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-overflow {
+                        width: 150px;
+                        height: 80px;
+                        overflow: hidden;
+                        background: #f0f0f0;
+                        border: 1px solid #ccc;
+                        padding: 5px;
+                    }
+                </style>
+                <div class="demo-overflow">
+                    Этот текст очень длинный и не помещается в блок. Он будет обрезан.
+                </div>
+                <p style="margin-top: 5px;">✅ Текст, который не поместился, скрыт</p>
+            </div>
+
+            <h2>8. resize — изменение размера пользователем</h2>
+            <p>Позволяет пользователю изменять размер элемента мышкой.</p>
+            <p><strong>Возможные значения:</strong></p>
+            <ul>
+                <li><code>none</code> — нельзя изменить (по умолчанию)</li>
+                <li><code>both</code> — можно изменять по горизонтали и вертикали</li>
+                <li><code>horizontal</code> — только по горизонтали</li>
+                <li><code>vertical</code> — только по вертикали</li>
+            </ul>
+            <pre><code>.resizable {
+    resize: both;
+    overflow: auto;
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-resize {
+                        resize: both;
+                        overflow: auto;
+                        width: 150px;
+                        height: 80px;
+                        background: #f0f0f0;
+                        border: 1px solid #14b8a6;
+                        padding: 5px;
+                    }
+                </style>
+                <div class="demo-resize">
+                    Потяни за правый нижний угол
+                </div>
+                <p style="margin-top: 5px;">✅ Размер можно изменить мышкой</p>
+            </div>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «Эти свойства не используются каждый день, но когда они нужны — без них никуда. Запомните: cursor для обратной связи, scroll-behavior для красоты, user-select для интерфейсов, opacity для полупрозрачности, overflow для обрезки».
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-21.html" class="prev">← Анимации</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>
