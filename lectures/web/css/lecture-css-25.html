@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevSkillRoad — Современные функции в CSS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-top">
+            <a href="/" class="logo-link">
+                <div class="logo-image"></div>
+            </a>
+            <a href="/" class="title-link">
+                <div class="title">
+                    <h1>DevSkillRoad</h1>
+                </div>
+            </a>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="dropdown">
+                <button class="dropbtn">📚 Лекции HTML</button>
+                <div class="dropdown-content">
+                    <a href="/lectures/web/html/intro-html.html">📖 Введение в HTML</a>
+                    <a href="/lectures/web/html/lecture-html-1.html">Основы HTML</a>
+                    <a href="/lectures/web/html/lecture-html-2.html">Блочные и строчные</a>
+                    <a href="/lectures/web/html/lecture-html-3.html">Заголовки h1–h6</a>
+                    <a href="/lectures/web/html/lecture-html-4.html">Текстовые теги</a>
+                    <a href="/lectures/web/html/lecture-html-5.html">Смысловое выделение</a>
+                    <a href="/lectures/web/html/lecture-html-6.html">Списки</a>
+                    <a href="/lectures/web/html/lecture-html-7.html">Ссылки</a>
+                    <a href="/lectures/web/html/lecture-html-8.html">Изображения</a>
+                    <a href="/lectures/web/html/lecture-html-9.html">Таблицы</a>
+                    <a href="/lectures/web/html/lecture-html-10.html">Формы</a>
+                    <a href="/lectures/web/html/lecture-html-11.html">Семантические теги</a>
+                    <a href="/lectures/web/html/lecture-html-12.html">Медиа</a>
+                    <a href="/lectures/web/html/lecture-html-13.html">Спецсимволы</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-24.html" class="prev">← Фильтры и эффекты</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+
+        <h1 class="lecture-title">Современные функции в CSS</h1>
+        
+        <div class="lecture-meta">
+            📐 clamp(), min(), max()
+        </div>
+
+        <div class="lecture-content">
+            <p>Современные CSS-функции <code>min()</code>, <code>max()</code> и <code>clamp()</code> позволяют создавать гибкие, адаптивные размеры без медиа-запросов.</p>
+
+            <h2>1. min() — минимальное значение</h2>
+            <p>Выбирает наименьшее значение из перечисленных. Удобно для ограничения максимального размера.</p>
+            <pre><code>.element {
+    width: min(100%, 500px);
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-min {
+                        width: min(100%, 300px);
+                        background: #530899;
+                        color: white;
+                        padding: 15px;
+                        border-radius: 8px;
+                        text-align: center;
+                    }
+                </style>
+                <div class="demo-min">
+                    width: min(100%, 300px)<br>
+                    (ширина не больше 300px, но на телефоне меньше)
+                </div>
+                <p style="margin-top: 5px;">✅ Попробуйте изменить ширину окна — блок не станет шире 300px, но на узких экранах подстроится</p>
+            </div>
+
+            <h2>2. max() — максимальное значение</h2>
+            <p>Выбирает наибольшее значение из перечисленных. Удобно для задания минимального размера.</p>
+            <pre><code>.element {
+    width: max(200px, 50%);
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-max {
+                        width: max(200px, 50%);
+                        background: #14b8a6;
+                        color: white;
+                        padding: 15px;
+                        border-radius: 8px;
+                        text-align: center;
+                    }
+                </style>
+                <div class="demo-max">
+                    width: max(200px, 50%)<br>
+                    (ширина не меньше 200px)
+                </div>
+                <p style="margin-top: 5px;">✅ На узких экранах блок не станет уже 200px</p>
+            </div>
+
+            <h2>3. clamp() — диапазон значений</h2>
+            <p>Задаёт значение, которое не выходит за пределы диапазона: <code>clamp(минимум, предпочтительное, максимум)</code>.</p>
+            <p>Идеально для адаптивных шрифтов: они растут с экраном, но не становятся слишком большими или маленькими.</p>
+            <pre><code>h1 {
+    font-size: clamp(24px, 5vw, 48px);
+}</code></pre>
+            <div class="live-example">
+                <style>
+                    .demo-clamp {
+                        font-size: clamp(24px, 5vw, 48px);
+                        background: #530899;
+                        color: white;
+                        padding: 20px;
+                        border-radius: 8px;
+                        text-align: center;
+                    }
+                </style>
+                <div class="demo-clamp">
+                    font-size: clamp(24px, 5vw, 48px)<br>
+                    (на телефоне ~24px, на большом экране до 48px)
+                </div>
+                <p style="margin-top: 5px;">✅ Измените ширину окна — размер шрифта меняется плавно, но не выходит за пределы 24–48px</p>
+            </div>
+
+            <h2>4. Сравнение и применение</h2>
+            <table class="special-chars-table">
+                <thead>
+                    <tr><th>Функция</th><th>Что делает</th><th>Пример</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>min(a, b)</code></td>
+                        <td>минимальное из a и b</td>
+                        <td><code>width: min(100%, 500px)</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>max(a, b)</code></td>
+                        <td>максимальное из a и b</td>
+                        <td><code>width: max(200px, 50%)</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>clamp(min, prefer, max)</code></td>
+                        <td>значение в диапазоне</td>
+                        <td><code>font-size: clamp(24px, 5vw, 48px)</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="lecture-note">
+                📌 <strong>Где это полезно:</strong>
+                <ul>
+                    <li>Адаптивные шрифты без медиа-запросов (<code>clamp</code>)</li>
+                    <li>Ограничение ширины блоков (<code>min</code>)</li>
+                    <li>Задание минимальной ширины (<code>max</code>)</li>
+                </ul>
+            </div>
+
+            <div class="lecture-note">
+                <strong>📓 Из тетради:</strong> «<code>clamp()</code> — настоящая магия для адаптивной типографики. Забудьте о куче медиа-запросов для шрифтов. <code>min()</code> и <code>max()</code> упрощают работу с размерами блоков. Но помните: они не работают в старых браузерах (Internet Explorer). Для современных проектов — обязательно к использованию».
+            </div>
+        </div>
+
+        <div class="lecture-nav">
+            <a href="/lectures/web/css/lecture-css-24.html" class="prev">← Фильтры и эффекты</a>
+            <span class="next disabled">Следующая лекция →</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>📝 Весь контент — мои личные записи, комментарии и шпаргалки. Я не копирайтер, я практик.</p>
+    </div>
+</body>
+
+</html>
